@@ -19,7 +19,9 @@
   font-size: calc(5px + 2vmin);
   color: white;
 }
-
+.App-body {
+  color: white
+}
 .App-link {
   color: #61dafb;
 }
@@ -32,4 +34,50 @@
   .non_mobile {
     display: none
   }
+}
+
+.parentElement {
+  background-color: blue;
+  min-height: 20vh;
+  max-height: 40vh;
+}
+
+.arrow {
+  font-size: calc(5px + 4vmin);
+  display: inline-block;
+}
+ .Left {
+  transform: rotate(270deg);
+  position: absolute;
+  left: 15px;
+}
+.Right {
+  transform: rotate(90deg);
+  position: absolute;
+  right: 15px;
+}
+.punchline {
+  display: none
+}
+.Left_text {
+  transform: rotate(90deg);
+  font-size: calc(5px + 2vmin);
+}
+.Right_text {
+  transform: rotate(270deg);
+  font-size: calc(5px + 2vmin);
+}
+
+.arrow_holder_Left {
+  display: inline-block;
+  position: absolute;
+  left: 15px;
+}
+.arrow_holder_Right {
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+}
+html {
+	background-image: url("./vertical3.jpg") ;
 }

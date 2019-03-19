@@ -43,6 +43,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
+    bcrypt (3.1.12-x64-mingw32)
     bootsnap (1.4.1)
       msgpack (~> 1.0)
     builder (3.2.3)
@@ -73,7 +74,7 @@ GEM
     nokogiri (1.10.1-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4-x64-mingw32)
-    puma (3.12.0)
+    puma (3.12.1)
     rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -123,6 +124,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
   foreman (~> 0.82.0)
