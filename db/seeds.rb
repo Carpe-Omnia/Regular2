@@ -14,6 +14,10 @@ cow = Joke.create(setup: "Knock Knock", punchline: "Interrupting Cow")
 cow.author = george
 cow.save
 
+eye = Joke.new(setup: "I told my girlfriend she was drawing her eyebrows too heigh", punchline: "She looked surprised")
+eye.author = tom
+eye.save
+
 convo1 = Conversation.new
 convo1.inboxes << box1
 convo1.inboxes << box2
