@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Index, jokesHash} from './Jokestuff';
+import jokesHash from './jokesHash'
+
 
 class Jokes extends React.Component {
   constructor(props){
@@ -25,11 +26,10 @@ class Jokes extends React.Component {
     var Parent = jokesHash[`${orientation}`] ;
     return (
     <div>
-      <h1> Jokes </h1>
       < Parent actions={this.props.actions}  z={this.props.z} jokes={this.state.jokes} />
     </div>
     )
   }
 }
 
-export { Jokes }
+export default Jokes

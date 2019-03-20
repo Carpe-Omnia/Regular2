@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import NavArrow from './NavArrow';
+import NavArrow from '../NavArrow';
 
 const Index = (props) =>  {
   return (
     <div>
+    {!! localStorage.getItem('username') ?
+    <span>
+    <NavArrow direction="Left" actions={props.actions} z={props.z} text="submit a joke" />
+    <NavArrow direction="Right" actions={props.actions} z={props.z} text="my jokes" />
+    </span>
+    :
+    <p>Log in to write jokes or view your own </p>
+    }
       <h2> Read Jokes </h2>
       <h4> Tap or click on jokes to reveal the punchline </h4>
       <div id="joke_zone">
-        <NavArrow direction="Left" actions={props.actions} z={props.z} text="submit a joke" />
-        <NavArrow direction="Right" actions={props.actions} z={props.z} text="my jokes" />
           {props.jokes.map(function(joke){
             return (
               <div key={joke.id}>
@@ -40,9 +46,5 @@ const Index = (props) =>  {
 }
 
 
-var jokesHash = {
-  "-1,0": Index ,
-  "0,0": Index ,
-  "1,0": Index ,
-}
-export {Index, jokesHash}
+
+export default Index

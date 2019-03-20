@@ -42,10 +42,30 @@ function handleKey(e, act){
       case 'a':
         target = document.getElementById('hotkey1')
         break;
+      case 'b':
+        target = document.getElementById('username')
+        break;
+      case 'c':
+        target = document.getElementById('password')
+        break;
+      case 'd':
+        target = document.getElementById('log_in_button').click()
+        break;
+      case 's':
+        target = document.getElementById('setup_input')
+        break;
+      case 'p':
+        target = document.getElementById('punchline_input')
+        break;
+      case 'j':
+        target = document.getElementById('submit_joke').click()
+        break;
       default:
         target = act ;
     }
-    if (!!target) {target.focus()}
+    if (!!target) {
+      target.focus()
+    }
   }
 }
 
@@ -54,14 +74,13 @@ function moveAround(e, act) {
   var z ;
   if (window.location.pathname === '/') { z = "0" }
   if (window.location.pathname === '/jokes') { z = "1" }
-  if (window.location.pathname === '/third') { z = "2" }
+  if (window.location.pathname === '/login') { z = "2" }
+  if (window.location.pathname === '/register') { z = "2" }
+  if (window.location.pathname === '/logout') { z = "2" }
   store.dispatch(actions.move(direction, z));
 }
 function navigate(e, act) {
-  if (e.key === "1") {
-    alert(localStorage.getItem("id"))
-    document.getElementById("navlink1").click();
-  }
+  if (e.key === "1") {document.getElementById("navlink1").click();}
   else if (e.key === "2") {document.getElementById("navlink2").click(); }
   else if (e.key === "3") {document.getElementById("navlink3").click(); }
   else if (e.key === "4") {document.getElementById("navlink4").click(); }
