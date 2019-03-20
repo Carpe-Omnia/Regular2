@@ -31,7 +31,7 @@ document.addEventListener('keydown', function(e){
 
 function handleKey(e, act){
   var target;
-  console.log(e.key);
+  //console.log(e.key);
   if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "ArrowUp" || e.key === "ArrowDown") {
     moveAround(e, act);
   }

@@ -2,15 +2,17 @@ import React from 'react'
 
 const NavArrow = (props) => {
   var name = `arrow ${props.direction}`
-  var textname = `arrow ${props.direction}_text`
+  var textname = `arrow ${props.direction}_text` ;
+  var holdername = `arrow_holder_${props.direction}`
   function doClick(){
-    props.actions.move(props.direction, props.z);
+    document.getElementById(name).className = `moving_${props.direction}`
+    setTimeout(function(){props.actions.move(props.direction, props.z);}, 1000);
   }
   return (
-    <div className={`arrow_holder_${props.direction}`}>
-      <div className={name} onClick={doClick}>
+    <div className={holdername} id={holdername} >
+      <div className={name} id={`${name}`} onClick={doClick}>
         ^
-        <div className={`${textname}`}>
+        <div className={`${textname}`} id={`${textname}`}>
           {props.text}
         </div>
       </div>
