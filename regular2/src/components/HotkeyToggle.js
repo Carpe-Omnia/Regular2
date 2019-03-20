@@ -13,7 +13,7 @@ class HotkeyToggle extends React.Component {
     if (non_mobile.style.display === 'none'){
       non_mobile.style.display = 'inline' ;
       anti_mobile.style.display = 'none' ;
-    } 
+    }
     else {
       non_mobile.style.display = 'none' ;
       anti_mobile.style.display = 'inline' ;
@@ -23,9 +23,9 @@ class HotkeyToggle extends React.Component {
     return (
       <form>
         <span className="non_mobile1" >
-          <button type="radio" name="hotkey_toggle" onClick={event => this.doThing(event)} >
-          <span className="non_mobile">Disable hotkey helpers</span>
-          <span className="anti_mobile">Enable hotkey helpers</span>
+          <button id="hotkey_toggle" onClick={event => this.doThing(event)} >
+          <span className="non_mobile">Disable hotkey helpers (h)</span>
+          <span className="anti_mobile">Enable hotkey helpers (h)</span>
           </button>
         </span>
       </form>

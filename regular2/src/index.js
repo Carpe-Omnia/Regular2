@@ -31,6 +31,7 @@ document.addEventListener('keydown', function(e){
 
 function handleKey(e, act){
   var target;
+  console.log(e.key);
   if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "ArrowUp" || e.key === "ArrowDown") {
     moveAround(e, act);
   }
@@ -60,6 +61,13 @@ function handleKey(e, act){
       case 'j':
         target = document.getElementById('submit_joke').click()
         break;
+      case 'h':
+        target = document.getElementById('hotkey_toggle').click()
+        break;
+      case ' ':
+        target = document.querySelector('.clickme')
+        if (!!target) {target.click()}
+        break
       default:
         target = act ;
     }
@@ -85,16 +93,3 @@ function navigate(e, act) {
   else if (e.key === "3") {document.getElementById("navlink3").click(); }
   else if (e.key === "4") {document.getElementById("navlink4").click(); }
 }
-
-document.getElementById('testr').addEventListener('click', function(e){
-  var url = `/api/regular`
-  fetch(url)
-  .then((res) => {
-    return res.json()
-  })
-  .then((json) => {
-    console.log(json.data)
-    $("#sandbox1").html(json.data["setup"]);
-    $("#sandbox2").html(json.data["punchline"]);
-  })
-})

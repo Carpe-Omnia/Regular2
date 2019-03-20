@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavArrow from '../NavArrow';
+import Joke from './Joke';
 
 class MyJokes extends React.Component {
   constructor(props){
@@ -27,27 +28,7 @@ class MyJokes extends React.Component {
         </h1>
         {this.state.my_jokes.map (function(joke){
           return (
-            <div key={joke.id}>
-              <div className="setup" id={`setup${joke.id}`} onClick={function(){
-                var placeId = `placeholder${joke.id}` ;
-                var punchId = `punchline${joke.id}`  ;
-                document.getElementById(`${placeId}`).style.display = "none" ;
-                document.getElementById(`${punchId}`).style.display = "block" ;
-              }} >
-                {joke.setup}
-              </div>
-              <div className="placeholder" id={`placeholder${joke.id}`} onClick={function(){
-                var placeId = `placeholder${joke.id}` ;
-                var punchId = `punchline${joke.id}`  ;
-                document.getElementById(`${placeId}`).style.display = "none" ;
-                document.getElementById(`${punchId}`).style.display = "block" ;
-              }}>
-                -------------
-              </div>
-              <div className="punchline" id={`punchline${joke.id}`}>
-                {joke.punchline}
-              </div>
-            </div>
+            <Joke joke={joke} key={joke.id} />
           )
         })}
       </div>

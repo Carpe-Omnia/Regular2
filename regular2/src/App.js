@@ -30,9 +30,6 @@ class App extends Component {
           <span className="non_mobile" >press ';' to access hotkeys from within an input </span>
         </header>
         <div className="App-body">
-        <p id="testr" > Tester </p>
-        <p id="sandbox1" > Sandbox </p>
-        <p id="sandbox2" > Sandbox </p>
         <Router>
           <React.Fragment >
             <NavBar />
@@ -78,24 +75,11 @@ class GrandParent0 extends React.Component {
   }
 }
 
-class GrandParent2 extends React.Component {
-  render() {
-    var orientation = this.props.orientation.orientation[2] ;
-    var Parent =  parentHash[`${orientation}`]  ;
-    return (
-    <div>
-      <h1> Container 2 </h1>
-      < Parent actions={this.props.actions}  z={this.props.z} />
-    </div>
-    )
-  }
-}
 
 const ParentTopCenter = (props) => {
   return (
     <div id="parent-top-center" className="parentElement">
       <h3> Top-Center </h3>
-      <EnterText />
       <NavArrow direction="Left" actions={props.actions} z={props.z} text="go left"/>
       <NavArrow direction="Right" actions={props.actions} z={props.z} text="go right"/>
     </div>
@@ -118,17 +102,7 @@ const ParentTopRight = (props) => {
     </div>
   )
 }
-class EnterText extends React.Component {
-  render() {
-    return (
-      <form>
-        <input type="text" id="hotkey1" />
-        <span className="non_mobile" >(a)</span>
-        <input id="test_button" type="button" onClick={() => console.log("button click")} />
-      </form>
-    )
-  }
-}
+
 var parentHash = {
   "-1,0": ParentTopLeft ,
   "0,0": ParentTopCenter ,

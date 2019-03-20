@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavArrow from '../NavArrow';
+import Joke from './Joke';
 
 const Index = (props) =>  {
   return (
@@ -13,31 +14,12 @@ const Index = (props) =>  {
     <p>Log in to write jokes or view your own </p>
     }
       <h2> Read Jokes </h2>
-      <h4> Tap or click on jokes to reveal the punchline </h4>
+      <h4> Tap/click on jokes to reveal the punchline <span class="non_mobile">(The spacebar also works)</span></h4>
+
       <div id="joke_zone">
           {props.jokes.map(function(joke){
             return (
-              <div key={joke.id}>
-                <div className="setup" id={`setup${joke.id}`} onClick={function(){
-                  var placeId = `placeholder${joke.id}` ;
-                  var punchId = `punchline${joke.id}`  ;
-                  document.getElementById(`${placeId}`).style.display = "none" ;
-                  document.getElementById(`${punchId}`).style.display = "block" ;
-                }} >
-                  {joke.setup}
-                </div>
-                <div className="placeholder" id={`placeholder${joke.id}`} onClick={function(){
-                  var placeId = `placeholder${joke.id}` ;
-                  var punchId = `punchline${joke.id}`  ;
-                  document.getElementById(`${placeId}`).style.display = "none" ;
-                  document.getElementById(`${punchId}`).style.display = "block" ;
-                }}>
-                  -------------
-                </div>
-                <div className="punchline" id={`punchline${joke.id}`}>
-                  {joke.punchline}
-                </div>
-              </div>
+              <Joke joke={joke} key={joke.id} />
             )
           })}
       </div>

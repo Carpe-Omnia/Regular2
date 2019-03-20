@@ -53,7 +53,6 @@
 
 
 .parentElement {
-  background-color: blue;
   min-height: 20vh;
   max-height: 40vh;
 }
@@ -65,12 +64,12 @@
  .Left {
   transform: rotate(270deg);
   position: absolute;
-  left: 15px;
+  left: 20px;
 }
 .Right {
   transform: rotate(90deg);
   position: absolute;
-  right: 15px;
+  right: 20px;
 }
 .punchline {
   display: none
