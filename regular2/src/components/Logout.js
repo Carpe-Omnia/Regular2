@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 class Logout extends React.Component {
-  constructor(props){
-    super(props);
-  }
   doThing(event){
     event.preventDefault() ;
     localStorage.setItem("username", "");

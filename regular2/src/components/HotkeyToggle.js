@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
-import getCSSRule from '../getCSSRule';
+import React from 'react';
+import getCSSRule from '../utility/getCSSRule';
 
 class HotkeyToggle extends React.Component {
-  constructor(){
-    super();
-
-  }
   doThing(event){
     event.preventDefault();
     var non_mobile = getCSSRule('.non_mobile');

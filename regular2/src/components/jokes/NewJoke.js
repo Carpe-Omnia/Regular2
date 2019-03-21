@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NavArrow from '../NavArrow';
 
 class NewJoke extends React.Component {
-  constructor(props){
-    super(props);
-  }
   doThing(event){
     event.preventDefault();
     var setup = document.getElementById('setup_input').value ;
@@ -38,14 +35,16 @@ class NewJoke extends React.Component {
     return (
       <div>
         <NavArrow direction="Right" actions={this.props.actions} z={this.props.z} text="Read Jokes" />
-        <h3>
-          Make a new joke
-        </h3>
-        <form onSubmit={event => this.doThing(event)} >
-          setup<span className="non_mobile" > (s)</span>:<input type="text" id="setup_input" /><br></br>
-          punchline<span className="non_mobile" >(p)</span>:<input type="text" id="punchline_input" /><br></br>
-          <button type="submit" value="submit" id="submit_joke" >Submit <span className="non_mobile" >(j)</span> </button>
-        </form>
+        <div className="main_page_content">
+          <h3>
+            Make a new joke
+          </h3>
+          <form onSubmit={event => this.doThing(event)} >
+            setup<span className="non_mobile" > (s)</span>:<input type="text" id="setup_input" /><br></br>
+            punchline<span className="non_mobile" >(p)</span>:<input type="text" id="punchline_input" /><br></br>
+            <button type="submit" value="submit" id="submit_joke" >Submit <span className="non_mobile" >(j)</span> </button>
+          </form>
+        </div>
       </div>
     )
   }

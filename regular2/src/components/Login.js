@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 class Login extends React.Component {
+  /*
   constructor(props){
     super(props);
   }
+  */
   doThing(event){
     event.preventDefault()
     var uname = document.getElementById('username').value

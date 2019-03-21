@@ -15,7 +15,7 @@ export function home(){
     {
       type: 'DEFAULT_ORIENTATION',
       payload: {
-        orientation: [[0,0],[0,0][0,0]],
+        orientation: [[0,0],[0,0],[0,0]],
         z: 0
       }
     }

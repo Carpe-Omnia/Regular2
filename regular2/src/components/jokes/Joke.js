@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 const Joke = (props) => {
   return (
     <div key={props.joke.id}>

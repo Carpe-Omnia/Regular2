@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {  BrowserRouter as Router, Route} from 'react-router-dom';
-import * as actions from './actions/orientationActions'
-import NavBar from './components/NavBar';
-import NavArrow from './components/NavArrow'
-import Jokes from './components/jokes/Jokes';
 import logo from './logo.svg';
 import './App.css';
+import {  BrowserRouter as Router, Route} from 'react-router-dom';
+
+import * as actions from './actions/orientationActions'
+import NavBar from './components/NavBar';
+import Jokes from './components/jokes/Jokes';
 import Register from './components/Register'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import HotkeyToggle from './components/HotkeyToggle'
+import HomeContainer from './components/home/HomeContainer'
 
 class App extends Component {
+  /*
   constructor(props){
     super(props);
   }
+  */
   componentWillMount() {
     this.props.actions.home();
   }
@@ -28,14 +31,15 @@ class App extends Component {
           <h4>Welcome {(localStorage.getItem("username"))}</h4>
           <HotkeyToggle />
           <span className="non_mobile" >press ';' to access hotkeys from within an input </span>
+
         </header>
         <div className="App-body">
         <Router>
           <React.Fragment >
-            <NavBar />
+            <NavBar id="NavBar" />
             <Route
               exact path="/"
-              render={(props) => <GrandParent0 {...props} actions={this.props.actions} orientation={this.props.orientation} z="0" />}
+              render={(props) => <HomeContainer {...props} actions={this.props.actions} orientation={this.props.orientation} z="0" />}
             />
             <Route
               exact path="/jokes"
@@ -60,55 +64,6 @@ class App extends Component {
     );
   }
 }
-
-class GrandParent0 extends React.Component {
-
-  render() {
-    var orientation = this.props.orientation.orientation[0] ;
-    var Parent =  parentHash[`${orientation}`]  ;
-    return (
-    <div>
-      <h1> Home </h1>
-      < Parent actions={this.props.actions}  z={this.props.z} />
-    </div>
-    )
-  }
-}
-
-
-const ParentTopCenter = (props) => {
-  return (
-    <div id="parent-top-center" className="parentElement">
-      <h3> Top-Center </h3>
-      <NavArrow direction="Left" actions={props.actions} z={props.z} text="go left"/>
-      <NavArrow direction="Right" actions={props.actions} z={props.z} text="go right"/>
-    </div>
-  )
-}
-const ParentTopLeft = (props) => {
-  return(
-    <div id="parent-top-left" className="parentElement">
-      <h3> Top-left </h3>
-      <NavArrow direction="Right" actions={props.actions} z={props.z} text="go right"/>
-    </div>
-  )
-}
-
-const ParentTopRight = (props) => {
-  return(
-    <div id="parent-top-right" className="parentElement" >
-      <h3> Top-Right </h3>
-      <NavArrow direction="Left" actions={props.actions} z={props.z} text="go left"/>
-    </div>
-  )
-}
-
-var parentHash = {
-  "-1,0": ParentTopLeft ,
-  "0,0": ParentTopCenter ,
-  "1,0": ParentTopRight ,
-}
-
 
 
 function mapStateToProps(state){

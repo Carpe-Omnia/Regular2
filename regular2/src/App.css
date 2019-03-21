@@ -6,35 +6,19 @@
   animation: App-logo-spin infinite 60s linear;
   height: 10vmin;
   pointer-events: none;
+  display: inline ;
+  position: absolute ;
+  left: 3vmin ;
 }
 @keyframes App-logo-spin {
   from {  transform: rotate(0deg);}
   to {transform: rotate(360deg);}
 }
-.moving_Right {
-  animation-name: move_right ;
-  animation-duration: 1s ;
-  position: absolute ;
-  transform: rotate(90deg)
-}
-@keyframes move_right {
-  from  { right: 2vmin ; transform: rotate(0deg)}
-  to { right: 200vmin ; transform: rotate(270deg)}
-}
-.moving_Left {
-  animation-name: move_left ;
-  animation-duration: 1s ;
-  position: absolute ;
-  transform: rotate(270deg)
-}
-@keyframes move_left {
-  from  { left: 2vmin ; transform: rotate(0deg)}
-  to { left: 200vmin ; transform: rotate(270deg)}
-}
+
 .App-header {
   background-color: #282c34;
   min-height: 20vh;
-  max-height: 40vh;
+  max-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,8 +57,10 @@
 
 
 .parentElement {
+  /*
   min-height: 20vh;
-  max-height: 40vh;
+  max-height: 50vh;
+  */
 }
 
 .arrow {
@@ -116,4 +102,59 @@
 
 html {
 	background-image: url("./vertical3.jpg") ;
+}
+@media screen and (max-width: 1100px){
+  #featured_content_today {
+    width: 70% ;
+    height: 500px ;
+  }
+}
+@media screen and (max-width: 450px){
+  #featured_content_today {
+    width: 85% ;
+    height: 300px ;
+  }
+}
+.content_moving_Right {
+  position: relative ;
+  animation-name: content_move_right ;
+  animation-duration: 0.5s ;
+}
+.content_moving_Left {
+  position: relative ;
+  animation-name: content_move_left ;
+  animation-duration: 0.5s ;
+}
+@keyframes content_move_right {
+  from {right: 0vmin}
+  to {right: 100%}
+}
+@keyframes content_move_left {
+  from {left: 0vmin}
+  to {left: 100%}
+}
+.moving_Right {
+  animation-name: move_right ;
+  animation-duration: 0.5s ;
+  position: absolute ;
+  transform: rotate(90deg)
+}
+@keyframes move_right {
+  from  { right: 2vmin ; transform: rotate(0deg) ; opacity: 1}
+  to { right: 200vmin ; transform: rotate(270deg) ; opacity: 0}
+}
+.moving_Left {
+  animation-name: move_left ;
+  animation-duration: 0.5s ;
+  position: absolute ;
+  transform: rotate(270deg)
+}
+@keyframes move_left {
+  from  { left: 2vmin ; transform: rotate(0deg) ; opacity: 1}
+  to { left: 200vmin ; transform: rotate(270deg) ; opacity: 0}
+}
+.navbar {
+  position: absolute ;
+  top: 2vmin ;
+  right: 5vmin ; 
 }

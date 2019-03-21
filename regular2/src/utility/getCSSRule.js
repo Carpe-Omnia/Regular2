@@ -13,7 +13,7 @@ function getCSSRule(ruleName) {
     find.call(document.styleSheets, styleSheet => {
         result = find.call(styleSheet.cssRules, cssRule => {
             return cssRule instanceof CSSStyleRule
-                && cssRule.selectorText.toLowerCase() == ruleName;
+                && cssRule.selectorText.toLowerCase() === ruleName;
         });
         return result != null;
     });

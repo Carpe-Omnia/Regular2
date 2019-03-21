@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 function orientationReducer(state={orientation: [[0,0],[0,0],[0,0]] }, action){
   var newOr = state.orientation ;
   switch(action.type) {

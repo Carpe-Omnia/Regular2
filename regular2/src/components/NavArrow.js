@@ -6,7 +6,11 @@ const NavArrow = (props) => {
   var holdername = `arrow_holder_${props.direction}`
   function doClick(){
     document.getElementById(name).className = `moving_${props.direction}`
-    setTimeout(function(){props.actions.move(props.direction, props.z);}, 1000);
+    var main_content = document.querySelector('.main_page_content');
+    if (!!main_content){
+      main_content.className = `content_moving_${props.direction}`
+    }
+    setTimeout(function(){props.actions.move(props.direction, props.z);}, 500);
   }
   return (
     <div className={holdername} id={holdername} >

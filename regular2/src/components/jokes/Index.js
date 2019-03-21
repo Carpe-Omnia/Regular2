@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NavArrow from '../NavArrow';
 import Joke from './Joke';
 
@@ -13,15 +13,17 @@ const Index = (props) =>  {
     :
     <p>Log in to write jokes or view your own </p>
     }
-      <h2> Read Jokes </h2>
-      <h4> Tap/click on jokes to reveal the punchline <span class="non_mobile">(The spacebar also works)</span></h4>
+      <div className="main_page_content" >
+        <h2> Read Jokes </h2>
+        <h4> Tap/click on jokes to reveal the punchline <span className="non_mobile">(The spacebar also works)</span></h4>
 
-      <div id="joke_zone">
-          {props.jokes.map(function(joke){
-            return (
-              <Joke joke={joke} key={joke.id} />
-            )
-          })}
+        <div id="joke_zone">
+            {props.jokes.map(function(joke){
+              return (
+                <Joke joke={joke} key={joke.id} />
+              )
+            })}
+        </div>
       </div>
     </div>
   )
