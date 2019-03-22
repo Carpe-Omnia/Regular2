@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   post '/api/users/new/:name/:pword', to: 'users#new'
   post '/api/users/login/:name/:pword', to: 'users#login'
-  post '/api/users/edit/:id/:headline/:id', to: 'users#edit'
+  post '/api/users/edit/:id/:headline/:content', to: 'users#edit'
   get '/api/users/show/:name', to: 'users#show'
 
   get '/api/jokes/myjokes/:id', to: 'jokes#myjokes'

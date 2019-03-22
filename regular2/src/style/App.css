@@ -175,3 +175,6 @@ html {
 #new_message_form {
     display: none
 }
+#edit_bio_form {
+  display: none
+}

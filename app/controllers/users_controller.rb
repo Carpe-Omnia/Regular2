@@ -55,4 +55,24 @@ class UsersController < ApplicationController
       }, status: :ok
     end
   end
+  def edit
+    user = User.find_by(id: params["id"])
+    bio = user.bio
+    if bio.update(headline: params["headline"], content: params["content"])
+      render json: {status: 'success',
+        message: "bio updated",
+        data: {
+          bio: bio
+        }
+      }, status: :ok
+    else
+      render json: {status: 'success',
+        message: "didn't work",
+        data: {
+          bio: bio
+        }
+      }, status: :ok
+    end 
+  end
+
 end
