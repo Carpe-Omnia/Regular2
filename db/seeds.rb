@@ -2,6 +2,8 @@ tom = User.create(name: "Tomaz", password: "zamot101", email: "tomaz.r.rodrigues
 george = User.create(name: "George", password: "butt", email: "george@gaysex.biz", id: 2, inbox_id: 2)
 box1 = Inbox.create(user_id: tom.id)
 box2 = Inbox.create(user_id: george.id)
+bio1 = Bio.create(user_id: tom.id, headline: "new user", content: "user hasn't added content yet")
+bio1 = Bio.create(user_id: george.id, headline: "new user", content: "user hasn't added content yet")
 
 everlast = Joke.new
 everlast.setup = "What do you call a guy who's girlfriend cheats on him forever"

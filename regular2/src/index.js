@@ -1,11 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import './style/index.css'
 import App from './App'
-import * as serviceWorker from './serviceWorker'
-//import $ from 'jquery'
-//import * as actions from './actions/orientationActions'
-//import {clickHash, hotkeyHash, navHash} from './utility/keybinding'
+import * as serviceWorker from './utility/serviceWorker'
 import {store, setup} from './utility/setup'
 
 setup();

@@ -8,7 +8,8 @@
   pointer-events: none;
   display: inline ;
   position: absolute ;
-  left: 3vmin ;
+  left: 2vmin ;
+  top: 2vmin ;
 }
 @keyframes App-logo-spin {
   from {  transform: rotate(0deg);}
@@ -99,7 +100,13 @@
   position: absolute;
   right: 15px;
 }
-
+.conversation {
+  outline-color: white ;
+  outline-style: solid ;
+  outline-width: medium ;
+  width: 40% ;
+  margin: auto ;
+}
 html {
 	background-image: url("./vertical3.jpg") ;
 }
@@ -108,12 +115,16 @@ html {
     width: 70% ;
     height: 500px ;
   }
+  .conversation {
+    width: 70%
+  }
 }
 @media screen and (max-width: 450px){
   #featured_content_today {
     width: 85% ;
     height: 300px ;
   }
+
 }
 .content_moving_Right {
   position: relative ;
@@ -156,5 +167,5 @@ html {
 .navbar {
   position: absolute ;
   top: 2vmin ;
-  right: 5vmin ; 
+  right: 5vmin ;
 }

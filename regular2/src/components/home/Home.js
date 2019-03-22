@@ -4,8 +4,14 @@ import NavArrow from '../NavArrow'
 const Home = (props) => {
   return (
     <div id="parent-top-center" className="parentElement">
-      <NavArrow direction="Left" actions={props.actions} z={props.z} text="go left"/>
-      <NavArrow direction="Right" actions={props.actions} z={props.z} text="go right"/>
+    {!!localStorage.getItem('username') ?
+      <div>
+        <NavArrow direction="Left" actions={props.actions} z={props.z} text="Messages"/>
+        <NavArrow direction="Right" actions={props.actions} z={props.z} text="Profile"/>
+      </div>
+      :
+      <p> log in to see messages and profile </p>
+    }
       <div className="main_page_content">
         <h1>Home</h1> {/* This is where I put whatever I want to be on the front page that day */}
         <h4>Today's featured content <span className="non_mobile"> (f)</span></h4>

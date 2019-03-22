@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     pword = params["pword"]
     user = User.new(name: name, password: pword)
     if user.save
+      bio = Bio.create(user_id: user.id, headline: "new user", content: "this user hasn't created a bio yet")
+      inbox = Inbox.create(user_id: user.id, user_name: user.name)
       render json: {status: 'success',
       message: "loaded",
       data: {name: user.name, id: user.id}
@@ -29,5 +31,28 @@ class UsersController < ApplicationController
       }, status: :ok
     end
   end
-
+  def show
+    user = User.find_by(name: params["name"])
+    bio = user.bio
+    if !!bio
+      render json: {status: 'success',
+        message: "user found",
+        data: {
+          name: user.name,
+          bio: bio
+        }
+      }, status: :ok
+    else
+      render json: {status: 'success',
+        message: "user not found",
+        data: {
+          bio: {
+            user_id: nil,
+            headline: "user not found",
+            content: ""
+          }
+        }
+      }, status: :ok
+    end
+  end
 end
