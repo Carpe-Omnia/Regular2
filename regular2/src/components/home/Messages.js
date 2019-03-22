@@ -14,7 +14,6 @@ class Messages extends React.Component {
       this.setState({
         datapackage: json.data.datapackage
       })
-      console.log(this.state.datapackage[0])
     })
   }
   render(){
@@ -24,10 +23,11 @@ class Messages extends React.Component {
         <div className="main_page_content" >
         <h3> Messages </h3>
         {this.state.datapackage.map (function(convo){
+          console.log(convo.inbox[0])
           return(
             <div key={convo.id} className="conversation" >
               <h3>conversation with {convo.inbox[0].user_name}</h3>
-                <ul>
+                <ul id={`ul_${convo.id}`}>
                 {convo.messages.map(function(message) {
                   return (
                     <li key={message.id}>
@@ -37,6 +37,37 @@ class Messages extends React.Component {
                   )
                 })}
                 </ul>
+                <form className="reply_form" id={`form_${convo.id}`}onSubmit={event => {
+                  event.preventDefault();
+                  var subject = document.getElementById(`subject_${convo.id}`).value
+                  var content = document.getElementById(`content_${convo.id}`).value
+                  var conversation_id = document.getElementById(`convo_${convo.id}`).value ;
+                  var user_id = localStorage.getItem("id");
+                  var to_id =  convo.inbox.user_id
+                  var url = `/api/messages/create/${subject}/${content}/${user_id}/${to_id}/${conversation_id}`
+                  fetch(url,{method: "post"})
+                  .then(res => res.json())
+                  .then(function(json){
+                    document.getElementById(`ul_${convo.id}`).innerHTML += `<li><p>${json.data.subject}</p><p>${json.data.content}</p></li>`
+                  })
+                }}>
+                  Subject:<input  id={`subject_${convo.id}`} type="text" name="subject" /><br/>
+                  Content<input type="text" id={`content_${convo.id}`} name="content" /><br/>
+                  <input type="hidden" id={`convo_${convo.id}`} value={convo.id} />
+                  <input type="submit" value="send message" />
+                </form>
+                <button value="reply" id={`button_${convo.id}`} onClick={function(){
+                  if (document.getElementById(`form_${convo.id}`).style.display !== 'block'){
+                  document.getElementById(`form_${convo.id}`).style.display = 'block' ;
+                  document.getElementById(`button_${convo.id}`).innerHTML = "never mind"
+                  }
+                  else{
+                    document.getElementById(`form_${convo.id}`).style.display = 'none' ;
+                    document.getElementById(`button_${convo.id}`).innerHTML = "reply"
+                  }
+                }}>
+                reply
+                </button>
             </div>
           )
         })}

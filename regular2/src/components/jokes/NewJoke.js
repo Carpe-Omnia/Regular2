@@ -6,26 +6,27 @@ class NewJoke extends React.Component {
     event.preventDefault();
     var setup = document.getElementById('setup_input').value ;
     var punchline = document.getElementById('punchline_input').value ;
-    var username = localStorage.getItem("username") ;
     var id = localStorage.getItem("id") ;
-    var postData = {setup: setup, punchline: punchline, username: username, id: id } ;
+    //var postData = {setup: setup, punchline: punchline, username: username, id: id } ;
     var link = `/api/jokes/create/${setup}/${punchline}/${id}` ;
+    var that = this ;
     console.log(link)
     if (!!setup && !!punchline){
       console.log('working');
       fetch(link, {
-        method: 'post',
-        body: JSON.stringify(postData)
-      }).then(res => res.json())
-        .then(function(json){
-          console.log(json);
-          if(json.message === "joke created"){
-            alert("nice job making that joke")
-          }
-          else{
-            alert("something went terribly wrong")
-          }
-        })
+        method: 'post'
+      })
+      .then(res => res.json())
+      .then(function(json){
+        console.log(json);
+        if(json.message === "joke created"){
+          alert("nice job making that joke")
+          that.props.adjustState(json.data["joke"]);
+        }
+        else{
+          alert("something went terribly wrong")
+        }
+      })
     }
     else {
       alert('make sure to include a punchline and a setup')

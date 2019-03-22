@@ -169,3 +169,6 @@ html {
   top: 2vmin ;
   right: 5vmin ;
 }
+.reply_form {
+  display: none
+}

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   post '/api/jokes/create/:setup/:punchline/:id', to: 'jokes#create'
 
   get '/api/messages/index/:id', to: 'messages#index'
-
+  post '/api/messages/create/:subject/:content/:user_id/:to_id/:conversation_id', to: 'messages#create'
+  
 end

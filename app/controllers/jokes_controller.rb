@@ -18,13 +18,13 @@ class JokesController < ApplicationController
       render json: {
         status: "success",
         message: "joke created",
-        data: "joke created"
+        data: {joke: joke}
       }, status: :ok
     else
       render json: {
         status: "failure",
         message: "joke not created",
-        data: "joke not created"
+        data: nil
       }, status: :ok
     end
   end

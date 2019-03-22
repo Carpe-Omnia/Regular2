@@ -6,12 +6,13 @@ class MessagesController < ApplicationController
     puts convos
     datapackage = []
     convos.each do |convo|
-      inbox = convo.inboxes.select do |box|
+      relbox = convo.inboxes.select do |box|
         box != inbox
       end
       mess = {
+        id: convo.id,
         messages: convo.messages,
-        inbox: inbox
+        inbox: relbox
       }
       datapackage << mess
     end
@@ -27,6 +28,29 @@ class MessagesController < ApplicationController
         status: "success",
         message: "inbox found",
         data: "conversations not found"
+      }, status: :ok
+    end
+  end
+  def create
+    user = User.find_by(id: params["user_id"])
+    conversation = Conversation.find_by(id: params["conversation_id"])
+    mess = Message.new(
+      from_id: user.id,
+      conversation_id: conversation.id,
+      to_id: params["to_id"], user_name: user.name,
+      subject: params["subject"], content: params["content"]
+    )
+    if mess.save
+      render json: {
+        status: "success",
+        message: "message created",
+        data: mess
+      }, status: :ok
+    else
+      render json: {
+        status: "success",
+        message: "message created",
+        data: params
       }, status: :ok
     end
   end

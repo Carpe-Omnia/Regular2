@@ -8,16 +8,6 @@ class MyJokes extends React.Component {
     this.state = {
       my_jokes: []
     }
-    var id = localStorage.getItem("id")
-    var url = `/api/jokes/myjokes/${id}`
-    fetch(url)
-    .then(res => res.json())
-    .then((json) => {
-      this.setState(
-        {my_jokes: json.data}
-      )
-    })
-    .then( console.log(this.state.my_jokes))
   }
   render() {
     return (
@@ -27,7 +17,7 @@ class MyJokes extends React.Component {
           <h1>
             my jokes
           </h1>
-          {this.state.my_jokes.map (function(joke){
+          {this.props.my_jokes.map (function(joke){
             return (
               <Joke joke={joke} key={joke.id} />
             )
