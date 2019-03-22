@@ -49,8 +49,37 @@ class MessagesController < ApplicationController
     else
       render json: {
         status: "success",
-        message: "message created",
+        message: "message not created",
         data: params
+      }, status: :ok
+    end
+  end
+  def new
+    user = User.find_by(id: params["user_id"])
+    recipient = User.find_by(name: params["recipient_name"])
+    content = params["content"]
+    subject = params["subject"]
+    if !!user && !!recipient && content && subject
+      convo = Conversation.find_by_users(user, recipient)
+      message = Message.new(
+        from_id: user.id,
+        to_id: recipient.id,
+        content: content,
+        subject: subject,
+        conversation_id: convo.id
+      )
+      if message.save
+        render json: {
+          status: "success",
+          message: "message created",
+          data: message
+        }, status: :ok
+      end
+    else
+      render json: {
+        status: "success",
+        message: "message not created",
+        data: "no dice kid"
       }, status: :ok
     end
   end

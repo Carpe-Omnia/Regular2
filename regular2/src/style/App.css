@@ -172,3 +172,6 @@ html {
 .reply_form {
   display: none
 }
+#new_message_form {
+    display: none
+}

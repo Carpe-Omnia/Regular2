@@ -16,6 +16,25 @@ class Messages extends React.Component {
       })
     })
   }
+  handleNewMessage(event){
+    event.preventDefault();
+    console.log("submitting form")
+    var recipient = document.getElementById('new_recipient').value ;
+    var subject = document.getElementById('new_subject').value ;
+    var content = document.getElementById('new_content').value ;
+    var url = `/api/messages/new/${subject}/${content}/${localStorage.getItem("id")}/${recipient}` ;
+    fetch(url, {method: "post"})
+    .then(res => res.json())
+    .then(function(json){
+      if(json.message === "message created"){alert("message sent")}
+      else{alert("message not sent for some reason")}
+    })
+  }
+  toggleForm(){
+    var form = document.getElementById('new_message_form')
+    form.style.display !== "block" ? form.style.display = "block" : form.style.display = "none"
+  }
+
   render(){
     return(
       <div id="parent-top-left" className="parentElement" >
@@ -58,8 +77,8 @@ class Messages extends React.Component {
                 </form>
                 <button value="reply" id={`button_${convo.id}`} onClick={function(){
                   if (document.getElementById(`form_${convo.id}`).style.display !== 'block'){
-                  document.getElementById(`form_${convo.id}`).style.display = 'block' ;
-                  document.getElementById(`button_${convo.id}`).innerHTML = "never mind"
+                    document.getElementById(`form_${convo.id}`).style.display = 'block' ;
+                    document.getElementById(`button_${convo.id}`).innerHTML = "never mind"
                   }
                   else{
                     document.getElementById(`form_${convo.id}`).style.display = 'none' ;
@@ -71,6 +90,16 @@ class Messages extends React.Component {
             </div>
           )
         })}
+        <span id="new_message_form_elements" >
+          <form id="new_message_form" onSubmit={event => this.handleNewMessage(event)}>
+            to:<input type="text" id="new_recipient" /><br></br>
+            subject:<input type="text" id="new_subject" /><br></br>
+            content:<input type="text" id='new_content' /><br></br>
+            <input type="submit" action="submit" />
+          </form>
+          <br></br>
+        <button id="new_message_toggle" onClick={this.toggleForm}> New Message Toggle</button>
+        </span>
         </div>
       </div>
     )
