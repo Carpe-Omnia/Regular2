@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Hotkey from './Hotkey'
 
 const link = {
   width: '100px',
@@ -18,13 +19,13 @@ const NavBar = () => {
     <div className="navbar" >
         <span >
           <NavLink to="/" exact id="navlink1" style={link} activeStyle={activelink} >
-            Home<span className="non_mobile">(1)</span>
+            Home<Hotkey text="1" click={true} />
           </NavLink>
         </span>
 
         <span >
           <NavLink to="/jokes" id="navlink2" style={link} activeStyle={activelink}>
-            Jokes<span className="non_mobile">(2)</span>
+            Jokes<Hotkey text="2" click={true} />
           </NavLink>
         </span>
 
@@ -32,20 +33,20 @@ const NavBar = () => {
         <span>
           <span>
             <NavLink to="/register" id="navlink3" style={link} activeStyle={activelink}>
-              Register<span className="non_mobile">(3)</span>
+              Register<Hotkey text="3" click={true} />
             </NavLink>
           </span>
 
           <span >
             <NavLink to="/login" id="navlink4" style={link} activeStyle={activelink}>
-              Login<span className="non_mobile">(4)</span>
+              Login<Hotkey text="4" click={true} />
             </NavLink>
           </span>
         </span>
         : //stuff the user sees if they're logged in
         <span>
           <NavLink to="/logout" id="navlink3" style={link} activeStyle={activelink}>
-            Logout<span className="non_mobile">(3)</span>
+            Logout<Hotkey text="3" click={true} />
           </NavLink>
         </span>
         }

@@ -1,5 +1,6 @@
 import React from 'react';
 import NavArrow from '../NavArrow'
+import Hotkey from '../Hotkey'
 
 class Messages extends React.Component {
   constructor(props){
@@ -18,7 +19,7 @@ class Messages extends React.Component {
   }
   handleNewMessage(event){
     event.preventDefault();
-    console.log("submitting form")
+    //console.log("submitting form")
     var recipient = document.getElementById('new_recipient').value ;
     var subject = document.getElementById('new_subject').value ;
     var content = document.getElementById('new_content').value ;
@@ -92,13 +93,15 @@ class Messages extends React.Component {
         })}
         <span id="new_message_form_elements" >
           <form id="new_message_form" onSubmit={event => this.handleNewMessage(event)}>
-            to:<input type="text" id="new_recipient" /><br></br>
-            subject:<input type="text" id="new_subject" /><br></br>
-            content:<input type="text" id='new_content' /><br></br>
-            <input type="submit" action="submit" />
+            to: <Hotkey text="x" /><input type="text" id="new_recipient" /><br></br>
+            subject: <Hotkey text="y" /><input type="text" id="new_subject" /><br></br>
+            content: <Hotkey text="z" /><input type="text" id='new_content' /><br></br>
+            <button type="submit" action="submit" >send<Hotkey text="v" click={true} /> </button>
           </form>
           <br></br>
-        <button id="new_message_toggle" onClick={this.toggleForm}> New Message Toggle</button>
+        <button id="new_message_toggle" onClick={this.toggleForm}>
+          New Message Toggle <Hotkey click={true} text="n" />
+        </button>
         </span>
         </div>
       </div>

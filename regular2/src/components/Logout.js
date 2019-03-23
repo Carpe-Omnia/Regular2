@@ -1,4 +1,5 @@
 import React from 'react';
+import Hotkey from './Hotkey'
 
 class Logout extends React.Component {
   doThing(event){
@@ -9,7 +10,7 @@ class Logout extends React.Component {
   render(){
     return (
       <form onSubmit={event => this.doThing(event)} >
-        <button id="log_in_button" type="submit" >Logout <span className="non_mobile" >(d)</span></button>
+        <button id="log_in_button" type="submit" >Logout<Hotkey text="d" /></button>
       </form>
     )
   }

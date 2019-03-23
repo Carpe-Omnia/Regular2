@@ -1,4 +1,5 @@
 import React from 'react';
+
 const Joke = (props) => {
   return (
     <div key={props.joke.id}>
@@ -18,8 +19,10 @@ const Joke = (props) => {
         -------------
       </div>
       <div className="punchline" id={`punchline${props.joke.id}`}>
-        {props.joke.punchline}
+        {props.joke.punchline} <br/>
+        - {props.joke.user_name}
       </div>
+
       <br/>
     </div>
   )

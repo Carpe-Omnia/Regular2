@@ -1,5 +1,6 @@
 import React from 'react';
 import NavArrow from '../NavArrow';
+import Hotkey from '../Hotkey'
 
 class NewJoke extends React.Component {
   doThing(event){
@@ -41,9 +42,11 @@ class NewJoke extends React.Component {
             Make a new joke
           </h3>
           <form onSubmit={event => this.doThing(event)} >
-            setup<span className="non_mobile" > (s)</span>:<input type="text" id="setup_input" /><br></br>
-            punchline<span className="non_mobile" >(p)</span>:<input type="text" id="punchline_input" /><br></br>
-            <button type="submit" value="submit" id="submit_joke" >Submit <span className="non_mobile" >(j)</span> </button>
+            setup<Hotkey text="s" /><input type="text" id="setup_input" /><br></br>
+            punchline<Hotkey text="p" /><input type="text" id="punchline_input" /><br></br>
+            <button type="submit" value="submit" id="submit_joke" >
+              Submit <Hotkey text="j" click={true}/>
+            </button>
           </form>
         </div>
       </div>

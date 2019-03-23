@@ -1,5 +1,6 @@
 import React from 'react';
 import NavArrow from '../NavArrow'
+import Hotkey from '../Hotkey'
 
 class Profile extends React.Component {
   constructor(props){
@@ -14,12 +15,8 @@ class Profile extends React.Component {
       return res.json()
     })
     .then((json) => {
-      this.setState({
-        bio: json.data.bio
-      })
-      this.setState({
-        name: json.data.name
-      })
+      this.setState({bio: json.data.bio})
+      this.setState({name: json.data.name})
     })
   }
   editBio(event){
@@ -32,16 +29,30 @@ class Profile extends React.Component {
     .then(res => res.json())
     .then(function(json){
       if (json.message === "bio updated"){
-        document.getElementById('edit_headline').value = json.data.bio.headline
-        document.getElementById('edit_content').value = json.data.bio.content
+        document.getElementById('display_headline').innerHTML = `${json.data.bio.headline}` ;
+        document.getElementById('display_content').innerHTML = `${json.data.bio.content}` ;
       }
       else{
         alert("something went wrong. I bet it was your fault")
       }
     })
   }
-  showForm(){
-    document.getElementById('edit_bio_form').style.display = 'block'
+  toggleForm(){
+    var form = document.getElementById('edit_bio_form')
+    var button = document.getElementById('edit_bio_button_text')
+    if (form.style.display === ""){
+      form.style.display = 'block' ;
+      document.getElementById('edit_content').value = document.getElementById('hidden_content').value ;
+      button.innerHTML = "Nevermind"
+    }
+    else if (form.style.display === "block"){
+      form.style.display = 'none' ;
+      button.innerHTML = "Edit Bio"
+    }
+    else {
+      form.style.display = 'block' ;
+      button.innerHTML = "Nevermind"
+    }
   }
   render(){
     return(
@@ -49,19 +60,27 @@ class Profile extends React.Component {
         <NavArrow direction="Left" actions={this.props.actions} z={this.props.z} text="Home"/>
         <div className="main_page_content" >
           <h3>{this.state.name}</h3>
-          <p> {this.state.bio.headline} </p>
-          <p> {this.state.bio.content} </p>
+          <p id="display_headline" value={this.state.bio.headline} > {this.state.bio.headline} </p>
+          <p id="display_content" value={this.state.bio.content} >{this.state.bio.content}  </p>
           <form id="edit_bio_form" onSubmit={event => this.editBio(event)} >
-            headline: <br></br>
+            headline<Hotkey text="d" /><br/>
             <input type="text" defaultValue={this.state.bio["headline"]} id="edit_headline" /><br/>
-            <textarea id="edit_content" defaultValue={this.state.bio.content}></textarea><br></br>
-            <button type="submit" action="submit" >Submit changes</button>
+            content<Hotkey text="g" /> <br/>
+            <textarea id="edit_content"></textarea><br/>
+            <input type="hidden" id="hidden_content" value={this.state.bio.content}></input>
+            <button id="submit_bio_changes" type="submit" action="submit" >
+              Submit changes
+              <Hotkey text="a" click={true} />
+            </button>
           </form>
-          <button onClick={this.showForm} > Edit Bio </button>
+          <button onClick={this.toggleForm} id="edit_bio_toggle_button">
+          <span id="edit_bio_button_text">Edit Bio</span>
+          <Hotkey text="e" click={true} />
+          </button>
         </div>
       </div>
     )
   }
 }
-//you need to change the defaultValue type tyhing of the textarea. I guess it enjoys being difficult
+//<span className="non_mobile"> (H):</span><br/>
 export default Profile

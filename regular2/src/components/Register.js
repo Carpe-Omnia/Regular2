@@ -1,4 +1,5 @@
 import React from 'react';
+import Hotkey from './Hotkey';
 
 class Register extends React.Component {
   doThing(event){
@@ -38,9 +39,9 @@ class Register extends React.Component {
       <div>
         <h1> Register for this site </h1>
         <form onSubmit={event => this.doThing(event)}>
-          username<span className="non_mobile" >(b):</span><input type="text" id="username" /><br></br>
-          password<span className="non_mobile" >(c):</span><input type="text" id="password" /><br></br>
-          <button id="log_in_button" type="submit" action="submit">Join<span className="non_mobile" >(d)</span></button>
+          username<Hotkey text="b" /><input type="text" id="username" /><br></br>
+          password<Hotkey text="c" /><input type="text" id="password" /><br></br>
+          <button id="log_in_button" type="submit" action="submit">Join<Hotkey text="d" /></button>
         </form>
       </div>
       }

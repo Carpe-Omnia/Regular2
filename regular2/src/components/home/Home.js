@@ -1,6 +1,6 @@
 import React from 'react';
 import NavArrow from '../NavArrow'
-
+import Hotkey from '../Hotkey'
 const Home = (props) => {
   return (
     <div id="parent-top-center" className="parentElement">
@@ -17,7 +17,7 @@ const Home = (props) => {
         <h4>Today's featured content <span className="non_mobile"> (f)</span></h4>
         <iframe title="featured" width="600" height="450" src="https://www.youtube.com/embed/oYmqJl4MoNI"
         frameBorder="0" allow="accelerometer; encrypted-media; gyroscope;  picture-in-picture"
-        allowFullScreen id="featured_content_today"></iframe>
+        allowFullScreen id="featured_content_today"><Hotkey click={true} text="f"/></iframe>
       </div>
     </div>
   )
