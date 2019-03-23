@@ -9,7 +9,7 @@ class Jokes extends React.Component {
       jokes: [],
       my_jokes: []
     }
-    fetch(`/api/regular`)
+    fetch(`/api/jokes/index`)
     .then(res => res.json()) //gets jokes in general
     .then((json) => {
       this.setState({jokes: json.data})

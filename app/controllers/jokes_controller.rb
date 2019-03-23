@@ -1,4 +1,12 @@
 class JokesController < ApplicationController
+  def index
+    jokes = Joke.all
+    render json: {
+      status: 'success',
+      message: "loaded",
+      data: jokes
+      }, status: :ok
+  end   
   def myjokes
     user = User.find_by(id: params["id"])
     jokes = user.jokes

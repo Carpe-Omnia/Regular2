@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/api/regular', to: 'regular#homepage'
+
 
   post '/api/users/new/:name/:pword', to: 'users#new'
   post '/api/users/login/:name/:pword', to: 'users#login'
   post '/api/users/edit/:id/:headline/:content', to: 'users#edit'
   get '/api/users/show/:name', to: 'users#show'
 
+  get '/api/jokes/index', to: 'jokes#index'
   get '/api/jokes/myjokes/:id', to: 'jokes#myjokes'
   post '/api/jokes/create/:setup/:punchline/:id', to: 'jokes#create'
 
