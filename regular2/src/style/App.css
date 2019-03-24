@@ -1,4 +1,4 @@
-.App {
+  .App {
   text-align: center;
 }
 
@@ -26,6 +26,7 @@
   justify-content: center;
   font-size: calc(5px + 2vmin);
   color: white;
+  /*position: fixed;*/
 }
 .App-body {
   color: white
@@ -165,7 +166,7 @@ html {
   to { left: 200vmin ; transform: rotate(270deg) ; opacity: 0}
 }
 .navbar {
-  position: absolute ;
+  position: fixed ;
   top: 2vmin ;
   right: 5vmin ;
 }

@@ -11,6 +11,7 @@ function setup() {
     var act = document.activeElement;
     if (act.tagName !== "INPUT" && act.tagName !== "TEXTAREA"){
       handleKey(e, act);
+      console.log()
     }
     else if (e.key === ";"){
       act.blur();
@@ -18,15 +19,19 @@ function setup() {
   })
 }
 function hotkeyHandler(e, act){
-  e.preventDefault() ;
   var target;
   target = document.getElementById(`hotkey_click_${e.key}`)
   if (!!target){target.click()}
   else {
     target = document.querySelector(clickHash[e.key])
-    if (!!target){target.click()}
+    if (!!target){
+      target.click() ;
+    }
     target = document.querySelector(hotkeyHash[e.key])
-    if (!!target){target.focus()}
+    if (!!target){
+      target.focus() ;
+      e.preventDefault() ;
+    }
   }
 }
 
