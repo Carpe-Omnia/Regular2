@@ -1,4 +1,11 @@
 class JokesController < ApplicationController
+  def testing #remember to take this out later. Or Don't it could be useful for testing stuff
+    render json: {
+      status: 'success',
+      message: "loaded",
+      data: "testing is a success"
+      }, status: :ok
+  end
   def index
     jokes = Joke.all
     render json: {
@@ -6,7 +13,7 @@ class JokesController < ApplicationController
       message: "loaded",
       data: jokes
       }, status: :ok
-  end   
+  end
   def myjokes
     user = User.find_by(id: params["id"])
     jokes = user.jokes

@@ -22,7 +22,7 @@ class NewJoke extends React.Component {
         console.log(json);
         if(json.message === "joke created"){
           alert("nice job making that joke")
-          that.props.adjustState(json.data["joke"]);
+          this.props.actions.add_joke(json.data["joke"]);
         }
         else{
           alert("something went terribly wrong")

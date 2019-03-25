@@ -21,47 +21,91 @@ export function home(){
     }
   )
 }
+export function set_testing(){
+  return (dispatch) => {
+    return fetch('/api/jokes/testing')
+      .then(response => response.json())
+      .then(function(json){
+        dispatch({
+          type: 'SET_TESTING',
+          payload: {
+            testing: json.data
+          }
+        })
+      })
+  }
+}
 
-export function set_all_jokes(all_jokes){
+export function set_all_jokes(){
+  return (dispatch) => {
+    return fetch(`/api/jokes/index`)
+        .then(res => res.json())
+        .then(function(json){
+          dispatch({
+            type: 'SET_ALL_JOKES',
+            payload: {
+              all_jokes: json.data
+            }
+          })
+        })
+  }
+}
+
+
+export function add_joke(joke){
   return (
     {
-      type: 'SET_ALL_JOKES',
+      type: 'ADD_JOKE',
       payload: {
-        all_jokes: all_jokes
+        joke: joke
       }
     }
   )
 }
 
-export function set_my_jokes(my_jokes){
-  return (
-    {
-      type: 'SET_MY_JOKES',
-      payload: {
-        my_jokes: my_jokes
-      }
-    }
-  )
+export function set_data_package(id){
+  return(dispatch) => {
+    return fetch(`api/messages/index/${id}`)
+    .then (res => res.json())
+    .then (function(json){
+      dispatch({
+        type: 'SET_DATAPACKAGE',
+        payload: {
+          datapackage: json.data.datapackage
+        }
+      })
+    })
+  }
 }
 
-export function set_data_package(datapackage){
-  return (
-    {
-      type: 'SET_DATAPACKAGE',
-      payload: {
-        datapackage: datapackage
-      }
-    }
-  )
+export function set_profile(username){
+  return(dispatch) => {
+    return fetch(`api/users/show/${username}`)
+      .then(res => res.json())
+      .then(function(json){
+        dispatch({
+          type: 'SET_PROFILE',
+          payload: {
+            profile: {
+              name: json.data.name,
+              bio: json.data.bio
+            }
+          }
+        })
+      })
+  }
 }
-
-export function set_profile(profile){
-  return (
-    {
-      type: 'SET_PROFILE',
-      payload: {
-        profile: profile
-      }
-    }
-  )
+export function set_my_jokes(id){
+  return(dispatch) => {
+    return fetch(`/api/jokes/myjokes/${id}`)
+      .then(res => res.json())
+      .then(function(json){
+        dispatch({
+          type: 'SET_MY_JOKES',
+          payload: {
+            my_jokes: json.data
+          }
+        })
+      })
+  }
 }

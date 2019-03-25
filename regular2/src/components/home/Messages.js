@@ -5,12 +5,7 @@ import Hotkey from '../Hotkey'
 class Messages extends React.Component {
   constructor(props){
     super(props);
-    var url = `/api/messages/index/${localStorage.getItem("id")}`
-    fetch(url)
-    .then( res => res.json())
-    .then((json) => {
-      this.props.actions.set_data_package(json.data.datapackage)
-    })
+  //  this.props.actions.set_data_package(localStorage.getItem("id"));
   }
   handleNewMessage(event){
     event.preventDefault();

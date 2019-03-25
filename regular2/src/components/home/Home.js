@@ -8,6 +8,7 @@ const Home = (props) => {
       <div>
         <NavArrow direction="Left" actions={props.actions} z={props.z} text="Messages"/>
         <NavArrow direction="Right" actions={props.actions} z={props.z} text="Profile"/>
+        {props.orientation.testing}
       </div>
       :
       <p> log in to see messages and profile </p>

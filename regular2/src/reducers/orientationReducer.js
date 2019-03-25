@@ -6,7 +6,8 @@ function orientationReducer(state={
   profile: {
     name: "",
     bio: {headline: "", content: ""}
-  }
+  },
+  testing: ""
 }, action){
   var newOr = state.orientation ;
   switch(action.type) {
@@ -36,6 +37,14 @@ function orientationReducer(state={
       return Object.assign({}, state, {datapackage: action.payload.datapackage})
     case 'SET_PROFILE':
       return Object.assign({}, state, {profile: action.payload.profile})
+    case 'SET_TESTING':
+      return Object.assign({}, state, {testing: action.payload.testing})
+    case 'ADD_JOKE':
+      return Object.assign({}, state, {
+        all_jokes: [action.payload.joke, ...state.all_jokes],
+        my_jokes: [action.payload.joke, ...state.my_jokes],
+      }
+      )
     default:
       return state
   }

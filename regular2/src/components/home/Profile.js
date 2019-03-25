@@ -5,17 +5,7 @@ import Hotkey from '../Hotkey'
 class Profile extends React.Component {
   constructor(props){
     super(props);
-    var url = `/api/users/show/${localStorage.getItem("username")}`
-    fetch(url)
-    .then((res) => {
-      return res.json()
-    })
-    .then((json) => {
-      this.props.actions.set_profile({
-        name: json.data.name,
-        bio: json.data.bio
-      })
-    })
+  //  this.props.actions.set_profile(localStorage.getItem("username"))
   }
   editBio(event){
     event.preventDefault();
@@ -76,8 +66,8 @@ class Profile extends React.Component {
             </button>
           </form>
           <button onClick={this.toggleForm} id="edit_bio_toggle_button">
-          <span id="edit_bio_button_text">Edit Bio</span>
-          <Hotkey text="e" click={true} />
+            <span id="edit_bio_button_text">Edit Bio</span>
+            <Hotkey text="e" click={true} />
           </button>
         </div>
       </div>
