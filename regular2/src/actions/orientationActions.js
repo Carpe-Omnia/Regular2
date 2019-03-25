@@ -21,47 +21,6 @@ export function home(){
     }
   )
 }
-export function set_testing(){
-  return (dispatch) => {
-    return fetch('/api/jokes/testing')
-      .then(response => response.json())
-      .then(function(json){
-        dispatch({
-          type: 'SET_TESTING',
-          payload: {
-            testing: json.data
-          }
-        })
-      })
-  }
-}
-
-export function set_all_jokes(){
-  return (dispatch) => {
-    return fetch(`/api/jokes/index`)
-        .then(res => res.json())
-        .then(function(json){
-          dispatch({
-            type: 'SET_ALL_JOKES',
-            payload: {
-              all_jokes: json.data
-            }
-          })
-        })
-  }
-}
-
-
-export function add_joke(joke){
-  return (
-    {
-      type: 'ADD_JOKE',
-      payload: {
-        joke: joke
-      }
-    }
-  )
-}
 
 export function set_data_package(id){
   return(dispatch) => {
@@ -95,6 +54,22 @@ export function set_profile(username){
       })
   }
 }
+
+export function set_all_jokes(){
+  return (dispatch) => {
+    return fetch(`/api/jokes/index`)
+        .then(res => res.json())
+        .then(function(json){
+          dispatch({
+            type: 'SET_ALL_JOKES',
+            payload: {
+              all_jokes: json.data
+            }
+          })
+        })
+  }
+}
+
 export function set_my_jokes(id){
   return(dispatch) => {
     return fetch(`/api/jokes/myjokes/${id}`)
@@ -104,6 +79,32 @@ export function set_my_jokes(id){
           type: 'SET_MY_JOKES',
           payload: {
             my_jokes: json.data
+          }
+        })
+      })
+  }
+}
+
+export function add_joke(joke){
+  return (
+    {
+      type: 'ADD_JOKE',
+      payload: {
+        joke: joke
+      }
+    }
+  )
+}
+
+export function set_testing(){
+  return (dispatch) => {
+    return fetch('/api/jokes/testing')
+      .then(response => response.json())
+      .then(function(json){
+        dispatch({
+          type: 'SET_TESTING',
+          payload: {
+            testing: json.data
           }
         })
       })
