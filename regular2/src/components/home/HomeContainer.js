@@ -8,7 +8,7 @@ class HomeContainer extends React.Component {
     var Parent =  homeHash[`${orientation}`]  ;
     return (
     <div>
-      < Parent actions={this.props.actions}  z={this.props.z} />
+      < Parent actions={this.props.actions}  z={this.props.z} orientation={this.props.orientation} />
     </div>
     )
   }

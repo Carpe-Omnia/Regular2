@@ -5,21 +5,15 @@ import Hotkey from '../Hotkey'
 class Messages extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      datapackage: []
-    }
     var url = `/api/messages/index/${localStorage.getItem("id")}`
     fetch(url)
     .then( res => res.json())
     .then((json) => {
-      this.setState({
-        datapackage: json.data.datapackage
-      })
+      this.props.actions.set_data_package(json.data.datapackage)
     })
   }
   handleNewMessage(event){
     event.preventDefault();
-    //console.log("submitting form")
     var recipient = document.getElementById('new_recipient').value ;
     var subject = document.getElementById('new_subject').value ;
     var content = document.getElementById('new_content').value ;
@@ -42,7 +36,7 @@ class Messages extends React.Component {
         <NavArrow direction="Right" actions={this.props.actions} z={this.props.z} text="Home"/>
         <div className="main_page_content" >
         <h3> Messages </h3>
-        {this.state.datapackage.map (function(convo){
+        {this.props.orientation.datapackage.map (function(convo){
           console.log(convo.inbox[0])
           return(
             <div key={convo.id} className="conversation" >
