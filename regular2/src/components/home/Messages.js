@@ -3,10 +3,9 @@ import NavArrow from '../NavArrow'
 import Hotkey from '../Hotkey'
 
 class Messages extends React.Component {
-  constructor(props){
+  /*constructor(props){
     super(props);
-  //  this.props.actions.set_data_package(localStorage.getItem("id"));
-  }
+}*/
   handleNewMessage(event){
     event.preventDefault();
     var recipient = document.getElementById('new_recipient').value ;

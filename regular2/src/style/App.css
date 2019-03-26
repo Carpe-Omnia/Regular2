@@ -26,10 +26,17 @@
   justify-content: center;
   font-size: calc(5px + 2vmin);
   color: white;
-  /*position: fixed;*/
+  position: fixed;
+  width: 100% ;
+  top: 0px ;
+  opacity: 1 ;
+  z-index: 1 ;
 }
 .App-body {
-  color: white
+  color: white ;
+  position: relative ;
+  top: 20vh ;
+  /*z-index: -1 ;*/
 }
 .App-link {
   color: #61dafb;
@@ -67,39 +74,57 @@
 
 .arrow {
   font-size: calc(5px + 4vmin);
-  display: inline-block;
+  /*display: inline-block; */
+  position: fixed ;
+  color: white ;
+  top: 15vh ;
+  z-index: 2 !important ;
 }
  .Left {
-  transform: rotate(270deg);
-  position: absolute;
+  position: fixed;
   left: 20px;
+  z-index: 2 !important ;
+
 }
 .Right {
-  transform: rotate(90deg);
-  position: absolute;
+  position: fixed;
   right: 20px;
+  z-index: 2 !important ;
 }
 .punchline {
   display: none
 }
-.Left_text {
-  transform: rotate(90deg);
-  font-size: calc(5px + 2vmin);
+
+.arrow_Left_text {
+  font-size: calc(2px + 2vmin);
+  position: fixed ;
+  top: 16vh ;
+  z-index: 2 !important ;
+  left: 7vh ;
 }
-.Right_text {
-  transform: rotate(270deg);
-  font-size: calc(5px + 2vmin);
+
+.arrow_Right_text {
+  font-size: calc(2px + 2vmin);
+  position: fixed ;
+  top: 16vh ;
+  z-index: 2 !important ;
+  right: 7vh ;
 }
+
 
 .arrow_holder_Left {
   display: inline-block;
-  position: absolute;
+  position: fixed;
   left: 15px;
+  z-index: 2 !important ;
+  width: 15vh ;
 }
 .arrow_holder_Right {
   display: inline-block;
-  position: absolute;
+  position: fixed;
   right: 15px;
+  z-index: 2 !important ;
+  width: 15vh ;
 }
 .conversation {
   outline-color: white ;
@@ -148,27 +173,43 @@ html {
 .moving_Right {
   animation-name: move_right ;
   animation-duration: 0.5s ;
-  position: absolute ;
-  transform: rotate(90deg)
+  position: fixed ;
+  top: 15vh ;
 }
 @keyframes move_right {
-  from  { right: 2vmin ; transform: rotate(0deg) ; opacity: 1}
-  to { right: 200vmin ; transform: rotate(270deg) ; opacity: 0}
+  from {
+    right: 2vmin ;
+    opacity: 1
+  }
+  to {
+    right: 200vmin ;
+    opacity: 0
+  }
 }
 .moving_Left {
   animation-name: move_left ;
   animation-duration: 0.5s ;
-  position: absolute ;
-  transform: rotate(270deg)
+  position: fixed ;
+  top: 15vh ;
 }
 @keyframes move_left {
-  from  { left: 2vmin ; transform: rotate(0deg) ; opacity: 1}
-  to { left: 200vmin ; transform: rotate(270deg) ; opacity: 0}
+  from  {
+    left: 2vmin ;
+    opacity: 1
+  }
+  to {
+    left: 200vmin ;
+    opacity: 0
+  }
 }
 .navbar {
   position: fixed ;
   top: 2vmin ;
   right: 5vmin ;
+  z-index: 4 ;
+}
+.navlink {
+  z-index: 4 !important ;
 }
 .reply_form {
   display: none
@@ -178,4 +219,7 @@ html {
 }
 #edit_bio_form {
   display: none
+}
+.main_page_content {
+  top: 30vh ;
 }

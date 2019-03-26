@@ -18,13 +18,13 @@ const NavBar = () => {
   return ( //stuff that the user sees no matter what
     <div className="navbar" >
         <span >
-          <NavLink to="/" exact id="navlink1" style={link} activeStyle={activelink} >
+          <NavLink className="navlink" to="/" exact id="navlink1" style={link} activeStyle={activelink} >
             Home<Hotkey text="1" click={true} />
           </NavLink>
         </span>
 
         <span >
-          <NavLink to="/jokes" id="navlink2" style={link} activeStyle={activelink}>
+          <NavLink className="navlink" to="/jokes" id="navlink2" style={link} activeStyle={activelink}>
             Jokes<Hotkey text="2" click={true} />
           </NavLink>
         </span>
@@ -32,20 +32,20 @@ const NavBar = () => {
         {!localStorage.getItem("username") ? //stuff the user sees if they're not logged in
         <span>
           <span>
-            <NavLink to="/register" id="navlink3" style={link} activeStyle={activelink}>
+            <NavLink className="navlink" to="/register" id="navlink3" style={link} activeStyle={activelink}>
               Register<Hotkey text="3" click={true} />
             </NavLink>
           </span>
 
           <span >
-            <NavLink to="/login" id="navlink4" style={link} activeStyle={activelink}>
+            <NavLink className="navlink" to="/login" id="navlink4" style={link} activeStyle={activelink}>
               Login<Hotkey text="4" click={true} />
             </NavLink>
           </span>
         </span>
         : //stuff the user sees if they're logged in
         <span>
-          <NavLink to="/logout" id="navlink3" style={link} activeStyle={activelink}>
+          <NavLink className="navlink" to="/logout" id="navlink3" style={link} activeStyle={activelink}>
             Logout<Hotkey text="3" click={true} />
           </NavLink>
         </span>

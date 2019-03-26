@@ -3,25 +3,22 @@ import NavArrow from '../NavArrow'
 import Hotkey from '../Hotkey'
 
 class Profile extends React.Component {
-  constructor(props){
+  /*constructor(props){
     super(props);
   //  this.props.actions.set_profile(localStorage.getItem("username"))
-  }
+}*/
   editBio(event){
     event.preventDefault();
     var headline = document.getElementById('edit_headline').value;
     var content = document.getElementById('edit_content').value;
     var id = localStorage.getItem("id");
     var that = this ;
-    var url = `/api/users/edit/${id}/${headline}/${content}` ;
+    var url = `/api/users/update/${id}/${headline}/${content}` ;
     fetch(url,{method: 'post'})
     .then(res => res.json())
     .then(function(json){
       if (json.message === "bio updated"){
-        that.props.actions.set_profile({
-          name: that.props.orientation.profile.name,
-          bio: json.data.bio
-        })
+        that.props.actions.set_profile(localStorage.getItem("username"))
       }
       else{
         alert("something went wrong. I bet it was your fault")

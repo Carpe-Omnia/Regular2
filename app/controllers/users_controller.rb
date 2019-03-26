@@ -55,7 +55,7 @@ class UsersController < ApplicationController
       }, status: :ok
     end
   end
-  def edit
+  def update
     user = User.find_by(id: params["id"])
     bio = user.bio
     if bio.update(headline: params["headline"], content: params["content"])
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
           bio: bio
         }
       }, status: :ok
-    end 
+    end
   end
 
 end

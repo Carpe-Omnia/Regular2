@@ -10,7 +10,6 @@ class NewJoke extends React.Component {
     var id = localStorage.getItem("id") ;
     //var postData = {setup: setup, punchline: punchline, username: username, id: id } ;
     var link = `/api/jokes/create/${setup}/${punchline}/${id}` ;
-    var that = this ;
     console.log(link)
     if (!!setup && !!punchline){
       console.log('working');
