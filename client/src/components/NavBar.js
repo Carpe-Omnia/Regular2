@@ -18,6 +18,12 @@ const NavBar = () => {
   return ( //stuff that the user sees no matter what
     <div className="navbar" >
         <span >
+          <NavLink className="navlink" to="/places" exact id="navlink0" style={link} activeStyle={activelink} >
+            Places<Hotkey text="0" click={true} />
+          </NavLink>
+        </span>
+
+        <span >
           <NavLink className="navlink" to="/" exact id="navlink1" style={link} activeStyle={activelink} >
             Home<Hotkey text="1" click={true} />
           </NavLink>

@@ -13,6 +13,7 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import HotkeyToggle from './components/HotkeyToggle'
 import HomeContainer from './components/home/HomeContainer'
+import Places from './components/places/Places'
 
 class App extends Component {
   /*
@@ -55,6 +56,10 @@ class App extends Component {
             <Route
               exact path="/logout"
               render={(props) => <Logout {...props} actions={this.props.actions} orientation={this.props.orientation} z="2" />}
+            />
+            <Route
+              exact path="/places"
+              render={(props) => <Places {...props} actions={this.props.actions} orientation={this.props.orientation} z="3" />}
             />
           </React.Fragment >
         </Router >

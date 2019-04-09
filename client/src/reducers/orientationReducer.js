@@ -1,5 +1,5 @@
 function orientationReducer(state={
-  orientation: [[0,0],[0,0],[0,0]],
+  orientation: [[0,0],[0,0],[0,0],[0,0]],
   all_jokes: [],
   my_jokes: [],
   datapackage: [],
