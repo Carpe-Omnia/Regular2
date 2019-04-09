@@ -1,11 +1,14 @@
 {
   "name": "NoMouse",
-  "engines": {
-    "node": "6.3.1"
+  "version": "1.0.1",
+  "directories": {
+    "lib": "lib"
   },
   "scripts": {
-    "build": "cd regular2 && npm install && npm run build && cd ..",
-    "deploy": "cp -a regular2/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'regular2 built!'"
-  }
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'client built!'"
+  },
+  "author": "Tomaz Rodrigues",
+  "liscense": "MIT"
 }
