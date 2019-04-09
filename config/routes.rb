@@ -17,4 +17,10 @@ Rails.application.routes.draw do
   post '/api/messages/create/:subject/:content/:user_id/:to_id/:conversation_id', to: 'messages#create'
   post '/api/messages/new/:subject/:content/:user_id/:recipient_name', to: 'messages#new'
 
+
+  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
+
+  
 end

@@ -110,3 +110,25 @@ export function set_testing(){
       })
   }
 }
+
+export function get_places(){
+    var secret = 'B1WRD5T3HV10AFZMFFP4LVZ5UV4JY0OAWJMVS5W000AR1RO3'
+    var id = 'OCCZ4YBNA05XSNJ2FCMDKAM5R0DLAUZJX2AMWGZWPDMUT0U2'
+    var query = "coffee"
+    var near = "princeton"
+    return (dispatch) => {
+    fetch(`https://api.foursquare.com/v2/venues/search?client_id=${id}&client_secret=${secret}&v=20160201&m=foursquare&near=${near}&query=${query}`)
+    .then(res => res.json())
+    .then(function(json){
+
+      dispatch({
+        type: 'SET_LOCATIONS',
+        payload: {
+          locations: json.response.venues
+        }
+      });
+      console.log(json.response.venues)
+      //document.getElementById('testing').innerHTML += (`${locations[0]}`)
+    })
+  }
+}
