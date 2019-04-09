@@ -6,7 +6,9 @@ class Jokes extends React.Component {
   constructor(props){
     super(props);
     this.props.actions.set_all_jokes();
-    this.props.actions.set_my_jokes(localStorage.getItem("id"));
+    if (!!localStorage.getItem("username")){
+      this.props.actions.set_my_jokes(localStorage.getItem("id"));
+    }
   }
 
   render() {
