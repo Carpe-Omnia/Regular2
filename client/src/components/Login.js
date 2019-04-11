@@ -1,6 +1,10 @@
 import React from 'react';
 import Hotkey from './Hotkey'
+import GoogleLogin from 'react-google-login';
 
+const responseGoogle = (response) => {
+  console.log(response) ;
+}
 class Login extends React.Component {
   doThing(event){
     event.preventDefault()
@@ -40,6 +44,13 @@ class Login extends React.Component {
           </form>
         </div>
         }
+        <GoogleLogin
+          clientId="901764343985-ve2ood2o9ihqmosuio9gv5fnn45rpuri.apps.googleusercontent.com"
+          buttonText="Login with Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+        />
       </div>
 
     )
