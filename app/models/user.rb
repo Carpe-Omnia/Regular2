@@ -8,5 +8,6 @@ class User < ApplicationRecord
 	has_one :bio, :foreign_key => 'user_id'
 	has_one :inbox, :foreign_key => 'user_id'
 
-	validates :name, uniqueness: true 
+	#validates :name, uniqueness: true
+	validates :email, uniqueness: true
 end

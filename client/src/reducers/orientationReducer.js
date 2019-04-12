@@ -8,7 +8,8 @@ function orientationReducer(state={
     bio: {headline: "", content: ""}
   },
   testing: "",
-  locations: []
+  locations: [],
+  user: {}
 }, action){
   var newOr = state.orientation ;
   switch(action.type) {
@@ -20,12 +21,10 @@ function orientationReducer(state={
       if (action.payload.direction === "Left"){
         pos[0] > -1 ? newOr[z] =  [ pos[0] - 1, pos[1] ]  : newOr = state.orientation ;
         return Object.assign({}, state, {orientation: newOr})
-        //return {orientation: newOr} ;
       }
       if (action.payload.direction === "Right") {
         pos[0] < 1 ? newOr[z] =   [pos[0] + 1, pos[1] ] : newOr = state.orientation ;
         return Object.assign({}, state, {orientation: newOr})
-        //return {orientation: newOr} ;
       }
       else {
         return state
@@ -42,12 +41,13 @@ function orientationReducer(state={
       return Object.assign({}, state, {testing: action.payload.testing})
     case 'SET_LOCATIONS':
       return Object.assign({}, state, {locations: action.payload.locations})
+    case 'SET_USER':
+      return Object.assign({}, state, {user: action.payload.user})
     case 'ADD_JOKE':
       return Object.assign({}, state, {
         all_jokes: [action.payload.joke, ...state.all_jokes],
         my_jokes: [action.payload.joke, ...state.my_jokes],
-      }
-      )
+      })
     default:
       return state
   }

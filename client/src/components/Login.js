@@ -1,18 +1,21 @@
 import React from 'react';
 import Hotkey from './Hotkey'
-import GoogleLogin from 'react-google-login';
+import GoogleLogin from 'react-google-login' ;
+import FacebookLogin from 'react-facebook-login' ;
+//import InstagramLogin from 'react-instagram-login' ;
 
-const responseGoogle = (response) => {
-  console.log(response) ;
-}
+/*const responseInstagram = (response) => {
+  console.log("instagram response");
+  console.log(response);
+}*/
 class Login extends React.Component {
   doThing(event){
     event.preventDefault()
-    var uname = document.getElementById('username').value
+    var email = document.getElementById('email').value
     var pword = document.getElementById('password').value
-    var postData = {username: uname, password: pword }
-    var link = `/api/users/login/${uname}/${pword}` ;
-    if ( !!uname && !!pword) {
+    var postData = {email: email, password: pword }
+    var link = `/api/users/login/${email}/${pword}` ;
+    if ( !!email && !!pword) {
       fetch(link, {
         method: 'post',
         body: JSON.stringify(postData),
@@ -21,7 +24,8 @@ class Login extends React.Component {
           if (json.message === "logged in"){
             alert("nice job logging in")
             console.log(json.data)
-            localStorage.setItem("username", uname);
+            localStorage.setItem("username", json.data.name);
+            localStorage.setItem("email", email);
             localStorage.setItem("id", json.data.id);
           }
           else{
@@ -38,7 +42,7 @@ class Login extends React.Component {
         <div>
           <h1> Login to this site </h1>
           <form onSubmit={event => this.doThing(event)}>
-            username<Hotkey text="b" /> <input type="text" id="username" /><br></br>
+            email<Hotkey text="b" /> <input type="text" id="email" /><br></br>
             password<Hotkey text="c" /><input type="text" id="password" /><br></br>
             <button id="log_in_button" type="submit" action="submit">Join<Hotkey text="d" /></button>
           </form>
@@ -47,10 +51,25 @@ class Login extends React.Component {
         <GoogleLogin
           clientId="901764343985-ve2ood2o9ihqmosuio9gv5fnn45rpuri.apps.googleusercontent.com"
           buttonText="Login with Google"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
+          onSuccess={this.props.actions.googleAuth}
+          onFailure={this.props.actions.googleAuthFail}
           cookiePolicy={'single_host_origin'}
         />
+        <br/>
+        <FacebookLogin
+          appId="2251217524945266"
+          autoLoad={false}
+          fields="name,email,picture"
+          callback={this.props.actions.facebookAuth} />
+        {/*
+        <br/>
+        <InstagramLogin
+          clientId="b2b0b30d4ef14fd5ac862e59aa2a26e9"
+          buttonText="Login"
+          onSuccess={responseInstagram}
+          onFailure={responseInstagram}
+        />
+      */}
       </div>
 
     )
