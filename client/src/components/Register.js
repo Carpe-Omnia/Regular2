@@ -63,11 +63,13 @@ class Register extends React.Component {
           cookiePolicy={'single_host_origin'}
         />
         <br/>
+        {/*
         <FacebookLogin
           appId="2251217524945266"
           autoLoad={false}
           fields="name,email,picture"
           callback={this.props.actions.facebookAuth} />
+          */}
       </div>
       }
       </div>

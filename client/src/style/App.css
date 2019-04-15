@@ -150,7 +150,20 @@ html {
     width: 85% ;
     height: 300px ;
   }
-
+  .navlink {
+    font-size: small;
+    width: 50px !important;
+    padding: 6px !important ;
+    margin: 0px 3px 3px !important ;
+  }
+}
+@media screen and (max-width: 350px){
+  .navlink {
+    font-size: small;
+    width: 50px !important;
+    padding: 3px !important ;
+    margin: 0px 2px 2px !important ;
+  }
 }
 .content_moving_Right {
   position: relative ;

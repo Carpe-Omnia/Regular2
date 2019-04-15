@@ -192,6 +192,7 @@ export const googleAuth = (response) => {
             }
           }
         })
+        document.getElementById('navlink1').click()
       }
       else {
         alert("something went terribly wrong. Try again, or don't. See what I care")

@@ -6,6 +6,7 @@ class Logout extends React.Component {
     event.preventDefault() ;
     localStorage.setItem("username", "");
     localStorage.setItem("id", "");
+    document.getElementById('navlink1').click() ;
   }
   render(){
     return (

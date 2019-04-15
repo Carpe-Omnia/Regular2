@@ -29,7 +29,7 @@ class Login extends React.Component {
             localStorage.setItem("id", json.data.id);
           }
           else{
-            alert("something went terribly wrong. Try again, or don't. See what I care")
+            alert("Something went terribly wrong. Please try again.")
           }
         })
     }
@@ -56,12 +56,13 @@ class Login extends React.Component {
           cookiePolicy={'single_host_origin'}
         />
         <br/>
+        {/*
         <FacebookLogin
           appId="2251217524945266"
           autoLoad={false}
           fields="name,email,picture"
           callback={this.props.actions.facebookAuth} />
-        {/*
+
         <br/>
         <InstagramLogin
           clientId="b2b0b30d4ef14fd5ac862e59aa2a26e9"
