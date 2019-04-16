@@ -9,13 +9,8 @@ import Button from '@material-ui/core/Button/Button';
 import Typography from '@material-ui/core/Typography/Typography' ;
 
 const styles = {
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%',
-  },
+  card: {maxWidth: 345,},
+  media: {height: 0,paddingTop: '56.25%',},
 };
 
 function InfoWindow(props) {
@@ -32,10 +27,10 @@ function InfoWindow(props) {
             />
             <CardContent>
               <Typography gutterBottom variant="headline" component="h2">
-                Monseau House
+                {props.topText}
               </Typography>
               <Typography component="p">
-                Alex is a punk
+                {props.tagline}
               </Typography>
             </CardContent>
             <CardActions>

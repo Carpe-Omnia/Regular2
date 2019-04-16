@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import Map from './Map'
 import InfoWindow from './InfoWindow'
 
+var actualMap ;
+
 class Places extends React.Component {
   constructor(props){
     super(props);
@@ -13,7 +15,7 @@ class Places extends React.Component {
       position: {lat: e.latLng.lat(), lng: e.latLng.lng() }
     })
     infoWindow.addListener('domready', e => {
-      render(<InfoWindow />, document.getElementById('infoWindow'))
+      render(<InfoWindow topText="Monseau House" tagline="Alex is a punk" />, document.getElementById('infoWindow'))
     })
     infoWindow.open(map) ;
   }
@@ -26,7 +28,11 @@ class Places extends React.Component {
         <div>
         <Map
           id="map"
-          options={{center: {lat: 40.356821, lng: -74.657421 }, zoom: 16}}
+          options={{
+            center: {lat: 40.356821, lng: -74.657421 },
+            zoom: 16,
+            gestureHandling: 'cooperative'
+          }}
           onMapLoad={map => {
             var marker = new window.google.maps.Marker({
               position: {lat: 40.356821, lng: -74.657421 },
@@ -36,6 +42,7 @@ class Places extends React.Component {
             marker.addListener('click', e => {
               this.createInfoWindow(e, map)
             })
+            actualMap = map ;
           }}
         />
         </div>
@@ -45,3 +52,4 @@ class Places extends React.Component {
 }
 
 export default Places
+export {actualMap}

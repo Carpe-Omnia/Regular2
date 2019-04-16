@@ -1,3 +1,8 @@
+import React from 'react'
+import {actualMap} from '../components/places/Places' ;
+import InfoWindow from '../components/places/InfoWindow' ;
+import { render } from 'react-dom';
+
 export function move(direction, z){
   return (
     {
@@ -112,23 +117,47 @@ export function set_testing(){
 }
 
 export function get_places(){
+  return (dispatch) => {
+    var start = 'https://api.foursquare.com/v2/venues/search?'
     var secret = 'B1WRD5T3HV10AFZMFFP4LVZ5UV4JY0OAWJMVS5W000AR1RO3'
     var id = 'OCCZ4YBNA05XSNJ2FCMDKAM5R0DLAUZJX2AMWGZWPDMUT0U2'
-    var query = "coffee"
-    var near = "princeton"
-    return (dispatch) => {
-    fetch(`https://api.foursquare.com/v2/venues/search?client_id=${id}&client_secret=${secret}&v=20160201&m=foursquare&near=${near}&query=${query}`)
+    var query = document.getElementById('places_query').value ;
+    var near =  document.getElementById('places_near').value ;
+    //var ver = '20160201'
+    var ver = '20180323'
+    var limit = 5
+    fetch(`${start}client_id=${id}&client_secret=${secret}&v=${ver}&m=foursquare&limit=${limit}&near=${near}&query=${query}`)
     .then(res => res.json())
     .then(function(json){
-
       dispatch({
         type: 'SET_LOCATIONS',
-        payload: {
-          locations: json.response.venues
-        }
+        payload: {locations: json.response.venues}
       });
       console.log(json.response.venues)
-      //document.getElementById('testing').innerHTML += (`${locations[0]}`)
+      json.response.venues.forEach(function(location, index, array){
+        var marker = new window.google.maps.Marker({
+          position: {lat: location.location.lat , lng: location.location.lng },
+          map: actualMap,
+          title: location.name,
+          animation: window.google.maps.Animation.DROP
+        })
+        marker.addListener('click', e => {
+          var infoWindow = new window.google.maps.InfoWindow({
+            content: '<div id="infoWindow" />',
+            position: {lat: e.latLng.lat(), lng: e.latLng.lng() }
+          })
+          infoWindow.addListener('domready', e => {
+            render(<InfoWindow
+              topText={location.name}
+              tagline={location.location.formattedAddress[0]}
+              icon_prefix={location.categories[0].icon.prefix}
+              icon_suffix={location.categories[0].icon.suffix}
+            />,
+            document.getElementById('infoWindow'))
+          })
+          infoWindow.open(actualMap) ;
+        })
+      })
     })
   }
 }

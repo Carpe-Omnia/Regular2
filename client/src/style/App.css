@@ -133,8 +133,18 @@
   width: 40% ;
   margin: auto ;
 }
-html {
-	background-image: url("./vertical3.jpg") ;
+@media screen and (min-width: 750px){
+  html {
+  	background-image: url("./vertical3.jpg") ;
+  }
+}
+@media screen and (max-width: 750px){
+  html {
+    background-image: url("./vertical3small.jpg") ;
+  }
+}
+#map {
+  margin: 0 auto
 }
 @media screen and (max-width: 1100px){
   #featured_content_today {
@@ -144,6 +154,7 @@ html {
   .conversation {
     width: 70%
   }
+
 }
 @media screen and (max-width: 450px){
   #featured_content_today {
@@ -156,6 +167,11 @@ html {
     padding: 6px !important ;
     margin: 0px 3px 3px !important ;
   }
+  #map {
+    width: 350px !important;
+    height: 350px !important;
+  }
+
 }
 @media screen and (max-width: 350px){
   .navlink {
@@ -163,6 +179,10 @@ html {
     width: 50px !important;
     padding: 3px !important ;
     margin: 0px 2px 2px !important ;
+  }
+  #map {
+    width: 300px !important;
+    height: 300px !important;
   }
 }
 .content_moving_Right {
