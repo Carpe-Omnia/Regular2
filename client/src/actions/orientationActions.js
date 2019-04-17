@@ -135,27 +135,31 @@ export function get_places(){
       });
       console.log(json.response.venues)
       json.response.venues.forEach(function(location, index, array){
+
         var marker = new window.google.maps.Marker({
           position: {lat: location.location.lat , lng: location.location.lng },
           map: actualMap,
           title: location.name,
           animation: window.google.maps.Animation.DROP
         })
+        if (index === 0){
+          actualMap.setCenter(marker.getPosition());
+        }
         marker.addListener('click', e => {
           var infoWindow = new window.google.maps.InfoWindow({
             content: '<div id="infoWindow" />',
-            position: {lat: e.latLng.lat(), lng: e.latLng.lng() }
+            position: {lat: e.latLng.lat(), lng: e.latLng.lng()}
           })
           infoWindow.addListener('domready', e => {
             render(<InfoWindow
               topText={location.name}
               tagline={location.location.formattedAddress[0]}
-              icon_prefix={location.categories[0].icon.prefix}
-              icon_suffix={location.categories[0].icon.suffix}
+              foursquare_id={location.id}
             />,
             document.getElementById('infoWindow'))
           })
           infoWindow.open(actualMap) ;
+
         })
       })
     })
