@@ -17,16 +17,6 @@ const styles = {
 };
 
 const InfoWindow = (props) => {
-  var title = " "
-  function learn_more(){
-    console.log("title");
-    console.log(title.replace(/ /g,"_"));
-    //fetch(`https://en.wikipedia.org/wiki/${title.replace(/ /g,"_")}`)
-    //.then(res => res.json())
-    //.then(function(json){
-    //  console.log(json)
-    //})
-  }
   const theme = createMuiTheme({
     palette: {
       primary: blue,
@@ -44,10 +34,14 @@ const InfoWindow = (props) => {
   fetch(url)
   .then(res => res.json())
   .then(function(json){
-    snippet = json.query.search[0].snippet;
-    console.log(json.query.search[0]);
-    title = json.query.search[0].title;
-    document.getElementById(`snippet_${props.foursquare_id}`).innerHTML = snippet
+    if (!!json.query.search[0]){
+      snippet = json.query.search[0].snippet ;
+      console.log(json.query.search[0]) ;
+      let title = json.query.search[0].title ;
+      let learn_link = `https://en.wikipedia.org/wiki/${title.replace(/ /g,"_")}` ;
+      document.getElementById(`learn_more_button_${props.foursquare_id}`).innerHTML = `<a target="_blank" href="${learn_link}">Learn More</a>` ;
+      document.getElementById(`snippet_${props.foursquare_id}`).innerHTML = snippet ;
+    }
   })
     return (
       <div>
@@ -73,8 +67,8 @@ const InfoWindow = (props) => {
               <Button size="small" color="secondary">
                 Share
               </Button>
-              <Button size="small" color="secondary" >
-                <span onClick={learn_more}>Learn More</span>
+              <Button size="small" color="secondary" id={`learn_more_button_${props.foursquare_id}`}>
+                Learn More
               </Button>
             </CardActions>
           </Card>

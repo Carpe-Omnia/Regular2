@@ -1,6 +1,5 @@
 import React from 'react'
-import Map from './Map'
-import Button from '@material-ui/core/Button/Button';
+
 
 const GetPlaces = (props) => {
   function near_me(event){

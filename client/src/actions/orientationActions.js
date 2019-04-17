@@ -3,6 +3,14 @@ import {actualMap} from '../components/places/Places' ;
 import InfoWindow from '../components/places/InfoWindow' ;
 import { render } from 'react-dom';
 
+var get_count = 1 ;
+var iconBase = "http://maps.google.com/mapfiles/kml/paddle/"
+var iconArray = [
+  "ltblue-circle.png", "red-circle.png",  "blu-circle.png",
+  "grn-circle.png", "ylw-circle.png", "orange-circle.png",
+  "purple-circle.png", "pink-circle.png", "wht-circle.png",
+] ;
+
 export function move(direction, z){
   return (
     {
@@ -134,12 +142,14 @@ export function get_places(){
         payload: {locations: json.response.venues}
       });
       console.log(json.response.venues)
+      let icon = iconBase + iconArray[get_count % 8] ;
+      get_count += 1;
       json.response.venues.forEach(function(location, index, array){
-
         var marker = new window.google.maps.Marker({
           position: {lat: location.location.lat , lng: location.location.lng },
           map: actualMap,
           title: location.name,
+          icon: icon,
           animation: window.google.maps.Animation.DROP
         })
         if (index === 0){
@@ -178,7 +188,7 @@ export const facebookAuth = (response) => {
     .then(res => res.json())
     .then(function(json){
       console.log(json);
-      if (json.message == "logged in"){
+      if (json.message === "logged in"){
         localStorage.setItem("username", json.data.name);
         localStorage.setItem("email", json.data.email);
         localStorage.setItem("id", json.data.id);
@@ -211,7 +221,7 @@ export const googleAuth = (response) => {
     .then(res => res.json())
     .then(function(json){
       console.log(json);
-      if (json.message == "logged in"){
+      if (json.message === "logged in"){
         localStorage.setItem("username", json.data.name);
         localStorage.setItem("email", json.data.email);
         localStorage.setItem("id", json.data.id);
