@@ -6,7 +6,7 @@ class Map extends Component {
     this.onScriptLoad = this.onScriptLoad.bind(this);
   }
   onScriptLoad(){
-    console.log("on script load is running now") ;
+    //console.log("on script load is running now") ;
     const map = new window.google.maps.Map(document.getElementById(this.props.id), this.props.options)
     this.props.onMapLoad(map) ;
   }
@@ -19,8 +19,8 @@ class Map extends Component {
       x.parentNode.insertBefore(s, x);
       document.body.appendChild(s);
       s.addEventListener('load', e => {
-       this.onScriptLoad()
-     })
+       this.onScriptLoad();
+      })
     } else {
       this.onScriptLoad()
     }
@@ -28,7 +28,9 @@ class Map extends Component {
 
   render() {
     return (
-      <div style={{ width: 500, height: 500 }} id={"map"} />
+      <div>
+        <div style={{ width: 500, height: 500 }} id={"map"} />
+      </div>
     );
   }
 

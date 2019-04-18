@@ -15,7 +15,7 @@ class Places extends React.Component {
       position: {lat: e.latLng.lat(), lng: e.latLng.lng() }
     })
     infoWindow.addListener('domready', e => {
-      render(<InfoWindow foursquare_id="zz2" topText="Central Park Zoo" tagline="Alex is a punk" />, document.getElementById('infoWindow'))
+      render(<InfoWindow foursquare_id="zz2" topText="Central Park Zoo" tagline="Testing Node" />, document.getElementById('infoWindow'))
     })
     infoWindow.open(map) ;
   }
@@ -30,19 +30,24 @@ class Places extends React.Component {
           id="map"
           options={{
             center: {lat: 40.356821, lng: -74.657421 },
-            zoom: 16,
+            zoom: 14,
           /*gestureHandling: 'cooperative'*/
           }}
           onMapLoad={map => {
             var marker = new window.google.maps.Marker({
               position: {lat: 40.356821, lng: -74.657421 },
               map: map,
-              title: 'Monseau House'
+              title: 'Testing Node'
             })
             marker.addListener('click', e => {
               this.createInfoWindow(e, map)
             })
             actualMap = map ;
+            window.google.maps.event.addListener(map, "click", function(event){
+              var latitude = event.latLng.lat();
+              var longitude = event.latLng.lng();
+              console.log(`{ lat: ${latitude}, lng: ${longitude} },`);
+            })
           }}
         />
         </div>

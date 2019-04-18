@@ -176,6 +176,8 @@ export function get_places(){
   }
 }
 
+
+
 export const facebookAuth = (response) => {
   console.log(response) ;
   var email = response.email ;
