@@ -34,8 +34,8 @@
 }
 .App-body {
   color: white ;
-  position: relative ;
   top: 20vh ;
+  position: relative ;
   /*z-index: -1 ;*/
 }
 .App-link {
@@ -259,4 +259,25 @@
 .card-media {
   width: 100% ;
   height: 10vh ;
+}
+#jokes_index_wrapper {
+}
+#jokes_index_container {
+  background-color: #282c34 ;
+  width: 75% ;
+  margin: 0 auto ;
+}
+#jokes_index_header {
+  top: 0px ;
+  border-bottom: 1px solid #6b7d8c ;
+}
+.joke {
+  border-bottom: 1px solid #6b7d8c ;
+}
+.joke_text {
+  margin: 0px 2vh ;
+}
+#holds_joke_stuff {
+  width: 100% ;
+  top: 0vh ;
 }

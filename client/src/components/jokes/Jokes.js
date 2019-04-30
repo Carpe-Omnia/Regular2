@@ -15,7 +15,7 @@ class Jokes extends React.Component {
     var orientation = this.props.orientation.orientation[1] ;
     var Parent = jokesHash[`${orientation}`] ;
     return (
-    <div>
+    <div id="holds_joke_stuff">
       < Parent
       actions={this.props.actions}
       z={this.props.z}

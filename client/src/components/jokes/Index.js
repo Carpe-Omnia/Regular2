@@ -4,7 +4,7 @@ import Joke from './Joke';
 
 const Index = (props) =>  {
   return (
-    <div>
+    <div id="jokes_index_wrapper">
     {!! localStorage.getItem('username') ?
     <span>
     <NavArrow direction="Left" actions={props.actions} z={props.z} text="submit a joke" />
@@ -13,16 +13,21 @@ const Index = (props) =>  {
     :
     <p>Log in to write jokes or view your own </p>
     }
-      <div className="main_page_content" >
-        <h2> Read Jokes </h2>
-        <h4> Tap/click on jokes to reveal the punchline <span className="non_mobile">(The spacebar also works)</span></h4>
-
-        <div id="joke_zone">
-            {props.jokes.map(function(joke){
-              return (
-                <Joke joke={joke} key={joke.id} />
-              )
-            })}
+      <div  >
+        <div className="main_page_content" >
+          <div id="jokes_index_container" >
+            <div id="jokes_index_header" >
+              <h2> Read Jokes </h2>
+              <h4> Tap/click on jokes to reveal the punchline <span className="non_mobile">(The spacebar also works)</span></h4>
+            </div>
+            <div id="joke_zone">
+                {props.jokes.map(function(joke){
+                  return (
+                    <Joke joke={joke} key={joke.id} />
+                  )
+                })}
+            </div>
+          </div>
         </div>
       </div>
     </div>
