@@ -22,9 +22,6 @@ class Places extends React.Component {
   render(){
     return (
       <div id="places">
-        <h3>
-          This is places
-        </h3>
         <div>
         <Map
           id="map"

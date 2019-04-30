@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import logo from './style/logo.svg';
 import './style/App.css';
+import './style/Places.css';
+import './style/Nav.css';
 import {  BrowserRouter as Router, Route} from 'react-router-dom';
 
 import * as actions from './actions/orientationActions'

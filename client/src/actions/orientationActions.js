@@ -172,6 +172,7 @@ export function get_places(){
 
         })
       })
+    document.getElementById("activate_snackbar").click();
     })
   }
 }

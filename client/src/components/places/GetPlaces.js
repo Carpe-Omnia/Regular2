@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const GetPlaces = (props) => {
   function near_me(event){
     event.preventDefault();
@@ -15,15 +14,20 @@ const GetPlaces = (props) => {
   }
   return(
     <div>
-      This is Places:
+      <br/>
       <form>
-        Looking for:<input type="text" id="places_query" /><br/>
-        Near: <input type="text" id="places_near" />
-        <button onClick={event => near_me(event)}>
-          Near me
-        </button>
+        <label>Looking for:
+          <input type="text" id="places_query" />
+        </label>
         <br/>
+        <label>Near:
+          <input type="text" id="places_near" />
+        </label>
+        <button onClick={event => near_me(event)}>
+          me
+        </button>
       </form>
+
       <button onClick={props.actions.get_places} >
         Get Places
       </button>
