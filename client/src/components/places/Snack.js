@@ -4,6 +4,9 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 
 class SimpleSnackbar extends React.Component {
+  constructor(props){
+    super(props);
+  }
   state = {
     open: false,
   };
@@ -36,7 +39,7 @@ class SimpleSnackbar extends React.Component {
           ContentProps={{
             'aria-describedby': 'message-id',
           }}
-          message={<span id="message-id">Places added</span>}
+          message={<span id="message-id">{this.props.message}</span>}
           action={[
             <IconButton
               key="close"

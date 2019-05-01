@@ -141,6 +141,10 @@ export function get_places(){
         type: 'SET_LOCATIONS',
         payload: {locations: json.response.venues}
       });
+      dispatch({
+        type: 'SET_SNACKBAR_MESSAGE',
+        payload: {snackbar_message: "places added"}
+      });
       console.log(json.response.venues)
       let icon = iconBase + iconArray[get_count % 8] ;
       get_count += 1;

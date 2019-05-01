@@ -16,6 +16,7 @@ import Logout from './components/Logout'
 import HotkeyToggle from './components/HotkeyToggle'
 import HomeContainer from './components/home/HomeContainer'
 import PlacesContainer from './components/places/PlacesContainer'
+import SimpleSnackbar from './components/places/Snack.js' ;
 
 class App extends Component {
   /*
@@ -65,6 +66,7 @@ class App extends Component {
             />
           </React.Fragment >
         </Router >
+        <SimpleSnackbar message={this.props.orientation.snackbar_message} />
         </div>
       </div>
     );
