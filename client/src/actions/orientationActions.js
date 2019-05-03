@@ -1,7 +1,9 @@
 import React from 'react'
-import {actualMap} from '../components/places/Places' ;
+import {actualMap, actualGeo} from '../components/places/Places' ;
 import InfoWindow from '../components/places/InfoWindow' ;
 import { render } from 'react-dom';
+
+
 
 var get_count = 1 ;
 var iconBase = "http://maps.google.com/mapfiles/kml/paddle/"

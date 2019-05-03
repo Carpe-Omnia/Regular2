@@ -13,13 +13,24 @@ const Home = (props) => {
       <p> log in to see messages and profile </p>
     }
       <div className="main_page_content">
-        <h1>Home</h1> {/* This is where I put whatever I want to be on the front page that day */}
-        <h4>Today's featured content <span className="non_mobile"> (f)</span></h4>
-        <iframe title="featured" width="600" height="450" src="https://www.youtube.com/embed/oYmqJl4MoNI"
-        frameBorder="0" allow="accelerometer; encrypted-media; gyroscope;  picture-in-picture"
-        allowFullScreen id="featured_content_today"><Hotkey click={true} text="f"/></iframe>
-      </div>
-    </div>
+        {/* This is where I put whatever I want to be on the front page that day */}
+        <div id="home_featured_div">
+          <h4>Today's Featured Application</h4>
+          <iframe
+            id="featured_content_today"
+            title="featured" width="600" height="450" src="https://www.youtube.com/embed/LG_L3r7iXL0"
+            frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowFullScreen>
+          </iframe>
+          <div id="featured_content_text">
+            <p>
+              Team Quinn is a little side-project I've been working on that for use in tracking lawn-signs for a political campaign.
+              The web-app features a React front end with Redux-thunk middleware, a Rails/PostgreSQL back end, and integration with
+              the Google Maps/Places API.
+            </p>
+          </div> {/*end featured content text*/}
+        </div> {/*end home_featured div*/}
+      </div> {/*end main_page_content*/}
+    </div> /*end parentElement*/
   )
 }
 

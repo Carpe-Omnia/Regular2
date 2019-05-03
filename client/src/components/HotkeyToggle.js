@@ -1,28 +1,31 @@
 import React from 'react';
-import getCSSRule from '../utility/getCSSRule';
+import {toggle_on, toggle_off} from '../style/icons' ;
+var hotkey_helpers_on = true ;
 
 class HotkeyToggle extends React.Component {
   doThing(event){
     event.preventDefault();
-    var non_mobile = getCSSRule('.non_mobile');
-    var anti_mobile = getCSSRule('.anti_mobile');
-    if (non_mobile.style.display === 'none'){
-      non_mobile.style.display = 'inline' ;
-      anti_mobile.style.display = 'none' ;
+    if(hotkey_helpers_on){
+      document.documentElement.style.setProperty('--non_mobile-display', 'none') ;
+      document.documentElement.style.setProperty('--anti_mobile-display', 'inline') ;
+      hotkey_helpers_on = false ;
     }
-    else {
-      non_mobile.style.display = 'none' ;
-      anti_mobile.style.display = 'inline' ;
+    else{
+      document.documentElement.style.setProperty('--non_mobile-display', 'inline') ;
+      document.documentElement.style.setProperty('--anti_mobile-display', 'none') ;
+      hotkey_helpers_on = true ;
     }
   }
   render() {
     return (
       <form>
-        <span className="non_mobile1" >
-          <button id="hotkey_toggle" onClick={event => this.doThing(event)} >
-          <span className="non_mobile">Disable hotkey helpers (h)</span>
-          <span className="anti_mobile">Enable hotkey helpers (h)</span>
-          </button>
+        <span className="non_mobile1" onClick={event => this.doThing(event)}>
+          <span className="non_mobile">
+            Disable hotkey helpers
+          </span>
+          <span className="anti_mobile">
+            Enable hotkey helpers
+          </span>
         </span>
       </form>
     )

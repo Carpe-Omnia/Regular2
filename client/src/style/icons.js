@@ -1,0 +1,5 @@
+export const toggle_off = '<i className="material-icons" >toggle_off</i>'
+export const toggle_on = '<i className="material-icons" >toggle_on</i>'
+export const dark_mode = '<i className="material-icons" >brightness_3</i>'
+export const light_mode = '<i className="material-icons" >brightness_5</i>'
+export const medium_mode = '<i className="material-icons" >brightness_6</i>' 

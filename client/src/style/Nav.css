@@ -1,19 +1,4 @@
-@media screen and (max-width: 350px){
-  .navlink {
-    font-size: small;
-    width: 50px !important;
-    padding: 3px !important ;
-    margin: 0px 2px 2px !important ;
-  }
-}
-@media screen and (max-width: 450px){
-  .navlink {
-    font-size: small;
-    width: 50px !important;
-    padding: 6px !important ;
-    margin: 0px 3px 3px !important ;
-  }
-}
+
 .arrow_Left_text {
   font-size: calc(2px + 2vmin);
   position: fixed ;
@@ -46,7 +31,7 @@
   font-size: calc(5px + 4vmin);
   /*display: inline-block; */
   position: fixed ;
-  color: white ;
+  color: var(--main-text-color) ;
   top: 15vh ;
   z-index: 2 !important ;
 }
@@ -115,9 +100,76 @@
 .navbar {
   position: fixed ;
   top: 2vmin ;
-  right: 5vmin ;
+  left: 8vmin ;
   z-index: 4 ;
+
 }
 .navlink {
   z-index: 4 !important ;
-} 
+  color: var(--main-text-color) ;
+  width: 100px ;
+  padding: 12px ;
+  margin: 0 6px 6px ;
+  font-size: 2vmin ;
+  text-decoration: none ;
+}
+
+
+
+.navlink_icon {
+  position: relative ;
+  top: 0.8vmin ;
+  padding-right: 0.25vmin ;
+  color: var(--main-text-color) ;
+}
+
+.navlink.active {
+  color: var(--main-accent-color) !important;
+  border-bottom: 2px solid var(--main-accent-color) ;
+}
+.navlink.active .navlink_icon {
+  color: var(--main-accent-color) !important;
+}
+@media screen and (max-width: 1000px){
+  .navlink {
+    font-size: small;
+    width: 75px !important;
+    padding: 6px !important ;
+    margin: 0px 3px 3px !important ;
+  }
+}
+@media screen and (max-width: 450px){
+  .navlink {
+    font-size: small;
+    width: 50px !important;
+    padding: 4px !important ;
+    margin: 0px 3px 3px !important ;
+  }
+  .material-icons {
+    font-size: 18px ;
+  }
+}
+@media screen and (max-width: 350px){
+  .navlink {
+    font-size: small;
+    width: 50px !important;
+    padding: 3px !important ;
+    margin: 0px 2px 2px !important ;
+  }
+}
+.hotkeys_off {
+  display: var(--hotkeys_off-display)
+}
+.hotkeys_on {
+  display: var(--hotkeys_on-display)
+}
+.darkmode_off {
+  display: var(--darkmode_off-display) ;
+}
+.darkmode_on {
+  display: var(--darkmode_on-display) ;
+}
+
+.expand_menu_button {
+  color: var(--main-text-color)
+}

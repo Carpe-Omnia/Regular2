@@ -2,6 +2,7 @@ import configureStore from '../store/configureStore'
 import {home} from '../actions/orientationActions'
 import {clickHash, hotkeyHash} from './keybinding.js'
 //import {navHash} from './keybinding.js'
+import {hotkeys_on} from '../components/ToggleHotkeys' ;
 
 const store = configureStore();
 store.dispatch(home());
@@ -9,12 +10,17 @@ store.dispatch(home());
 function setup() {
   document.addEventListener('keydown', function(e){
     var act = document.activeElement;
-    if (act.tagName !== "INPUT" && act.tagName !== "TEXTAREA"){
-      handleKey(e, act);
-      console.log()
+    if(hotkeys_on){
+      if (act.tagName !== "INPUT" && act.tagName !== "TEXTAREA"){
+        handleKey(e, act);
+        console.log()
+      }
+      else if (e.key === ";"){
+        act.blur();
+      }
     }
-    else if (e.key === ";"){
-      act.blur();
+    else{
+      console.log('hotkey swallowed')
     }
   })
 }

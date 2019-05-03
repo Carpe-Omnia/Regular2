@@ -32,9 +32,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h4>Welcome {(localStorage.getItem("username"))}</h4>
+          {/*
           <HotkeyToggle />
           <span className="non_mobile" >press ';' to access hotkeys from within an input </span>
+          */}
         </header>
         <div className="App-body">
         <Router>
