@@ -25,11 +25,12 @@ class Register extends React.Component {
 
       }).then(res => res.json())
         .then(function(json){
-          if (json.data === "user created") {
+          if (json.message === "user created") {
             alert('Nice job creating your account. You have been signed in. ');
             localStorage.setItem("username", uname);
             localStorage.setItem("email", email);
             localStorage.setItem("id", json.data.id);
+            document.getElementById('navlink1').click() ;
           }
           else {
             alert('Something went wrong. Remember to enter a username, email, AND a password')

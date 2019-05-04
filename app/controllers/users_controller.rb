@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       bio = Bio.create(user_id: user.id, headline: "new user", content: "this user hasn't created a bio yet")
       inbox = Inbox.create(user_id: user.id, user_name: user.name)
       render json: {status: 'success',
-      message: "loaded",
+      message: "user created",
       data: {name: user.name, id: user.id, email: user.email}
       }, status: :ok
     else
