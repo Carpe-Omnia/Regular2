@@ -72,9 +72,9 @@ class Messages extends React.Component {
           )
         })}
         <span id="new_message_form_elements" >
-          <form id="new_message_form" onSubmit={event => this.handleNewMessage(event)}>
-            to: <Hotkey text="x" /><input type="text" id="new_recipient" /><br></br>
-            message: <Hotkey text="y" /><input type="text" id='new_content' /><br></br>
+          <form style={{display: "none"}} id="new_message_form" onSubmit={event => this.handleNewMessage(event)}>
+            <label>to: <Hotkey text="x" /></label><input type="text" id="new_recipient" /><br></br>
+            <label>message: <Hotkey text="y" /></label><textarea type="text" id='new_content' /><br></br>
             <button type="submit" action="submit" >send<Hotkey text="z" click={true} /> </button>
           </form>
           <br></br>

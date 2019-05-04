@@ -132,12 +132,14 @@ html, body {
   display: none
 }
 #new_message_form {
-    display: none
+    display: none ;
 }
 #edit_bio_form {
   display: none
 }
-
+#new_message_form {
+  width: 80% ;
+}
 
 .card-media {
   width: 100% ;

@@ -16,7 +16,7 @@ class ToggleHotkeys extends React.Component {
   }
   render(){
     return(
-      <form>
+      <div>
         <span className="non_mobile1" onClick={event => this.doThing(event)}>
           <span className="hotkeys_on">
             Disable hotkeys
@@ -25,7 +25,7 @@ class ToggleHotkeys extends React.Component {
             Enable hotkeys
           </span>
         </span>
-      </form>
+      </div>
     )
   }
 }

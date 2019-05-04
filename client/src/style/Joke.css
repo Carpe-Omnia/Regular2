@@ -41,3 +41,28 @@
 .punchline {
   display: none
 }
+form {
+  width: 60% ;
+  margin: 0 auto ;
+}
+label, input {
+  display: inline-block
+}
+label {
+  width: 30%;
+  text-align: right;
+}
+label + input {
+  width: 30% ;
+  margin: 0 30% 0 4% ;
+}
+input + input {
+  float: right;
+}
+label + textarea {
+  width: 30% ;
+  margin: 0 30% 0 4% ;
+}
+input + textarea {
+  float: right;
+}
