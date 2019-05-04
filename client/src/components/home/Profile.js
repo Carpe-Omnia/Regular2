@@ -3,10 +3,10 @@ import NavArrow from '../NavArrow'
 import Hotkey from '../Hotkey'
 
 class Profile extends React.Component {
-  /*constructor(props){
+  constructor(props){
     super(props);
-  //  this.props.actions.set_profile(localStorage.getItem("username"))
-}*/
+    this.props.actions.set_profile(localStorage.getItem("username"))
+  }
   editBio(event){
     event.preventDefault();
     var headline = document.getElementById('edit_headline').value;
@@ -46,7 +46,6 @@ class Profile extends React.Component {
     var profile = this.props.orientation.profile ;
     return(
       <div id="parent-top-right" className="parentElement"  >
-        <NavArrow direction="Left" actions={this.props.actions} z={this.props.z} text="Home"/>
         <div className="main_page_content" >
           <h3>{profile.name}</h3>
           <p id="display_headline" value={profile.bio.headline} > {profile.bio.headline} </p>

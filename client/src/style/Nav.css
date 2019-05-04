@@ -122,6 +122,12 @@
 .navlink.active .navlink_icon {
   color: var(--main-accent-color) !important;
 }
+.navlink_expand {
+  color: var(--main-text-color) ;
+}
+.navlink_expand.active {
+  color: var(--main-accent-color) ;
+}
 @media screen and (max-width: 1000px){
   .navlink {
     font-size: small;

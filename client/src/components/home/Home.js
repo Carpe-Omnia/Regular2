@@ -7,7 +7,6 @@ const Home = (props) => {
     {!!localStorage.getItem('username') ?
       <div>
         <NavArrow direction="Left" actions={props.actions} z={props.z} text="Messages"/>
-        <NavArrow direction="Right" actions={props.actions} z={props.z} text="Profile"/>
       </div>
       :
       <span></span>

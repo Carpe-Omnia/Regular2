@@ -105,12 +105,16 @@ class NavBar extends React.Component {
              </span>
            </MenuItem>
            <MenuItem>
+            <NavLink className="navlink_expand" to="/profile" id="navlink5">
+              <span>
                <span className="navlink_icon_expand">
                  <i className="material-icons ">account_box</i>
                </span>
                <span className="navlink_text_expand">
-                Profile (soon)
+                Profile (beta)
                </span>
+              </span>
+            </NavLink>
            </MenuItem>
            <MenuItem>
              <span className="" id="navlink3" onClick={() => logout()}>
