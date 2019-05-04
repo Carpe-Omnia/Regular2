@@ -1,49 +1,41 @@
 
 .arrow_Left_text {
-  font-size: calc(2px + 2vmin);
+  font-size: calc(2px + 1.5vmin);
   position: fixed ;
-  top: 16vh ;
   z-index: 2 !important ;
-  left: 7vh ;
 }
 .arrow_Right_text {
-  font-size: calc(2px + 2vmin);
+  font-size: calc(2px + 1.5vmin);
   position: fixed ;
-  top: 16vh ;
   z-index: 2 !important ;
-  right: 7vh ;
 }
 .arrow_holder_Left {
   display: inline-block;
   position: fixed;
-  left: 15px;
   z-index: 2 !important ;
-  width: 15vh ;
+  left: 1.5vmin ;
+  color: var(--main-accent-color)
 }
 .arrow_holder_Right {
   display: inline-block;
   position: fixed;
-  right: 15px;
   z-index: 2 !important ;
-  width: 15vh ;
+  right: 12vmin ;
+  color: var(--main-accent-color)
 }
 .arrow {
-  font-size: calc(5px + 4vmin);
+  font-size: calc(5px + 3vmin);
   /*display: inline-block; */
   position: fixed ;
-  color: var(--main-text-color) ;
-  top: 15vh ;
   z-index: 2 !important ;
 }
  .Left {
   position: fixed;
-  left: 20px;
   z-index: 2 !important ;
 
 }
 .Right {
   position: fixed;
-  right: 20px;
   z-index: 2 !important ;
 }
 

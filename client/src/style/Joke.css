@@ -1,0 +1,43 @@
+.joke_user_name {
+  position: relative ;
+  left: 10% ;
+}
+.comment_on_joke {
+  position: relative ;
+  right: 10% ;
+}
+#jokes_index_container, #my_jokes_container {
+  background-color: var(--main-page-color);
+  width: 75% ;
+  margin: 0 auto ;
+}
+#jokes_index_header, #my_jokes_header {
+  top: 0px ;
+  background-color: var(--main-theme-color) ;
+  border-bottom: 1px solid var(--secondary-theme-color) ;
+  /*
+  border-left: 1px solid var(--main-accent-color) ;
+  border-right: 1px solid var(--main-accent-color) ;
+  */
+}
+.joke {
+  background-color: var(--main-theme-color) ;
+  border-bottom: 1px solid var(--secondary-theme-color) ;
+  /*
+  border-left: 1px solid var(--main-accent-color) ;
+  border-right: 1px solid var(--main-accent-color) ;
+  */
+  color: var(--main-text-color) ;
+  margin-top: 0.25vmin ;
+  margin-bottom: 0.25vmin ;
+}
+.joke_text {
+  margin: 0px 2vh ;
+}
+#holds_joke_stuff {
+  width: 100% ;
+  top: 0vh ;
+}
+.punchline {
+  display: none
+}

@@ -8,20 +8,24 @@ class NewJoke extends React.Component {
     var setup = document.getElementById('setup_input').value ;
     var punchline = document.getElementById('punchline_input').value ;
     var id = localStorage.getItem("id") ;
-    //var postData = {setup: setup, punchline: punchline, username: username, id: id } ;
-    var link = `/api/jokes/create/${setup}/${punchline}/${id}` ;
+    var username = localStorage.getItem('username') ;
+    var postData = {setup: setup, punchline: punchline, username: username, id: id } ;
+    var link = `/api/jokes/create` ;
     console.log(link)
     if (!!setup && !!punchline){
       console.log('working');
+      var that = this ;
       fetch(link, {
-        method: 'post'
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers:{'Content-Type': 'application/json'}
       })
       .then(res => res.json())
       .then(function(json){
         console.log(json);
         if(json.message === "joke created"){
           alert("nice job making that joke")
-          this.props.actions.add_joke(json.data["joke"]);
+          that.props.actions.add_joke(json.data["joke"]);
         }
         else{
           alert("something went terribly wrong")

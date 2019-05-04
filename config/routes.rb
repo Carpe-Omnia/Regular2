@@ -9,14 +9,15 @@ Rails.application.routes.draw do
   constraints(email: /[^\/]+/) do
     post '/api/users/auth/facebook/:name/:email', to: 'users#facebookAuth'
     post '/api/users/auth/google/:name/:email', to: 'users#facebookAuth'
-  end 
+  end
 
 
   get '/api/jokes/index', to: 'jokes#index'
   get '/api/jokes/myjokes/:id', to: 'jokes#myjokes'
-  post '/api/jokes/create/:setup/:punchline/:id', to: 'jokes#create'
+  post '/api/jokes/create', to: 'jokes#create'
   get '/api/jokes/testing', to: 'jokes#testing' #remember to take this out later.
   #Or don't and continue using it to test stuff.
+  post '/api/jokes/upvote/:id/:user_id', to: 'jokes#upvote' 
 
   get '/api/messages/index/:id', to: 'messages#index'
   post '/api/messages/create/:subject/:content/:user_id/:to_id/:conversation_id', to: 'messages#create'

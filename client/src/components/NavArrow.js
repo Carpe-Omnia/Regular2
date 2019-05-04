@@ -17,9 +17,9 @@ const NavArrow = (props) => {
     return (
         <div className={holdername} id={holdername} >
           <div className={name} id={`${name}`} onClick={doClick}>
-            {"<"}
             <div className={`${textname}`} id={`${textname}`}>
-              {props.text}
+               {props.text} <br/>
+               <i className="material-icons nav_arrow">chevron_left</i>
             </div>
           </div>
         </div>
@@ -30,9 +30,9 @@ const NavArrow = (props) => {
       <div className={holdername} id={holdername} >
         <div className={name} id={`${name}`} onClick={doClick}>
           <div className={`${textname}`} id={`${textname}`}>
-            {props.text}
+            {props.text} <br/>
+            <i className="material-icons nav_arrow">chevron_right</i>
           </div>
-          {">"}
         </div>
       </div>
     )

@@ -28,7 +28,7 @@ class JokesController < ApplicationController
     punchline = params["punchline"]
     id = params["id"]
     username = User.find_by(id: id).name
-    joke = Joke.new(setup: setup, punchline: punchline, author_id: id, user_name: username, karma: 0 )
+    joke = Joke.new(setup: setup, punchline: punchline, author_id: id, user_name: username, karma: 0, comment_count: 0 )
     if joke.save
       render json: {
         status: "success",
@@ -42,5 +42,17 @@ class JokesController < ApplicationController
         data: nil
       }, status: :ok
     end
+  end
+  def upvote
+    user = User.find_by(id: params[:user_id])
+    #add in a method referencing some sort of join table that tracks which jokes a user has voted on
+    joke = Joke.find_by(id: params[:id])
+    karma = joke.karma
+    joke.update(karma: karma + 1)
+    render json: {
+      status: "success",
+      message: "joke voted on",
+      data: nil
+    }, status: :ok
   end
 end

@@ -7,14 +7,18 @@ const MyJokes = (props) => {
     <div>
       <NavArrow direction="Left" actions={props.actions} z={props.z} text="Read Jokes" />
       <div className="main_page_content">
-        <h1>
-          my jokes
-        </h1>
-        {props.my_jokes.map (function(joke){
-          return (
-            <Joke joke={joke} key={joke.id} />
-          )
-        })}
+        <div id="my_jokes_container">
+          <div id="my_jokes_header" >
+            <h2>
+              My Jokes
+            </h2>
+          </div>
+          {props.my_jokes.map (function(joke){
+            return (
+              <Joke joke={joke} key={joke.id} />
+            )
+          })}
+        </div>
       </div>
     </div>
   )

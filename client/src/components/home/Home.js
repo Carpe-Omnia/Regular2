@@ -29,6 +29,18 @@ const Home = (props) => {
             </p>
           </div> {/*end featured content text*/}
         </div> {/*end home_featured div*/}
+        <div id="about_tomaz">
+          <h4>About Tomaz</h4>
+          <div id="about_tomaz_text">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
       </div> {/*end main_page_content*/}
     </div> /*end parentElement*/
   )
