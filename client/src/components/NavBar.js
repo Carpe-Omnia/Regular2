@@ -3,11 +3,12 @@ import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import logout from './Logout' ;
 import Hotkey from './Hotkey'
 import HotkeyToggle from './HotkeyToggle'
 import ToggleHotkeys from './ToggleHotkeys'
 import ToggleDarkMode from './ToggleDarkMode'
+import detectMobile from '../utility/detectMobile'
 
 class NavBar extends React.Component {
   state = {
@@ -64,7 +65,7 @@ class NavBar extends React.Component {
          open={Boolean(anchorEl)}
          onClose={this.handleClose}
          >
-         {!localStorage.getItem("username") ?
+         {!localStorage.getItem("username") ? //not logged in stuff
          <span>
           <MenuItem>
             <NavLink className="navlink_expand" to="/register" id="navlink3">
@@ -72,7 +73,6 @@ class NavBar extends React.Component {
                 <i className="material-icons">account_box</i>
               </span>
               <span className="navlink_text_expand"> Register </span>
-              <Hotkey text="3" click={true} />
             </NavLink>
           </MenuItem>
            <span >
@@ -82,21 +82,20 @@ class NavBar extends React.Component {
                  <i className="material-icons">account_circle</i>
                </span>
                <span className="navlink_text_expand"> Login </span>
-               <Hotkey text="4" click={true} />
              </NavLink>
             </MenuItem>
            </span>
          </span>
-         :
+         : //logged in stuff
          <MenuItem>
-           <NavLink className="navlink_expand" to="/logout" id="navlink3">
+           <span className="" id="navlink3" onClick={() => logout()}>
              <span className="navlink_icon_expand">
                <i className="material-icons ">account_circle</i>
              </span>
              <span className="navlink_text_expand">
               Logout
              </span>
-           </NavLink>
+            </span>
          </MenuItem>
           }
           <MenuItem>
@@ -108,31 +107,37 @@ class NavBar extends React.Component {
             </span>
             <ToggleDarkMode />
           </MenuItem>
-          <MenuItem>
-            <span className="navlink_icon_expand" id="toggle_hotkeys_icon">
-              {<i className="material-icons hotkeys_on">toggle_on</i>}
-            </span>
-            <span className="navlink_icon_expand" id="toggle_hotkeys_icon">
-              <i className="material-icons hotkeys_off">toggle_off</i>
-            </span>
-            <ToggleHotkeys />
-          </MenuItem>
-          <MenuItem>
-            <span className="navlink_icon_expand">
-              <i className="material-icons non_mobile" >toggle_on</i>
-            </span>
-            <span className="navlink_icon_expand">
-              <i className="material-icons anti_mobile" >toggle_off</i>
-            </span>
-            <span className="navlink_text_expand" id="toggle_hotkey_helpers_text">
-             <HotkeyToggle />
-            </span>
-          </MenuItem>
+          {!detectMobile() ? //desktop only stuff
+            <span>
+              <MenuItem>
+              <span className="navlink_icon_expand" id="toggle_hotkeys_icon">
+                {<i className="material-icons hotkeys_on">toggle_on</i>}
+              </span>
+              <span className="navlink_icon_expand" id="toggle_hotkeys_icon">
+                <i className="material-icons hotkeys_off">toggle_off</i>
+              </span>
+              <ToggleHotkeys />
+            </MenuItem>
+            <MenuItem>
+              <span className="navlink_icon_expand">
+                <i className="material-icons non_mobile" >toggle_on</i>
+              </span>
+              <span className="navlink_icon_expand">
+                <i className="material-icons anti_mobile" >toggle_off</i>
+              </span>
+              <span className="navlink_text_expand" id="toggle_hotkey_helpers_text">
+               <HotkeyToggle />
+              </span>
+            </MenuItem>
+          </span>
+          :
+          <span></span> //mobile only stuff
+        }
        </Menu>
 
       </div>
     )
   }
 };
-//note to self. Wrap these nav elements around some dope looking shit like the index bars from a while ago.
+
 export default NavBar;

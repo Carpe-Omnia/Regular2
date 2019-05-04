@@ -10,7 +10,7 @@ const Home = (props) => {
         <NavArrow direction="Right" actions={props.actions} z={props.z} text="Profile"/>
       </div>
       :
-      <p> log in to see messages and profile </p>
+      <span></span>
     }
       <div className="main_page_content">
         {/* This is where I put whatever I want to be on the front page that day */}
@@ -23,7 +23,7 @@ const Home = (props) => {
           </iframe>
           <div id="featured_content_text">
             <p>
-              Team Quinn is a little side-project I've been working on that for use in tracking lawn-signs for a political campaign.
+              Team Quinn is a little side-project I've been working on to track lawn-signs for a political campaign.
               The web-app features a React front end with Redux-thunk middleware, a Rails/PostgreSQL back end, and integration with
               the Google Maps/Places API.
             </p>

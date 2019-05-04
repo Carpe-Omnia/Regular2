@@ -12,7 +12,6 @@ import NavBar from './components/NavBar';
 import Jokes from './components/jokes/Jokes';
 import Register from './components/Register'
 import Login from './components/Login'
-import Logout from './components/Logout'
 import HotkeyToggle from './components/HotkeyToggle'
 import HomeContainer from './components/home/HomeContainer'
 import PlacesContainer from './components/places/PlacesContainer'
@@ -56,10 +55,6 @@ class App extends Component {
             <Route
               exact path="/login"
               render={(props) => <Login {...props} actions={this.props.actions} orientation={this.props.orientation} z="2" />}
-            />
-            <Route
-              exact path="/logout"
-              render={(props) => <Logout {...props} actions={this.props.actions} orientation={this.props.orientation} z="2" />}
             />
             <Route
               exact path="/places"
