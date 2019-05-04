@@ -97,15 +97,17 @@ class NavBar extends React.Component {
          : //logged in stuff
          <span>
            <MenuItem>
+            <NavLink className="navlink_expand" to="/messages" id="navlink5">
              <span className="navlink_icon_expand">
                <i className="material-icons ">mail_outline</i>
              </span>
              <span className="navlink_text_expand">
-              Messages (soon)
+              Messages (beta)
              </span>
+            </NavLink>
            </MenuItem>
            <MenuItem>
-            <NavLink className="navlink_expand" to="/profile" id="navlink5">
+            <NavLink className="navlink_expand" to="/profile" id="navlink6">
               <span>
                <span className="navlink_icon_expand">
                  <i className="material-icons ">account_box</i>

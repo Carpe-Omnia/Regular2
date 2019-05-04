@@ -6,7 +6,6 @@ const Home = (props) => {
     <div id="parent-top-center" className="parentElement">
     {!!localStorage.getItem('username') ?
       <div>
-        <NavArrow direction="Left" actions={props.actions} z={props.z} text="Messages"/>
       </div>
       :
       <span></span>

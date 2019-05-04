@@ -16,6 +16,7 @@ import Login from './components/Login'
 import HotkeyToggle from './components/HotkeyToggle'
 import HomeContainer from './components/home/HomeContainer'
 import Profile from './components/home/Profile'
+import Messages from './components/home/Messages'
 import PlacesContainer from './components/places/PlacesContainer'
 import SimpleSnackbar from './components/places/Snack.js' ;
 
@@ -65,7 +66,11 @@ class App extends Component {
             <Route
               exact path="/profile"
               render={(props) => <Profile {...props} actions={this.props.actions} orientation={this.props.orientation} z="3" />}
-            />  
+            />
+            <Route
+              exact path="/messages"
+              render={(props) => <Messages {...props} actions={this.props.actions} orientation={this.props.orientation} z="3" />}
+            />
           </React.Fragment >
         </Router >
         <SimpleSnackbar message={this.props.orientation.snackbar_message} />

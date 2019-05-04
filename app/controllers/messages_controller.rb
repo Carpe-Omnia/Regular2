@@ -38,7 +38,8 @@ class MessagesController < ApplicationController
       from_id: user.id,
       conversation_id: conversation.id,
       to_id: params["to_id"], user_name: user.name,
-      subject: params["subject"], content: params["content"]
+      subject: params["subject"], content: params["content"],
+      user_name: user.name
     )
     if mess.save
       render json: {

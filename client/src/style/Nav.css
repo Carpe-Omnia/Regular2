@@ -123,7 +123,11 @@
   color: var(--main-accent-color) !important;
 }
 .navlink_expand {
-  color: var(--main-text-color) ;
+  color: rgb(20, 23, 26) ;
+  /*
+  always black because the backdrop is always white
+  color: var(--main-text-color)
+  */
 }
 .navlink_expand.active {
   color: var(--main-accent-color) ;
