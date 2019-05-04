@@ -22,8 +22,7 @@ class NavBar extends React.Component {
   };
   render(){
     const { anchorEl } = this.state;
-    return ( //stuff that the user sees no matter what
-
+    return (
       <div className="navbar" >
         <span >
           <NavLink className="navlink" to="/places" exact id="navlink0" >
@@ -65,6 +64,15 @@ class NavBar extends React.Component {
          open={Boolean(anchorEl)}
          onClose={this.handleClose}
          >
+         <MenuItem>
+           <span className="navlink_icon_expand">
+             <i className="material-icons darkmode_off" >brightness_3</i>
+           </span>
+           <span className="navlink_icon_expand">
+             <i className="material-icons darkmode_on" >brightness_5</i>
+           </span>
+           <ToggleDarkMode />
+         </MenuItem>
          {!localStorage.getItem("username") ? //not logged in stuff
          <span>
           <MenuItem>
@@ -87,26 +95,35 @@ class NavBar extends React.Component {
            </span>
          </span>
          : //logged in stuff
-         <MenuItem>
-           <span className="" id="navlink3" onClick={() => logout()}>
+         <span>
+           <MenuItem>
              <span className="navlink_icon_expand">
-               <i className="material-icons ">account_circle</i>
+               <i className="material-icons ">mail_outline</i>
              </span>
              <span className="navlink_text_expand">
-              Logout
+              Messages (soon)
              </span>
-            </span>
-         </MenuItem>
+           </MenuItem>
+           <MenuItem>
+               <span className="navlink_icon_expand">
+                 <i className="material-icons ">account_box</i>
+               </span>
+               <span className="navlink_text_expand">
+                Profile (soon)
+               </span>
+           </MenuItem>
+           <MenuItem>
+             <span className="" id="navlink3" onClick={() => logout()}>
+               <span className="navlink_icon_expand">
+                 <i className="material-icons ">exit_to_app</i>
+               </span>
+               <span className="navlink_text_expand">
+                Logout
+               </span>
+              </span>
+           </MenuItem>
+          </span>
           }
-          <MenuItem>
-            <span className="navlink_icon_expand">
-              <i className="material-icons darkmode_off" >brightness_3</i>
-            </span>
-            <span className="navlink_icon_expand">
-              <i className="material-icons darkmode_on" >brightness_5</i>
-            </span>
-            <ToggleDarkMode />
-          </MenuItem>
           {!detectMobile() ? //desktop only stuff
             <span>
               <MenuItem>
