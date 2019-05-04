@@ -15,19 +15,14 @@ const GetPlaces = (props) => {
   return(
     <div>
       <br/>
-      <form>
-        <label>Looking for:
-          <input type="text" id="places_query" />
-        </label>
+      <form id="places_form">
+        <label>Looking for:</label>
+        <input type="text" id="places_query" />
         <br/>
-        <label>Near:
-          <input type="text" id="places_near" />
-        </label>
-        <button onClick={event => near_me(event)}>
-          me
-        </button>
+        <label>Near:</label>
+        <input type="text" id="places_near" />
       </form>
-
+      <button onClick={event => near_me(event)}>me</button>
       <button onClick={props.actions.get_places} >
         Get Places
       </button>
