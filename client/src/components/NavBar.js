@@ -156,6 +156,16 @@ class NavBar extends React.Component {
           :
           <span></span> //mobile only stuff
         }
+          <MenuItem>
+            <NavLink className="navlink_expand" to="/color" id="navlink6">
+              <span className="navlink_icon_expand">
+                <i className="material-icons">color_lens</i>
+              </span>
+              <span className="navlink_text_expand">
+                Color
+              </span>
+            </NavLink>
+          </MenuItem>
        </Menu>
 
       </div>

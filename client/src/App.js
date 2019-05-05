@@ -6,6 +6,7 @@ import './style/App.css';
 import './style/Places.css';
 import './style/Nav.css';
 import './style/Joke.css' ;
+import './style/Color.css' ;
 import {  BrowserRouter as Router, Route} from 'react-router-dom';
 
 import * as actions from './actions/orientationActions'
@@ -19,7 +20,7 @@ import Profile from './components/home/Profile'
 import Messages from './components/home/Messages'
 import PlacesContainer from './components/places/PlacesContainer'
 import SimpleSnackbar from './components/places/Snack.js' ;
-
+import Colors from './components/color/ColorIndex' ;
 class App extends Component {
   /*
   constructor(props){
@@ -70,6 +71,10 @@ class App extends Component {
             <Route
               exact path="/messages"
               render={(props) => <Messages {...props} actions={this.props.actions} orientation={this.props.orientation} z="3" />}
+            />
+            <Route
+              exact path="/color"
+              render={(props) => <Colors {...props} actions={this.props.actions} orientation={this.props.orientation} z="3" />}
             />
           </React.Fragment >
         </Router >
