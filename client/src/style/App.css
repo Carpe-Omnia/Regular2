@@ -1,7 +1,10 @@
 html {
   --main-theme-color: rgb(245, 248, 250) ; /*off-white*/
   --secondary-theme-color: rgb(230, 236, 240) ; /*grey*/
+  --secondary-theme-color: rgb(196, 203, 213)  ;/*slightly darker grey*/
   --main-text-color: rgb(20, 23, 26); /*black*/
+  --main-text-color: rgb(34, 37, 39) ; /*slightly lighter black*/
+  /* I overwrote two theme variables here so I can go back and change them */
   --main-accent-color: rgb(29, 161, 242) ; /*Twitter Blue */
   --non_mobile-display: inline ;
   --non_mobile1-display: inline ;

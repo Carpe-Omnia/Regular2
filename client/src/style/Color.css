@@ -1,18 +1,104 @@
 .color_span {
-  width: 22vh ;
-  height: 22vh ;
+  overflow: hidden ;
+  width: 40% ;
+  height: 40vw ;
   display: inline-block ;
-  margin: 2vh ;
+  margin: 2vmin ;
 }
-.contrast_1 {
+
+.contrast {
   position: relative ;
-  right: 3px ;
+  top: 2vw ;
+  font-size: 3.5vw ;
+  height: 2vw ;
+}
+.black_bar, .white_bar {
+  height: 2vw ;
+  position: relative ;
+  right: 10vw ;
+  width: 200% ;
+  top: 13vw ;
+}
+.black_bar {
+  background-color: var(--main-text-color) ;
+  transform: rotate(-30deg);
+}
+.white_bar {
+  background-color: var(--main-theme-color) ;
+  transform: rotate(20deg);
+}
+.contrast_1, .contrast_3 {
+  width: 13vw ;
+}
+.contrast_3, .contrast_4{
+  top: 4vw ;
+}
+.contrast_2, .contrast_4 {
+  left: 0.5vw ;
+
 }
 .contrast_2 {
-  position: relative ;
-  left: 3px ;
+  /*border: 1px solid var(--main-text-color) ; */
+}
+.contrast_4 {
+  /*border: 1px solid var(--main-theme-color) ; */
 }
 .rgb_text {
   position: relative ;
-  bottom: 2vh ;
+  bottom: 1vw ;
+}
+@media screen and (min-width: 700px){
+  .color_span {
+    width: 25% ;
+    height: 25vw ;
+    display: inline-block ;
+    margin: 2vmin ;
+  }
+  .color_name {
+    font-size: 3vw !important ;
+  }
+  .rgb_text {
+    font-size: 2.5vw ;
+  }
+  .contrast {
+    font-size: 2.5vw ;
+  }
+  .black_bar, .white_bar {
+    height: 2vw ;
+    top: 8vw ;
+    right: 7vw ;
+  }
+  .black_bar {
+  }
+  .white_bar {
+  }
+}
+@media screen and (min-width: 1200px){
+  .color_span {
+    width: 20% ;
+    height: 20vw ;
+    display: inline-block ;
+    margin: 2vmin ;
+  }
+  .color_name {
+    font-size: 3vw !important ;
+  }
+  .rgb_text {
+    font-size: 2.0vw ;
+  }
+  .contrast {
+    font-size: 2.0vw ;
+  }
+  .contrast_3, .contrast_4 {
+    top: 3vw ;
+  }
+  .black_bar, .white_bar {
+    height: 2vw ;
+    top: 6.5vw ;
+    right: 5vw ;
+  }
+  .black_bar {
+  }
+  .white_bar {
+  }
 }
