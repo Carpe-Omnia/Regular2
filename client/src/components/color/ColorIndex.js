@@ -60,7 +60,6 @@ class ColorIndex extends React.Component {
   render(){
     return(
       <div>
-        <button onClick={this.uploadColors}>Click me once</button>
         {this.props.orientation.colors.map(function(color){
           return(
               <ColorCard key={color.text} text={color.text} rgb={color.rgb} />
