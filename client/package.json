@@ -5,10 +5,13 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "classnames": "^2.2.6",
     "http-proxy-middleware": "^0.19.1",
     "jquery": "^3.1.1",
     "material-ui": "^0.20.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-card-flip": "^0.7.1",
     "react-dom": "^16.8.4",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.0.4",

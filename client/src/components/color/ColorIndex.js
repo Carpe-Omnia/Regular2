@@ -1,11 +1,12 @@
 import React from 'react' ;
-import Color from './Color' ;
+import ColorCard from './Color' ;
+
 function makeColor(text, rgbstring){
   return(
     {text: text, rgb: `rgb(${rgbstring})`}
   )
 }
-const colors = [
+export const colors = [
   {text: 'Twitter Blue', rgb:"rgb(29, 161, 242)"},
   {text: 'Twitch Purple', rgb: "rgb(100, 65, 164)"},
   {text: 'Living Coral', rgb: "rgb(255, 111, 97)" },
@@ -35,11 +36,13 @@ const colors = [
 class ColorIndex extends React.Component {
   render(){
     return(
-      colors.map(function(color){
-        return(
-          <Color key={color.text} text={color.text} rgb={color.rgb} />
-        )
-      })
+      <div>
+        {colors.map(function(color){
+          return(
+              <ColorCard key={color.text} text={color.text} rgb={color.rgb} />
+          )
+        })}
+      </div>
     )
   }
 }

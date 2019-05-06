@@ -1,11 +1,14 @@
 .color_span {
   overflow: hidden ;
-  width: 40% ;
+  width: 40vw ;
   height: 40vw ;
   display: inline-block ;
   margin: 2vmin ;
 }
-
+.color_name {
+  top: 1vw ;
+  position: relative ;
+}
 .contrast {
   position: relative ;
   top: 2vw ;
@@ -45,13 +48,30 @@
 }
 .rgb_text {
   position: relative ;
+  /*
   bottom: 1vw ;
+  */
 }
-@media screen and (min-width: 700px){
+.flip_card_icon, .add_card_icon {
+  color: var(--main-theme-color) ;
+  text-shadow:
+ -1px -1px 0 var(--main-text-color),
+  1px -1px 0 var(--main-text-color),
+  -1px 1px 0 var(--main-text-color),
+   1px 1px 0 var(--main-text-color);
+}
+.card_menu {
+  position: absolute ;
+  right: 1vw ;
+  top: 1vw ;
+}
+.react-card-flip, .react-card-front, .react-card-back {
+  display: inline-block ;
+}
+@media screen and (min-width: 600px){
   .color_span {
-    width: 25% ;
+    width: 25vw ;
     height: 25vw ;
-    display: inline-block ;
     margin: 2vmin ;
   }
   .color_name {
@@ -75,9 +95,8 @@
 }
 @media screen and (min-width: 1200px){
   .color_span {
-    width: 20% ;
+    width: 20vw ;
     height: 20vw ;
-    display: inline-block ;
     margin: 2vmin ;
   }
   .color_name {
@@ -100,5 +119,9 @@
   .black_bar {
   }
   .white_bar {
+  }
+  .card_menu {
+    top: 0.8vw ;
+    right: 0.8vw ;
   }
 }

@@ -1,11 +1,28 @@
 import React from 'react';
+import ReactCardFlip from 'react-card-flip';
+import CardMenu from './CardMenu' ;
 
-class Color extends React.Component {
+class ColorCard extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isFlipped: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick = (event) => {
+    event.preventDefault();
+    this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+  }
   render(){
     var rgb_text = this.props.rgb.replace("rgb","")
     return(
-      <div style={{backgroundColor: this.props.rgb}} className="color_span">
-        <h4 className="color_name" style={{color: 'white'}}>
+      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal" infinite={true} style={{display: 'inline'}}>
+      <div style={{backgroundColor: this.props.rgb}} className="color_span" key="front" >
+        <span className="icon_at_top">
+
+        </span>
+        <h4 className="color_name" style={{color: 'white'}} >
           {this.props.text}
         </h4>
         <span className="rgb_text" style={{color: 'white'}}>{rgb_text}</span>
@@ -28,9 +45,21 @@ class Color extends React.Component {
         </span>
         <div className="black_bar"></div>
         <div className="white_bar"></div>
+        <div className="card_action_dashboard">
+          <span className="flip_card_icon">
+            <i className="material-icons" onClick={event => this.handleClick(event)}>flip_to_back</i>
+          </span>
+          <span className="card_menu">
+            {/*<i className="material-icons">add</i>*/}
+            <CardMenu />
+          </span>
+        </div>
       </div>
+      <div style={{backgroundColor: this.props.rgb}} className="color_span" key="back" onClick={event => this.handleClick(event)}>
+      </div>
+      </ReactCardFlip>
     )
   }
 }
 
-export default Color ;
+export default ColorCard ;
