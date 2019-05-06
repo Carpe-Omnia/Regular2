@@ -13,14 +13,14 @@
   display: inline-block;
   position: fixed;
   z-index: 2 !important ;
-  left: 1.5vmin ;
+  left: 1vw ;
   color: var(--main-accent-color)
 }
 .arrow_holder_Right {
   display: inline-block;
   position: fixed;
   z-index: 2 !important ;
-  right: 12vmin ;
+  right: 5vw ;
   color: var(--main-accent-color)
 }
 .arrow {
@@ -132,12 +132,15 @@
 .navlink_expand.active {
   color: var(--main-accent-color) ;
 }
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1200px){
   .navlink {
     font-size: small;
     width: 75px !important;
     padding: 6px !important ;
     margin: 0px 3px 3px !important ;
+  }
+  .arrow_holder_Right {
+    right: 10vw ;
   }
 }
 @media screen and (max-width: 450px){
@@ -149,6 +152,9 @@
   }
   .material-icons {
     font-size: 18px ;
+  }
+  .arrow_holder_Right {
+    right: 10vw ;
   }
 }
 @media screen and (max-width: 350px){

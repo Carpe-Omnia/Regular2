@@ -1,6 +1,6 @@
 import React from 'react' ;
 import ColorCard from './Color' ;
-
+import NavArrow from '../NavArrow' ;
 function makeColor(text, rgbstring){
   return(
     {text: text, rgb: `rgb(${rgbstring})`}
@@ -60,11 +60,15 @@ class ColorIndex extends React.Component {
   render(){
     return(
       <div>
-        {this.props.orientation.colors.map(function(color){
-          return(
-              <ColorCard key={color.name} text={color.name} rgb={color.rgb} />
-          )
-        })}
+        <NavArrow direction="Left" actions={this.props.actions} z={this.props.z} text="new colors" />
+        <NavArrow direction="Right" actions={this.props.actions} z={this.props.z} text="my colors" />
+          <div className="main_page_content">
+            {this.props.orientation.colors.map(function(color){
+              return(
+                  <ColorCard key={color.name} text={color.name} rgb={color.rgb} />
+              )
+            })}
+          </div>
       </div>
     )
   }

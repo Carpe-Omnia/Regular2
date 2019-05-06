@@ -20,7 +20,7 @@ import Profile from './components/home/Profile'
 import Messages from './components/home/Messages'
 import PlacesContainer from './components/places/PlacesContainer'
 import SimpleSnackbar from './components/places/Snack.js' ;
-import Colors from './components/color/ColorIndex' ;
+import Colors from './components/color/Colors' ;
 class App extends Component {
   /*
   constructor(props){
@@ -74,7 +74,7 @@ class App extends Component {
             />
             <Route
               exact path="/color"
-              render={(props) => <Colors {...props} actions={this.props.actions} orientation={this.props.orientation} z="3" />}
+              render={(props) => <Colors {...props} actions={this.props.actions} orientation={this.props.orientation} z="0" />}
             />
           </React.Fragment >
         </Router >

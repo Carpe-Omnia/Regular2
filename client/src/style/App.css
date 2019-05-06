@@ -54,7 +54,7 @@ html, body {
   color: var(--main-text-color);
   border-top: 0.25vh solid var(--secondary-theme-color) ;
   border-bottom: 0.25vh solid var(--secondary-theme-color) ;
-  height: 8vh ;
+  height: 10vh ;
   /*
   min-height: 8vh;
   max-height: 16vh;
@@ -73,7 +73,7 @@ html, body {
 .App-body {
   color: var(--main-text-color) ;
   background-color: var(--main-theme-color);
-  top: 8vh ;
+  top: 10vh ;
   position: relative ;
   background-color: var(--secondary-theme-color);
   /*z-index: -1 ;*/

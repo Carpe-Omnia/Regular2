@@ -1,7 +1,7 @@
 .color_span {
   overflow: hidden ;
-  width: 40vw ;
-  height: 40vw ;
+  width: 35vw ;
+  height: 35vw ;
   display: inline-block ;
   margin: 2vmin ;
 }
@@ -20,7 +20,7 @@
   position: relative ;
   right: 10vw ;
   width: 200% ;
-  top: 13vw ;
+  top: 11vw ;
 }
 .black_bar {
   background-color: var(--main-text-color) ;
