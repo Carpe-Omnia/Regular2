@@ -62,7 +62,7 @@ class ColorIndex extends React.Component {
       <div>
         {this.props.orientation.colors.map(function(color){
           return(
-              <ColorCard key={color.text} text={color.text} rgb={color.rgb} />
+              <ColorCard key={color.name} text={color.name} rgb={color.rgb} />
           )
         })}
       </div>
