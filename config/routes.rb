@@ -17,13 +17,15 @@ Rails.application.routes.draw do
   post '/api/jokes/create', to: 'jokes#create'
   get '/api/jokes/testing', to: 'jokes#testing' #remember to take this out later.
   #Or don't and continue using it to test stuff.
-  post '/api/jokes/upvote/:id/:user_id', to: 'jokes#upvote' 
+  post '/api/jokes/upvote/:id/:user_id', to: 'jokes#upvote'
 
   get '/api/messages/index/:id', to: 'messages#index'
   post '/api/messages/create/:subject/:content/:user_id/:to_id/:conversation_id', to: 'messages#create'
   post '/api/messages/new/:subject/:content/:user_id/:recipient_name', to: 'messages#new'
 
-
+  post '/api/colors/create', to: 'colors#create'
+  get '/api/colors/index', to: 'colors#index'
+  
   get '*path', to: "application#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end

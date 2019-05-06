@@ -7,23 +7,23 @@ function makeColor(text, rgbstring){
   )
 }
 export const colors = [
-  {text: 'Twitter Blue', rgb:"rgb(29, 161, 242)"},
-  {text: 'Twitch Purple', rgb: "rgb(100, 65, 164)"},
-  {text: 'Living Coral', rgb: "rgb(255, 111, 97)" },
-  {text: 'Burnt Henna', rgb: "rgb(119, 57, 52)"},
-  {text: 'Rose Dawn', rgb: "rgb(187, 132, 123)"},
-  {text: 'Coral Sands', rgb: "rgb(229, 168, 135)"},
-  {text: 'Sun Coral', rgb: "rgb(224, 96, 118)"},
-  {text: 'Sand', rgb: "rgb(197, 164, 128)"},
-  {text: "Candle Peach", rgb: "rgb(240, 159, 156)"},
-  {text: "Mellow Buff", rgb: "rgb(210, 183, 152)"},
-  {text: "Conch Shell", rgb: "rgb(244, 137, 154)"},
-  {text: "Hot Pink", rgb: "rgb(220, 82, 129)"},
-  {text: "Aurora Pink", rgb: "rgb(224, 122, 164)"},
-  {text: "Magenta Haze", rgb: "rgb(150, 63, 109)"},
-  {text: "Papaya", rgb: "rgb(245, 159, 106)"},
-  {text: "Radiant Yellow", rgb: "rgb(242, 157, 55)"},
-  {text: "Amberglow", rgb: "rgb(210, 119, 70)"},
+  makeColor('Twitter Blue', "29, 161, 242") ,
+  makeColor('Twitch Purple',  "100, 65, 164"),
+  makeColor('Living Coral',  "255, 111, 97"),
+  makeColor('Burnt Henna',  "119, 57, 52"),
+  makeColor('Rose Dawn',  "187, 132, 123"),
+  makeColor('Coral Sands',  "229, 168, 135"),
+  makeColor('Sun Coral',  "224, 96, 118"),
+  makeColor('Sand',  "197, 164, 128"),
+  makeColor("Candle Peach",  "240, 159, 156"),
+  makeColor("Mellow Buff",  "210, 183, 152"),
+  makeColor("Conch Shell",  "244, 137, 154"),
+  makeColor("Hot Pink",  "220, 82, 129"),
+  makeColor("Aurora Pink",  "224, 122, 164"),
+  makeColor("Magenta Haze",  "150, 63, 109"),
+  makeColor("Papaya",  "245, 159, 106"),
+  makeColor("Radiant Yellow",  "242, 157, 55"),
+  makeColor("Amberglow",  "210, 119, 70"),
   makeColor("Some Grey", "74, 78, 77"),
   makeColor("Sea Blue", "14, 154, 167"),
   makeColor("Clear Sky", "61, 164, 171"),
@@ -33,11 +33,35 @@ export const colors = [
   //vh or whatever you're using appears to be a function of device height, so it messes with the 2-column structure
   //make the CSS responsive so it looks good on all devices.
   //make pallettes (combinations of colors) as a feature?
+var fetchedColors = [] ;
 class ColorIndex extends React.Component {
+  constructor(props){
+    super(props);
+    this.props.actions.get_colors();
+  }
+  uploadColors = () => {
+    console.log("uploading colors");
+    colors.forEach(function(color){
+      let url = 'api/colors/create' ;
+      let postData = {name: color.text, rgb: color.rgb} ;
+      var that = this ;
+      fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers:{'Content-Type': 'application/json'}
+      })
+      .then(res => res.json())
+      .then(function(json){
+        console.log(json)
+      })
+    })
+  }
+
   render(){
     return(
       <div>
-        {colors.map(function(color){
+        <button onClick={this.uploadColors}>Click me once</button>
+        {this.props.orientation.colors.map(function(color){
           return(
               <ColorCard key={color.text} text={color.text} rgb={color.rgb} />
           )

@@ -183,7 +183,20 @@ export function get_places(){
   }
 }
 
-
+export function get_colors(){
+  return (dispatch) => {
+    fetch('/api/colors/index')
+    .then(res => res.json())
+    .then(function(json){
+      dispatch({
+        type: 'SET_COLORS',
+        payload: {
+          colors: json.data
+        }
+      })
+    })
+  }
+}
 
 export const facebookAuth = (response) => {
   console.log(response) ;
