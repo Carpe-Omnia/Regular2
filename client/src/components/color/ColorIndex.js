@@ -62,6 +62,7 @@ class ColorIndex extends React.Component {
   */
 
   render(){
+    const that = this
     return(
       <div>
         <NavArrow direction="Left" actions={this.props.actions} z={this.props.z} text="new colors" />
@@ -69,7 +70,7 @@ class ColorIndex extends React.Component {
           <div className="main_page_content">
             {this.props.orientation.colors.map(function(color){
               return(
-                  <ColorCard key={color.name} text={color.name} rgb={color.rgb} color={color} />
+                  <ColorCard key={color.name} text={color.name} rgb={color.rgb} color={color} actions={that.props.actions} orientation={that.props.orientation} />
               )
             })}
           </div>

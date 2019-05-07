@@ -14,6 +14,7 @@ class ColorCard extends React.Component {
     event.preventDefault();
     this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
   }
+
   render(){
     var rgb_text = this.props.rgb.replace("rgb","")
     return(
@@ -51,7 +52,8 @@ class ColorCard extends React.Component {
           </span>
           <span className="card_menu">
             {/*<i className="material-icons">add</i>*/}
-            <CardMenu />
+            <CardMenu rgb={this.props.rgb} text={this.props.text} actions={this.props.actions}
+            orientation={this.props.orientation}/>
           </span>
         </div>
       </div>

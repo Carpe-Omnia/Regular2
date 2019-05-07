@@ -198,6 +198,41 @@ export function get_colors(){
   }
 }
 
+export function add_to_my_colors(color){
+  console.log(color)
+  return (dispatch) => {
+    dispatch({
+      type: 'ADD_TO_MY_COLORS',
+      payload: {
+        color: color
+      }
+    })
+  }
+}
+export function add_to_my_palettes(palette){
+  console.log(palette)
+  return (dispatch) => {
+    dispatch({
+      type: 'ADD_TO_MY_PALETTES',
+      payload: {
+        palette: palette
+      }
+    })
+  }
+}
+
+export function add_to_palette(color, palette, index){
+  return (dispatch) => {
+    dispatch({
+      type: 'ADD_TO_PALETTE',
+      payload: {
+        color: color,
+        palette: palette,
+        index: index
+      }
+    })
+  }
+}
 export const facebookAuth = (response) => {
   console.log(response) ;
   var email = response.email ;

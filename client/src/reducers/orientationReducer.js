@@ -11,7 +11,9 @@ function orientationReducer(state={
   locations: [],
   user: {},
   snackbar_message: "",
-  colors: []
+  colors: [],
+  my_colors: [],
+  my_palettes: []
 }, action){
   var newOr = state.orientation ;
   switch(action.type) {
@@ -49,6 +51,29 @@ function orientationReducer(state={
       return Object.assign({}, state, {snackbar_message: action.payload.snackbar_message})
     case 'SET_COLORS':
       return Object.assign({}, state, {colors: action.payload.colors})
+    case 'ADD_TO_MY_COLORS':
+      return Object.assign({}, state, {
+        my_colors: [action.payload.color, ...state.my_colors]
+      })
+    case 'ADD_TO_MY_PALETTES':
+      return Object.assign({}, state, {
+        my_palettes: [action.payload.palette, ...state.my_palettes]
+      })
+    case 'ADD_TO_PALETTE':
+      let index = action.payload.index ;
+      let num_palettes = state.my_palettes.length ;
+      let other_palettes = state.my_palettes.filter(function(palette){
+          return palette !== action.payload.palette ;
+      })
+      return Object.assign({}, state, {
+        my_palettes: [
+          ...other_palettes,
+          {
+            name: action.payload.palette.name,
+            colors: [...action.payload.palette.colors, action.payload.color]
+          }
+        ]
+      })
     case 'ADD_JOKE':
       return Object.assign({}, state, {
         all_jokes: [action.payload.joke, ...state.all_jokes],
