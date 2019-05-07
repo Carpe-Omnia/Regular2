@@ -52,7 +52,7 @@
   bottom: 1vw ;
   */
 }
-.flip_card_icon, .add_card_icon {
+.flip_card_icon, .add_card_icon, .palette_card_icon {
   color: var(--main-theme-color) ;
   text-shadow:
  -1px -1px 0 var(--main-text-color),
@@ -67,6 +67,11 @@
 }
 .react-card-flip, .react-card-front, .react-card-back {
   display: inline-block ;
+}
+.palette_card_menu {
+  position: relative ;
+  bottom: 10vw;
+  left: 13vw ;
 }
 @media screen and (min-width: 600px){
   .color_span {
@@ -91,6 +96,10 @@
   .black_bar {
   }
   .white_bar {
+  }
+  .palette_card_menu {
+    bottom: 4.5vw ;
+    left: 9vw ;
   }
 }
 @media screen and (min-width: 1200px){

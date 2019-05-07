@@ -1,5 +1,5 @@
 import React from 'react' ;
-import ColorCard from './Color' ;
+import ColorCard from './ColorCard' ;
 import NavArrow from '../NavArrow' ;
 function makeColor(text, rgbstring){
   return(

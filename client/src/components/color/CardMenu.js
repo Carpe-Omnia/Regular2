@@ -3,8 +3,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 const options = [
-  'Add to my colors (soon)',
-  'add to a pallete (soon)',
+  'Add to my colors (beta)',
+  'add to a palette (beta)',
   'vote up (soon)',
   'vote down (soon)'
 ];
@@ -27,7 +27,6 @@ class CardMenu extends React.Component {
   };
 
   handleClose = () => {
-    console.log("closing") ;
     this.setState({
       anchorEl: null,
      });
@@ -69,6 +68,7 @@ class CardMenu extends React.Component {
       colors: [color]
     }
     this.props.actions.add_to_my_palettes(palette);
+    this.handleClose() ;
   }
 
   handleAddToColors = () => {
@@ -87,6 +87,7 @@ class CardMenu extends React.Component {
       rgb: this.props.rgb
     }
     this.props.actions.add_to_palette(color, palette, index)
+    this.handleClose() ;
   }
   handleVoteUp = () => {
     console.log(`voting up`) ;

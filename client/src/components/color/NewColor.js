@@ -1,7 +1,7 @@
 import React from 'react' ;
 import NumericInput from 'react-numeric-input'
 import NavArrow from '../NavArrow' ;
-import ColorCard from './Color' ;
+import ColorCard from './ColorCard' ;
 function makeColor(text, rgbstring){
   return(
     {text: text, rgb: `rgb(${rgbstring})`}

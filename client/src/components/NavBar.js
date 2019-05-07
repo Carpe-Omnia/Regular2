@@ -25,11 +25,13 @@ class NavBar extends React.Component {
     return (
       <div className="navbar" >
         <span >
-          <NavLink className="navlink" to="/places" exact id="navlink0" >
+          <NavLink className="navlink" to="/color" id="navlink6">
             <span className="navlink_icon">
-              <i className="material-icons">map</i>
+              <i className="material-icons">color_lens</i>
             </span>
-            <span className="navlink_text"> Places </span>
+            <span className="navlink_text">
+              Color
+            </span>
             <Hotkey text="0" click={true} />
           </NavLink>
         </span>
@@ -157,13 +159,11 @@ class NavBar extends React.Component {
           <span></span> //mobile only stuff
         }
           <MenuItem>
-            <NavLink className="navlink_expand" to="/color" id="navlink6">
+            <NavLink className="navlink_expand" to="/places" exact id="navlink0" >
               <span className="navlink_icon_expand">
-                <i className="material-icons">color_lens</i>
+                <i className="material-icons">map</i>
               </span>
-              <span className="navlink_text_expand">
-                Color
-              </span>
+              <span className="navlink_text_expand"> Places </span>
             </NavLink>
           </MenuItem>
        </Menu>

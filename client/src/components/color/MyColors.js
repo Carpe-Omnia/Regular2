@@ -1,6 +1,7 @@
 import React from 'react' ;
 import NavArrow from '../NavArrow' ;
-import ColorCard from './Color' ;
+import ColorCard from './ColorCard' ;
+import PaletteCard from './PaletteCard' ;
 
 const MyColors = (props) => {
   return(
@@ -17,13 +18,8 @@ const MyColors = (props) => {
           {props.orientation.my_palettes.map(function(palette){
 
             return(
-              <div>
-              <h4>{palette.name}</h4>
-            {  palette.colors.map(function(color){
-                return(
-                    <ColorCard key={color.name} text={color.name} rgb={color.rgb} color={color} actions={props.actions} orientation={props.orientation}/>
-                )})
-              }
+              <div style={{display: 'inline-block'}}>
+                <PaletteCard key={palette.name} palette={palette} actions={props.actions} orientation={props.orientation} />
               </div>
             )
           })

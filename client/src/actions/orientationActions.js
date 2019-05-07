@@ -199,7 +199,6 @@ export function get_colors(){
 }
 
 export function add_to_my_colors(color){
-  console.log(color)
   return (dispatch) => {
     dispatch({
       type: 'ADD_TO_MY_COLORS',
@@ -210,7 +209,6 @@ export function add_to_my_colors(color){
   }
 }
 export function add_to_my_palettes(palette){
-  console.log(palette)
   return (dispatch) => {
     dispatch({
       type: 'ADD_TO_MY_PALETTES',

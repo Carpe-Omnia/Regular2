@@ -14,7 +14,6 @@ import NavBar from './components/NavBar';
 import Jokes from './components/jokes/Jokes';
 import Register from './components/Register'
 import Login from './components/Login'
-import HotkeyToggle from './components/HotkeyToggle'
 import HomeContainer from './components/home/HomeContainer'
 import Profile from './components/home/Profile'
 import Messages from './components/home/Messages'
@@ -35,10 +34,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          {/*
-          <HotkeyToggle />
-          <span className="non_mobile" >press ';' to access hotkeys from within an input </span>
-          */}
         </header>
         <div className="App-body">
         <Router>
