@@ -42,7 +42,7 @@ class NewColor extends React.Component {
             Green<NumericInput min={0} max={255} id="new_green" value={this.state.green} onChange={this.detectChange} /><br/>
             Blue <NumericInput min={0} max={255} id="new_blue" value={this.state.blue} onChange={this.detectChange} /><br/>
           </form>
-          <ColorCard text={name} rgb={rgb} color={preview_color} actions={this.props.actions} />
+          <ColorCard text={name} rgb={rgb} color={preview_color} actions={this.props.actions} orientation={this.props.orientation}/>
         </div>
       </div>
     )
