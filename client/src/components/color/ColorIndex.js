@@ -6,6 +6,7 @@ function makeColor(text, rgbstring){
     {text: text, rgb: `rgb(${rgbstring})`}
   )
 }
+/*
 export const colors = [
   makeColor('Twitter Blue', "29, 161, 242") ,
   makeColor('Twitch Purple',  "100, 65, 164"),
@@ -29,7 +30,8 @@ export const colors = [
   makeColor("Clear Sky", "61, 164, 171"),
   makeColor("Charlie Brown", "246, 205, 97"),
   makeColor("Canteloupe", "254, 138, 113")
-] //keep the names short so they don't overflow into a second line
+]
+*/ //keep the names short so they don't overflow into a second line
   //vh or whatever you're using appears to be a function of device height, so it messes with the 2-column structure
   //make the CSS responsive so it looks good on all devices.
   //make pallettes (combinations of colors) as a feature?
@@ -39,6 +41,7 @@ class ColorIndex extends React.Component {
     super(props);
     this.props.actions.get_colors();
   }
+  /*
   uploadColors = () => {
     console.log("uploading colors");
     colors.forEach(function(color){
@@ -56,6 +59,7 @@ class ColorIndex extends React.Component {
       })
     })
   }
+  */
 
   render(){
     return(
@@ -65,7 +69,7 @@ class ColorIndex extends React.Component {
           <div className="main_page_content">
             {this.props.orientation.colors.map(function(color){
               return(
-                  <ColorCard key={color.name} text={color.name} rgb={color.rgb} />
+                  <ColorCard key={color.name} text={color.name} rgb={color.rgb} color={color} />
               )
             })}
           </div>
