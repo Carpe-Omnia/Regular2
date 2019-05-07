@@ -36,11 +36,11 @@ class NewColor extends React.Component {
         <NavArrow direction="Right" actions={this.props.actions} z={this.props.z} text="colors" />
         <div className="main_page_content">
           <h4>Make a New Color</h4>
-          <form>
-            Name<input type="text" id="new_color_name" onChange={this.detectChange} /><br/>
-            Red<NumericInput min={0} id="new_red" max={255} value={this.state.red} onChange={this.detectChange} /><br/>
-            Green<NumericInput min={0} max={255} id="new_green" value={this.state.green} onChange={this.detectChange} /><br/>
-            Blue <NumericInput min={0} max={255} id="new_blue" value={this.state.blue} onChange={this.detectChange} /><br/>
+          <form className="narrow_form">
+            <input type="text" id="new_color_name" placeholder="name" onChange={this.detectChange} /><br/>
+              Red<br/><NumericInput min={0} id="new_red" max={255} value={this.state.red} onChange={this.detectChange}/><br/>
+              Green<br/><NumericInput min={0} max={255} id="new_green" value={this.state.green} onChange={this.detectChange} /><br/>
+              Blue<br/><NumericInput min={0} max={255} id="new_blue" value={this.state.blue} onChange={this.detectChange} /><br/>
           </form>
           <ColorCard text={name} rgb={rgb} color={preview_color} actions={this.props.actions} orientation={this.props.orientation}/>
         </div>

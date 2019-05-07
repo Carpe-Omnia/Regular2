@@ -45,8 +45,8 @@ class NewJoke extends React.Component {
             Make a new joke
           </h3>
           <form onSubmit={event => this.doThing(event)} >
-            <label>setup<Hotkey text="s" /></label><input type="text" id="setup_input" /><br></br>
-            <label>punchline<Hotkey text="p" /></label><input type="text" id="punchline_input" /><br></br>
+            <label>setup<Hotkey text="s" /></label><textarea type="text" id="setup_input" /><br></br>
+            <label>punchline<Hotkey text="p" /></label><textarea type="text" id="punchline_input" /><br></br>
             <button type="submit" value="submit" id="submit_joke" >
               Submit <Hotkey text="j" click={true}/>
             </button>

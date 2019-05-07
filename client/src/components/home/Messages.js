@@ -52,9 +52,9 @@ class Messages extends React.Component {
                     document.getElementById(`ul_${convo.id}`).innerHTML += `<li><p>${json.data.content}</p></li>`
                   })
                 }}>
-                  Message<input type="text" id={`content_${convo.id}`} name="content" /><br/>
-                  <input type="hidden" id={`convo_${convo.id}`} value={convo.id} />
-                  <input type="submit" value="send message" />
+                  <input type="text" id={`content_${convo.id}`} name="content" placeholder="Message" /><br/>
+                  <input type="hidden" id={`convo_${convo.id}`} value={convo.id} style={{width: '20%'}}/>
+                  <button type="submit" value="send message" style={{width: '20%'}}>Send</button>
                 </form>
                 <button value="reply" id={`button_${convo.id}`} onClick={function(){
                   if (document.getElementById(`form_${convo.id}`).style.display !== 'block'){
