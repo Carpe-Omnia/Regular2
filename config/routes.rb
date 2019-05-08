@@ -20,12 +20,12 @@ Rails.application.routes.draw do
   post '/api/jokes/upvote/:id/:user_id', to: 'jokes#upvote'
 
   get '/api/messages/index/:id', to: 'messages#index'
-  post '/api/messages/create/:subject/:content/:user_id/:to_id/:conversation_id', to: 'messages#create'
-  post '/api/messages/new/:subject/:content/:user_id/:recipient_name', to: 'messages#new'
+  post '/api/messages/create', to: 'messages#create'
+  post '/api/messages/new', to: 'messages#new'
 
   post '/api/colors/create', to: 'colors#create'
   get '/api/colors/index', to: 'colors#index'
-  
+
   get '*path', to: "application#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end

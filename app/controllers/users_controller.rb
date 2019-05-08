@@ -87,6 +87,7 @@ class UsersController < ApplicationController
       bio.update(headline: "new user", content: "this user hasn't created a bio yet")
     end
     inbox = Inbox.find_or_create_by(user_id: user.id, user_name: user.name)
+    user.inbox_id = inbox.id
     if user.save!
       render json: {status: 'success',
       message: "logged in",

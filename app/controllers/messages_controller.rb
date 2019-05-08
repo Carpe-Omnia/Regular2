@@ -38,7 +38,7 @@ class MessagesController < ApplicationController
       from_id: user.id,
       conversation_id: conversation.id,
       to_id: params["to_id"], user_name: user.name,
-      subject: params["subject"], content: params["content"],
+      subject: "", content: params["content"],
       user_name: user.name
     )
     if mess.save
@@ -59,14 +59,14 @@ class MessagesController < ApplicationController
     user = User.find_by(id: params["user_id"])
     recipient = User.find_by(name: params["recipient_name"])
     content = params["content"]
-    subject = params["subject"]
     if !!user && !!recipient && content && subject
       convo = Conversation.find_by_users(user, recipient)
       message = Message.new(
         from_id: user.id,
         to_id: recipient.id,
+        user_name: user.name,
         content: content,
-        subject: subject,
+        subject: "",
         conversation_id: convo.id
       )
       if message.save

@@ -31,7 +31,7 @@ mess1.from_id = george.id
 mess1.to_id = tom.id
 mess1.subject = "This is a test message"
 mess1.content = "This is the content of the test message"
-
+mess1.user_name = 'george' ;
 mess1.save
 
 convo1.messages << mess1
