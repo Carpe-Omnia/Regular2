@@ -6,7 +6,17 @@ class UsersController < ApplicationController
     user = User.new(name: name, password: pword, email: email)
     if user.save
       bio = Bio.create(user_id: user.id, headline: "new user", content: "this user hasn't created a bio yet")
-      inbox = Inbox.create(user_id: user.id, user_name: user.name)
+      inbox = Inbox.create(user_id: user.id, user_name: user.name) ;
+      tomaz = User.find_by(id: 1)
+      convo = Conversation.find_by_users(user, recipient)
+      message = Message.create(
+        from_id: tomaz.id,
+        to_id: user.id,
+        user_name: tomaz.name,
+        content: "Hi, I'm Tomaz. Welcome to my site. You can message me here, at tomaz.r.rodrigues@gmail.com, or (1)609-613-0829",
+        subject: "",
+        conversation_id: convo.id
+      )
       render json: {status: 'success',
       message: "user created",
       data: {name: user.name, id: user.id, email: user.email}
