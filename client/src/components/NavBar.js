@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import logout from './Logout' ;
 import Hotkey from './Hotkey'
 import HotkeyToggle from './HotkeyToggle'
 import ToggleHotkeys from './ToggleHotkeys'
@@ -20,6 +19,14 @@ class NavBar extends React.Component {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
+  handleLogout = () => {
+    this.props.actions.set_user({})
+    localStorage.setItem("username", "") ;
+    localStorage.setItem("id", "") ;
+    localStorage.setItem("email", "") ;
+    this.setState({ anchorEl: null });
+    document.getElementById('navlink1').click() ;
+  }
   render(){
     const { anchorEl } = this.state;
     return (
@@ -77,7 +84,7 @@ class NavBar extends React.Component {
          </MenuItem>
          {!localStorage.getItem("username") ? //not logged in stuff
          <span>
-          <NavLink className="navlink_expand" to="/register" id="navlink3">
+          <NavLink className="navlink_expand" to="/register" id="navlink3" onClick={this.handleClose}>
             <MenuItem>
               <span className="navlink_icon_expand">
                 <i className="material-icons">account_box</i>
@@ -86,7 +93,7 @@ class NavBar extends React.Component {
             </MenuItem>
           </NavLink>
            <span >
-            <NavLink className="navlink_expand" to="/login" id="navlink4">
+            <NavLink className="navlink_expand" to="/login" id="navlink4"  onClick={this.handleClose}>
               <MenuItem>
                  <span className="navlink_icon_expand">
                    <i className="material-icons">account_circle</i>
@@ -98,7 +105,7 @@ class NavBar extends React.Component {
          </span>
          : //logged in stuff
          <span>
-          <NavLink className="navlink_expand" to="/messages" id="navlink5">
+          <NavLink className="navlink_expand" to="/messages" id="navlink5" onClick={this.handleClose}>
            <MenuItem>
              <span className="navlink_icon_expand">
                <i className="material-icons ">mail_outline</i>
@@ -108,7 +115,7 @@ class NavBar extends React.Component {
              </span>
            </MenuItem>
           </NavLink>
-          <NavLink className="navlink_expand" to="/profile" id="navlink6">
+          <NavLink className="navlink_expand" to="/profile" id="navlink6" onClick={this.handleClose}>
              <MenuItem>
               <span>
                 <span className="navlink_icon_expand">
@@ -121,7 +128,7 @@ class NavBar extends React.Component {
             </MenuItem>
           </NavLink>
            <MenuItem>
-             <span className="navlink_expand" id="navlink3" onClick={() => logout()}>
+             <span className="navlink_expand" id="navlink3" onClick={this.handleLogout}>
                <span className="navlink_icon_expand">
                  <i className="material-icons ">exit_to_app</i>
                </span>

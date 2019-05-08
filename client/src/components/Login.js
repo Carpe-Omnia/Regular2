@@ -31,7 +31,12 @@ class Login extends React.Component {
           localStorage.setItem("username", json.data.name);
           localStorage.setItem("email", email);
           localStorage.setItem("id", json.data.id);
-          that.props.actions.test_action() ;
+          let user = {
+            username: json.data.name,
+            email: email,
+            id: json.data.id
+          }
+          that.props.actions.set_user(user) ;
         }
         else{
           alert("Something went terribly wrong. Please try again.")

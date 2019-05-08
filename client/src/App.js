@@ -38,7 +38,7 @@ class App extends Component {
         <div className="App-body">
         <Router>
           <React.Fragment >
-            <NavBar id="NavBar" />
+            <NavBar id="NavBar" orientation={this.props.orientation} actions={this.props.actions} />
             <Route
               exact path="/"
               render={(props) => <HomeContainer {...props} actions={this.props.actions} orientation={this.props.orientation} z="0" />}

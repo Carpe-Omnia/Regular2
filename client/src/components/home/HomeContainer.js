@@ -4,9 +4,9 @@ import homeHash from './HomeHash'
 class HomeContainer extends React.Component {
   constructor(props){
     super(props);
-    if(!!localStorage.getItem("id")){
-      this.props.actions.set_data_package(localStorage.getItem("id"));
-      this.props.actions.set_profile(localStorage.getItem("username"))
+    if(!!this.props.orientation.user.id){
+      this.props.actions.set_data_package(this.props.orientation.user.id);
+      this.props.actions.set_profile(this.props.orientation.user.username);
     }
   }
   render() {

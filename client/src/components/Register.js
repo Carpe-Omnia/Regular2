@@ -19,27 +19,34 @@ class Register extends React.Component {
     var link = `/api/users/new` ;
     if ( !!uname && !!pword && !!email) {
       console.log("The thing is being done");
+      var that = this ;
       fetch(link, {
         method: 'post',
         body: JSON.stringify(postData),
         headers:{'Content-Type': 'application/json'}
-      }).then(res => res.json())
-        .then(function(json){
-          if (json.message === "user created") {
+      })
+      .then(res => res.json())
+      .then(function(json){
+        if (json.message === "user created") {
             alert('Nice job creating your account. You have been signed in. ');
             localStorage.setItem("username", uname);
             localStorage.setItem("email", email);
             localStorage.setItem("id", json.data.id);
+            let user = {
+              username: uname,
+              email: email,
+              id: json.data.id
+            }
+            that.props.actions.set_user(user);
             document.getElementById('navlink1').click() ;
           }
-          else {
-            alert('Something went wrong. Remember to enter a username, email, AND a password')
-          }
+        else {
+          alert('Something went wrong. Remember to enter a username, email, AND a password')
         }
-        );
+      });
     }
     else {
-        alert('Something went wrong. Remember to enter a username, email, AND a password')
+      alert('Something went wrong. Remember to enter a username, email, AND a password')
     }
   }
   render() {

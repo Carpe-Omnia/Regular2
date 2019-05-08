@@ -5,7 +5,7 @@ import Hotkey from '../Hotkey'
 class Messages extends React.Component {
   constructor(props){
     super(props);
-    this.props.actions.set_data_package(localStorage.getItem("id"));
+    this.props.actions.set_data_package(this.props.orientation.user.id);
   }
   handleNewMessage(event){
     event.preventDefault();
@@ -14,7 +14,7 @@ class Messages extends React.Component {
     var postData = {
       content: content,
       recipient: recipient,
-      from_id: localStorage.getItem("id"),
+      from_id: this.props.orientation.user.id,
     }
     var url = `/api/messages/new/` ;
     fetch(url, {
@@ -34,6 +34,7 @@ class Messages extends React.Component {
   }
 
   render(){
+    var that = this ;
     return(
       <div id="parent-top-left" className="parentElement" >
         <div className="main_page_content" >
@@ -74,7 +75,7 @@ class Messages extends React.Component {
                   event.preventDefault();
                   var content = document.getElementById(`content_${convo.id}`).value
                   var conversation_id = document.getElementById(`convo_${convo.id}`).value ;
-                  var user_id = localStorage.getItem("id");
+                  var user_id = that.props.orientation.user.id;
                   var to_id =  convo.inbox.user_id
                   var postData = {
                     content: content,

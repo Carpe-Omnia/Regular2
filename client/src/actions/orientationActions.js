@@ -285,7 +285,7 @@ export const googleAuth = (response) => {
           payload: {
             user: {
               email: json.data.email,
-              name: json.data.name,
+              username: json.data.name,
               id: json.data.id
             }
           }
@@ -306,5 +306,16 @@ export const googleAuthFail = (response) => {
 export function test_action(){
   return (dispatch) => {
     console.log('testing action completed')
+  }
+}
+
+export function set_user(user){
+  return (dispatch) => {
+    dispatch({
+      type: 'SET_USER',
+      payload: {
+        user: user
+      }
+    })
   }
 }
