@@ -44,8 +44,6 @@ class ColorCard extends React.Component {
             Contrast
           </span>
         </span>
-        <div className="black_bar"></div>
-        <div className="white_bar"></div>
         <div className="card_action_dashboard">
           <span className="flip_card_icon">
             <i className="material-icons" onClick={event => this.handleClick(event)}>flip_to_back</i>
@@ -56,6 +54,8 @@ class ColorCard extends React.Component {
             orientation={this.props.orientation}/>
           </span>
         </div>
+        <div className="black_bar"></div>
+        <div className="white_bar"></div>
       </div>
       <div style={{backgroundColor: this.props.rgb}} className="color_span" key="back" onClick={event => this.handleClick(event)}>
       </div>

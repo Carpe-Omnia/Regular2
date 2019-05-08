@@ -10,7 +10,6 @@ class HomeContainer extends React.Component {
     }
   }
   render() {
-    var orientation = this.props.orientation.orientation[0] ;
     var Parent =  homeHash["0,0"]  ;
     return (
     <div>

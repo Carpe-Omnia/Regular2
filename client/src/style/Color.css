@@ -11,7 +11,7 @@
 }
 .contrast {
   position: relative ;
-  top: 2vw ;
+  bottom: 2vw ;
   font-size: 3.5vw ;
   height: 2vw ;
 }
@@ -20,7 +20,7 @@
   position: relative ;
   right: 10vw ;
   width: 200% ;
-  top: 11vw ;
+  top: 3vw ;
 }
 .black_bar {
   background-color: var(--main-text-color) ;
@@ -34,23 +34,22 @@
   width: 13vw ;
 }
 .contrast_3, .contrast_4{
-  top: 4vw ;
 }
 .contrast_2, .contrast_4 {
-  left: 0.5vw ;
 
 }
-.contrast_2 {
-  /*border: 1px solid var(--main-text-color) ; */
-}
-.contrast_4 {
-  /*border: 1px solid var(--main-theme-color) ; */
-}
+
 .rgb_text {
   position: relative ;
-  /*
-  bottom: 1vw ;
-  */
+  bottom: 2vw ;
+}
+.flip_card_icon {
+  position: relative ;
+}
+.add_card_icon {
+  position: absolute ;
+  top: 0.5vw ;
+  right: 0.5vw ;
 }
 .flip_card_icon, .add_card_icon, .palette_card_icon {
   color: var(--main-theme-color) ;
@@ -62,8 +61,8 @@
 }
 .card_menu {
   position: absolute ;
-  right: 1vw ;
-  top: 1vw ;
+  right: 1.5vw ;
+  top: 1.5vw ;
 }
 .react-card-flip, .react-card-front, .react-card-back {
   display: inline-block ;
@@ -72,6 +71,15 @@
   position: relative ;
   bottom: 10vw;
   left: 13vw ;
+}
+@media screen and (max-width: 350px){
+  .black_bar, .white_bar {
+    top: 5vw ;
+  }
+  .flip_card_icon {
+    position: absolute ;
+    bottom: 2vw ;
+  }
 }
 @media screen and (min-width: 600px){
   .color_span {
@@ -84,13 +92,19 @@
   }
   .rgb_text {
     font-size: 2.5vw ;
+    bottom: 0vw ;
   }
   .contrast {
     font-size: 2.5vw ;
+      bottom: 0vw ;
+  }
+  .flip_card_icon {
+    top: 1vw ;
+    margin: 0 auto ;
   }
   .black_bar, .white_bar {
     height: 2vw ;
-    top: 8vw ;
+    top: 6vw ;
     right: 7vw ;
   }
   .black_bar {
@@ -113,16 +127,20 @@
   }
   .rgb_text {
     font-size: 2.0vw ;
+    bottom: 0vw ;
   }
   .contrast {
     font-size: 2.0vw ;
   }
+  .contrast_1, .contrast_2 {
+    top: 1vw ;
+  }
   .contrast_3, .contrast_4 {
-    top: 3vw ;
+    top: 2vw ;
   }
   .black_bar, .white_bar {
     height: 2vw ;
-    top: 6.5vw ;
+    top: 4vw ;
     right: 5vw ;
   }
   .black_bar {
@@ -132,6 +150,10 @@
   .card_menu {
     top: 0.8vw ;
     right: 0.8vw ;
+  }
+  .flip_card_icon {
+    top: 3vw ;
+    margin: 0 auto ;
   }
 }
 .special_menu_input {

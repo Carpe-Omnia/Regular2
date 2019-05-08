@@ -7,8 +7,8 @@ class NewJoke extends React.Component {
     event.preventDefault();
     var setup = document.getElementById('setup_input').value ;
     var punchline = document.getElementById('punchline_input').value ;
-    var id = localStorage.getItem("id") ;
-    var username = localStorage.getItem('username') ;
+    var id = this.props.orientation.user.id ;
+    var username = this.props.orientation.user.username;
     var postData = {setup: setup, punchline: punchline, username: username, id: id } ;
     var link = `/api/jokes/create` ;
     console.log(link)

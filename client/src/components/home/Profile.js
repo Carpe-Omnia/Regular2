@@ -1,11 +1,10 @@
 import React from 'react';
-import NavArrow from '../NavArrow'
 import Hotkey from '../Hotkey'
 
 class Profile extends React.Component {
   constructor(props){
     super(props);
-    this.props.actions.set_profile(localStorage.getItem("username"))
+    this.props.actions.set_profile(this.props.orientation.user.id)
   }
   editBio(event){
     event.preventDefault();

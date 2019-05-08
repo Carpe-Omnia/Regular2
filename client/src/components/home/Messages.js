@@ -1,5 +1,4 @@
 import React from 'react';
-import NavArrow from '../NavArrow'
 import Hotkey from '../Hotkey'
 
 class Messages extends React.Component {
@@ -58,7 +57,7 @@ class Messages extends React.Component {
               <div id={`ul_${convo.id}`}>
                 {convo.messages.map(function(message) {
                   let name;
-                  if (message.from_id === localStorage.getItem('id')){
+                  if (message.from_id === that.props.orientation.user.id){
                     name = "message_sent"
                   }
                   else {
