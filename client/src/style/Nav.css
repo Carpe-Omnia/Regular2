@@ -97,6 +97,7 @@
 
 }
 .navlink {
+  position: relative ;
   z-index: 4 !important ;
   color: var(--main-text-color) ;
   width: 100px ;
@@ -105,24 +106,53 @@
   font-size: 2vmin ;
   text-decoration: none ;
 }
+.navlink:hover, .navlink_expand:hover {
+  text-decoration: none ;
+}
+.navlink::before {
+  content: '';
+  position: absolute ;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-accent-color);
+  transform-origin: center;
+  transform: translate(-50%, 0) scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.navlink:hover::before {
+  transform: translate(-50%, 0) scaleX(1);
+}
 
-
-
-.navlink_icon {
+.navlink_icon, .navlink_icon_expand {
   position: relative ;
   top: 0.8vmin ;
   padding-right: 0.25vmin ;
   color: var(--main-text-color) ;
 }
 
-.navlink.active {
+.navlink.active, .navlink_expand.active {
+  text-decoration: none ;
   color: var(--main-accent-color) !important;
-  border-bottom: 2px solid var(--main-accent-color) ;
+  /*border-bottom: 2px solid var(--main-accent-color) ;*/
 }
+.navlink_expand.active .navlink_icon_expand, .navlink_expand.active .navlink_text_expand {
+  color: var(--main-accent-color) ;
+}
+.navlink.active:before {
+  content: '';
+  position: absolute ;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-accent-color);
+}
+
 .navlink.active .navlink_icon {
   color: var(--main-accent-color) !important;
 }
-.navlink_expand {
+.navlink_expand, .navlink_icon_expand {
   color: rgb(20, 23, 26) ;
   /*
   always black because the backdrop is always white
@@ -132,6 +162,7 @@
 .navlink_expand.active {
   color: var(--main-accent-color) ;
 }
+
 @media screen and (max-width: 1200px){
   .navlink {
     font-size: small;

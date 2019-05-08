@@ -22,16 +22,16 @@ class ToggleDarkMode extends React.Component {
   }
   render(){
     return(
-      <form>
+      <span>
         <span onClick={event => this.doThing(event)}>
-          <span className="darkmode_off">
+          <span className="darkmode_off ">
             Enable Dark Mode
           </span>
-          <span className="darkmode_on">
+          <span className="darkmode_on ">
             Disable Dark Mode
           </span>
         </span>
-      </form>
+      </span>
     )
   }
 }

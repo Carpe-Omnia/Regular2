@@ -56,7 +56,7 @@ class NavBar extends React.Component {
         </span>
         <Button aria-owns={anchorEl ? 'simple-menu' : undefined}
           aria-haspopup="true" onClick={this.handleClick}>
-          <span className="navlink_icon_expand">
+          <span className="menu_expand_icon">
             <i className="material-icons expand_menu_button">account_circle</i>
           </span>
         </Button>
@@ -77,51 +77,51 @@ class NavBar extends React.Component {
          </MenuItem>
          {!localStorage.getItem("username") ? //not logged in stuff
          <span>
-          <MenuItem>
-            <NavLink className="navlink_expand" to="/register" id="navlink3">
+          <NavLink className="navlink_expand" to="/register" id="navlink3">
+            <MenuItem>
               <span className="navlink_icon_expand">
                 <i className="material-icons">account_box</i>
               </span>
               <span className="navlink_text_expand"> Register </span>
-            </NavLink>
-          </MenuItem>
-           <span >
-            <MenuItem>
-             <NavLink className="navlink_expand" to="/login" id="navlink4">
-               <span className="navlink_icon_expand">
-                 <i className="material-icons">account_circle</i>
-               </span>
-               <span className="navlink_text_expand"> Login </span>
-             </NavLink>
             </MenuItem>
+          </NavLink>
+           <span >
+            <NavLink className="navlink_expand" to="/login" id="navlink4">
+              <MenuItem>
+                 <span className="navlink_icon_expand">
+                   <i className="material-icons">account_circle</i>
+                 </span>
+                 <span className="navlink_text_expand"> Login </span>
+               </MenuItem>
+            </NavLink>
            </span>
          </span>
          : //logged in stuff
          <span>
+          <NavLink className="navlink_expand" to="/messages" id="navlink5">
            <MenuItem>
-            <NavLink className="navlink_expand" to="/messages" id="navlink5">
              <span className="navlink_icon_expand">
                <i className="material-icons ">mail_outline</i>
              </span>
              <span className="navlink_text_expand">
               Messages (beta)
              </span>
-            </NavLink>
            </MenuItem>
-           <MenuItem>
-            <NavLink className="navlink_expand" to="/profile" id="navlink6">
+          </NavLink>
+          <NavLink className="navlink_expand" to="/profile" id="navlink6">
+             <MenuItem>
               <span>
-               <span className="navlink_icon_expand">
-                 <i className="material-icons ">account_box</i>
-               </span>
-               <span className="navlink_text_expand">
-                Profile (beta)
-               </span>
+                <span className="navlink_icon_expand">
+                  <i className="material-icons ">account_box</i>
+                </span>
+                <span className="navlink_text_expand">
+                  Profile (beta)
+                </span>
               </span>
-            </NavLink>
-           </MenuItem>
+            </MenuItem>
+          </NavLink>
            <MenuItem>
-             <span className="" id="navlink3" onClick={() => logout()}>
+             <span className="navlink_expand" id="navlink3" onClick={() => logout()}>
                <span className="navlink_icon_expand">
                  <i className="material-icons ">exit_to_app</i>
                </span>
@@ -135,19 +135,19 @@ class NavBar extends React.Component {
           {!detectMobile() ? //desktop only stuff
             <span>
               <MenuItem>
-              <span className="navlink_icon_expand" id="toggle_hotkeys_icon">
+              <span className="navlink_expand" id="toggle_hotkeys_icon">
                 {<i className="material-icons hotkeys_on">toggle_on</i>}
               </span>
-              <span className="navlink_icon_expand" id="toggle_hotkeys_icon">
+              <span className="" id="toggle_hotkeys_icon">
                 <i className="material-icons hotkeys_off">toggle_off</i>
               </span>
               <ToggleHotkeys />
             </MenuItem>
             <MenuItem>
-              <span className="navlink_icon_expand">
+              <span className="navlink_expand">
                 <i className="material-icons non_mobile" >toggle_on</i>
               </span>
-              <span className="navlink_icon_expand">
+              <span className="">
                 <i className="material-icons anti_mobile" >toggle_off</i>
               </span>
               <span className="navlink_text_expand" id="toggle_hotkey_helpers_text">
@@ -158,14 +158,14 @@ class NavBar extends React.Component {
           :
           <span></span> //mobile only stuff
         }
-          <MenuItem>
-            <NavLink className="navlink_expand" to="/places" exact id="navlink0" >
-              <span className="navlink_icon_expand">
-                <i className="material-icons">map</i>
-              </span>
-              <span className="navlink_text_expand"> Places </span>
-            </NavLink>
-          </MenuItem>
+          <NavLink className="navlink_expand" to="/places" exact id="navlink0" >
+            <MenuItem>
+                <span className="navlink_icon_expand">
+                  <i className="material-icons">map</i>
+                </span>
+                <span className="navlink_text_expand"> Places (alpha) </span>
+            </MenuItem>
+          </NavLink>
        </Menu>
 
       </div>
