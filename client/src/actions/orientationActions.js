@@ -302,3 +302,9 @@ export const googleAuth = (response) => {
 export const googleAuthFail = (response) => {
   console.log(response) ;
 }
+
+export function test_action(){
+  return (dispatch) => {
+    console.log('testing action completed')
+  }
+}

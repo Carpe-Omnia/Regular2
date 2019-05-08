@@ -15,14 +15,14 @@ class Register extends React.Component {
     var uname = document.getElementById('username').value
     var pword = document.getElementById('password').value
     var email = document.getElementById('email').value
-    var postData = {username: uname, password: pword }
-    var link = `/api/users/new/${uname}/${pword}/${email}` ;
+    var postData = {username: uname, password: pword, email: email }
+    var link = `/api/users/new` ;
     if ( !!uname && !!pword && !!email) {
       console.log("The thing is being done");
       fetch(link, {
         method: 'post',
         body: JSON.stringify(postData),
-
+        headers:{'Content-Type': 'application/json'}
       }).then(res => res.json())
         .then(function(json){
           if (json.message === "user created") {

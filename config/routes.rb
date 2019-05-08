@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  post '/api/users/new/:name/:pword/:email', to: 'users#new'
-  post '/api/users/login/:name/:pword', to: 'users#login'
+  post '/api/users/new', to: 'users#new'
+  post '/api/users/login', to: 'users#login'
   post '/api/users/update/:id/:headline/:content', to: 'users#update'
   get '/api/users/show/:name', to: 'users#show'
   constraints(email: /[^\/]+/) do

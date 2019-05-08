@@ -14,24 +14,29 @@ class Login extends React.Component {
     var email = document.getElementById('email').value
     var pword = document.getElementById('password').value
     var postData = {email: email, password: pword }
-    var link = `/api/users/login/${email}/${pword}` ;
+    var link = `/api/users/login` ;
+    var that = this ;
     if ( !!email && !!pword) {
       fetch(link, {
-        method: 'post',
+        method: 'POST',
         body: JSON.stringify(postData),
-      }).then(res => res.json())
-        .then(function(json){
-          if (json.message === "logged in"){
-            alert("nice job logging in")
-            console.log(json.data)
-            localStorage.setItem("username", json.data.name);
-            localStorage.setItem("email", email);
-            localStorage.setItem("id", json.data.id);
-          }
-          else{
-            alert("Something went terribly wrong. Please try again.")
-          }
-        })
+        headers:{'Content-Type': 'application/json'}
+      })
+      .then(res => res.json())
+      .then(function(json){
+        console.log(json.message);
+        if (json.message === "logged in"){
+          alert("nice job logging in")
+          console.log(json.data)
+          localStorage.setItem("username", json.data.name);
+          localStorage.setItem("email", email);
+          localStorage.setItem("id", json.data.id);
+          that.props.actions.test_action() ;
+        }
+        else{
+          alert("Something went terribly wrong. Please try again.")
+        }
+      })
     }
   }
   render(){

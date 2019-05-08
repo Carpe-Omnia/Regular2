@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   def new
-    name = params["name"]
-    pword = params["pword"]
+    name = params["username"]
+    pword = params["password"]
     email = params["email"]
     user = User.new(name: name, password: pword, email: email)
     if user.save
       bio = Bio.create(user_id: user.id, headline: "new user", content: "this user hasn't created a bio yet")
-      inbox = Inbox.create(user_id: user.id, user_name: user.name) ;
+      inbox = Inbox.create(user_id: user.id, user_name: user.name)
+      user.update(inbox_id: inbox.id, karma: 0)
       tomaz = User.find_by(id: 1)
       convo = Conversation.find_by_users(user, tomaz)
       message = Message.create(
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
   end
   def login
     user = User.find_by(email: params["email"])
-    if user.authenticate(params["pword"])
+    if user.authenticate(params["password"])
       render json: {status: 'success',
       message: "logged in",
       data: {email: params["email"], name: user.name, id: user.id}
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
   end
   def show
     user = User.find_by(name: params["name"])
-    bio = user.bio
+    bio = Bio.find_by(user_id: user.id)
     if !!bio
       render json: {status: 'success',
         message: "user found",
