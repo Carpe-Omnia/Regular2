@@ -93,7 +93,7 @@ class Messages extends React.Component {
                   })
                   .then(res => res.json())
                   .then(function(json){
-                    let message = `<p style="background-color: rgb(29, 161, 242), ">${json.data.content}</p>`
+                    let message = `<p class="message_sent">${json.data.content}</p>`
                     document.getElementById(`ul_${convo.id}`).innerHTML += `${message}`
                   })
                 }}>
