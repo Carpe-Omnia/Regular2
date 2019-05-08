@@ -20,7 +20,8 @@ class NavBar extends React.Component {
     this.setState({ anchorEl: null });
   };
   handleLogout = () => {
-    this.props.actions.set_user({})
+    this.props.action.home() ;
+    this.props.actions.set_user({}) ;
     localStorage.setItem("username", "") ;
     localStorage.setItem("id", "") ;
     localStorage.setItem("email", "") ;
