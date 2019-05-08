@@ -221,16 +221,17 @@ html, body {
 :-ms-input-placeholder {
    text-align: center;
 }
-.message_sent {
-  background-color: var(--main-accent-color) ;
+.message_got, .message_sent {
   width: 60% ;
   text-align: left ;
   position: relative ;
+  word-wrap: break-word ;
+}
+.message_sent {
+  background-color: var(--main-accent-color) ;
   left: 40% ;
 }
 .message_got {
   background-color: rgb(233, 235, 239) ;
-  width: 60% ;
-  text-align: left ;
-  position: relative ;
+  color: rgb(20, 23, 26)
 }

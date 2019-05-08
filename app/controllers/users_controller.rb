@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       bio = Bio.create(user_id: user.id, headline: "new user", content: "this user hasn't created a bio yet")
       inbox = Inbox.create(user_id: user.id, user_name: user.name) ;
       tomaz = User.find_by(id: 1)
-      convo = Conversation.find_by_users(user, recipient)
+      convo = Conversation.find_by_users(user, tomaz)
       message = Message.create(
         from_id: tomaz.id,
         to_id: user.id,

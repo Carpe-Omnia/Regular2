@@ -63,8 +63,6 @@ class Messages extends React.Component {
                   else {
                     name = "message_got"
                   }
-                  console.log(localStorage.getItem('id'));
-                  console.log(message.from_id);
                   return (
                       <p key={message.id} className={name}>
                         {message.content}
