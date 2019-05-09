@@ -184,6 +184,7 @@ export function get_places(){
 }
 
 export function get_colors(){
+  console.log('getting colors');
   return (dispatch) => {
     fetch('/api/colors/index')
     .then(res => res.json())
@@ -259,7 +260,8 @@ export const facebookAuth = (response) => {
         })
       }
       else {
-        alert("something went terribly wrong. Try again, or don't. See what I care")
+        document.getElementById('snackbar_error_message').innerHTML = "Something went wrong" ;
+        document.getElementById('show_snackbar_error').click();
       }
     })
   }

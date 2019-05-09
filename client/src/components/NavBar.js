@@ -7,20 +7,28 @@ import Hotkey from './Hotkey'
 import HotkeyToggle from './HotkeyToggle'
 import ToggleHotkeys from './ToggleHotkeys'
 import ToggleDarkMode from './ToggleDarkMode'
+import {Places, ColorLink, JokeLink} from './Nav/Links'
 import detectMobile from '../utility/detectMobile'
 
 class NavBar extends React.Component {
   state = {
-    anchorE1: null
+    anchorE1: null,
+    anchorE2: null
   };
   handleClick = event => {
      this.setState({ anchorEl: event.currentTarget });
    };
+   handleClick2 = event => {
+     this.setState({ anchorE2: event.currentTarget });
+   }
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
+  handleClose2 = () => {
+    this.setState({ anchorE2: null });
+  };
   handleLogout = () => {
-    this.props.action.home() ;
+    this.props.actions.home() ;
     this.props.actions.set_user({}) ;
     localStorage.setItem("username", "") ;
     localStorage.setItem("id", "") ;
@@ -30,20 +38,9 @@ class NavBar extends React.Component {
   }
   render(){
     const { anchorEl } = this.state;
+    const { anchorE2 } = this.state;
     return (
       <div className="navbar" >
-        <span >
-          <NavLink className="navlink" to="/color" id="navlink6">
-            <span className="navlink_icon">
-              <i className="material-icons">color_lens</i>
-            </span>
-            <span className="navlink_text">
-              Color
-            </span>
-            <Hotkey text="0" click={true} />
-          </NavLink>
-        </span>
-
         <span >
           <NavLink className="navlink" to="/" exact id="navlink1">
             <span className="navlink_icon">
@@ -52,15 +49,6 @@ class NavBar extends React.Component {
             <span className="navlink_text"> Home </span>
             <Hotkey text="1" click={true} />
           </NavLink>
-        </span>
-        <span >
-            <NavLink className="navlink" to="/jokes" id="navlink2">
-              <span className="navlink_icon">
-                <i className="material-icons">view_list</i>
-              </span>
-              <span className="navlink_text"> Jokes </span>
-              <Hotkey text="2" click={true} />
-            </NavLink>
         </span>
         <Button aria-owns={anchorEl ? 'simple-menu' : undefined}
           aria-haspopup="true" onClick={this.handleClick}>
@@ -83,7 +71,7 @@ class NavBar extends React.Component {
            </span>
            <ToggleDarkMode />
          </MenuItem>
-         {!localStorage.getItem("username") ? //not logged in stuff
+         {!this.props.orientation.user.id ? //not logged in stuff
          <span>
           <NavLink className="navlink_expand" to="/register" id="navlink3" onClick={this.handleClose}>
             <MenuItem>
@@ -166,16 +154,18 @@ class NavBar extends React.Component {
           :
           <span></span> //mobile only stuff
         }
-          <NavLink className="navlink_expand" to="/places" exact id="navlink0" >
-            <MenuItem>
-                <span className="navlink_icon_expand">
-                  <i className="material-icons">map</i>
-                </span>
-                <span className="navlink_text_expand"> Places (alpha) </span>
-            </MenuItem>
-          </NavLink>
        </Menu>
-
+       <Button aria-owns={anchorE2 ? 'simple-menu2' : undefined}
+         aria-haspopup="true" onClick={this.handleClick2}>
+         <span className="menu_expand_icon">
+          <i class="material-icons">code</i>
+         </span>
+       </Button>
+       <Menu id="simple-menu2" anchorEl={anchorE2} open={Boolean(anchorE2)} onClose={this.handleClose2}>
+          <MenuItem onClick={this.handleClose2} > <ColorLink/> </MenuItem>
+          <MenuItem onClick={this.handleClose2} > <JokeLink/> </MenuItem>
+          <MenuItem onClick={this.handleClose2} > <Places/> </MenuItem>
+      </Menu>
       </div>
     )
   }

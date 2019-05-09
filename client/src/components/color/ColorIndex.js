@@ -39,7 +39,9 @@ var fetchedColors = [] ;
 class ColorIndex extends React.Component {
   constructor(props){
     super(props);
-    this.props.actions.get_colors();
+    if(this.props.orientation.colors.length === 0){
+      this.props.actions.get_colors();
+    }
   }
   /*
   uploadColors = () => {
@@ -70,7 +72,7 @@ class ColorIndex extends React.Component {
           <div className="main_page_content">
             {this.props.orientation.colors.map(function(color){
               return(
-                  <ColorCard key={color.name} text={color.name} rgb={color.rgb} color={color} actions={that.props.actions} orientation={that.props.orientation} />
+                  <ColorCard key={color.name} color={color} actions={that.props.actions} orientation={that.props.orientation} />
               )
             })}
           </div>

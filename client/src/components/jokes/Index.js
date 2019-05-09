@@ -5,7 +5,7 @@ import Joke from './Joke';
 const Index = (props) =>  {
   return (
     <div id="jokes_index_wrapper">
-    {!! localStorage.getItem('username') ?
+    {!!props.orientation.user.id ?
     <span>
     <NavArrow direction="Left" actions={props.actions} z={props.z} text="submit a joke" />
     <NavArrow direction="Right" actions={props.actions} z={props.z} text="my jokes" />

@@ -147,6 +147,9 @@
   width: 100%;
   height: 2px;
   background-color: var(--main-accent-color);
+  transform: none ;
+  transition: none ;
+  left: 0% ;
 }
 
 .navlink.active .navlink_icon {
@@ -159,8 +162,18 @@
   color: var(--main-text-color)
   */
 }
+span.navlink_text_expand {
+  text-decoration: none ;
+  color: rgb(20, 23, 26) ;
+}
+#navlink_places, #navlink_color, #navlink_joke {
+  text-decoration: none ;
+}
 .navlink_expand.active {
   color: var(--main-accent-color) ;
+}
+.active > div > .navlink_text_expand, .active > div > .navlink_icon_expand {
+  color: var(--main-accent-color) !important ;
 }
 
 @media screen and (max-width: 1200px){

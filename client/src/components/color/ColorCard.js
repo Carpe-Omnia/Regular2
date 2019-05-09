@@ -16,20 +16,20 @@ class ColorCard extends React.Component {
   }
 
   render(){
-    var rgb_text = this.props.rgb.replace("rgb","")
+    var rgb_text = this.props.color.rgb.replace("rgb","")
     return(
       <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal" infinite={true} style={{display: 'inline'}}>
-      <div style={{backgroundColor: this.props.rgb}} className="color_span" key="front" >
+      <div style={{backgroundColor: this.props.color.rgb}} className="color_span" key="front" >
         <span className="icon_at_top">
 
         </span>
         <h4 className="color_name" style={{color: 'white'}} >
-          {this.props.text}
+          {this.props.color.name}
         </h4>
         <span className="rgb_text" style={{color: 'white'}}>{rgb_text}</span>
         <br/>
         <span style={{display: 'block'}}>
-        <span style={{backgroundColor: 'black', color: this.props.rgb}} className="contrast_1 contrast">
+        <span style={{backgroundColor: 'black', color: this.props.color.rgb}} className="contrast_1 contrast">
           Black
         </span>
         <span style={{backgroundColor: this.props.rgb, color: 'black'}} className="contrast_2 contrast">
@@ -37,10 +37,10 @@ class ColorCard extends React.Component {
         </span>
         </span>
         <span style={{display: 'block'}}>
-          <span style={{backgroundColor: 'white', color: this.props.rgb}} className="contrast_3 contrast">
+          <span style={{backgroundColor: 'white', color: this.props.color.rgb}} className="contrast_3 contrast">
             White
           </span>
-          <span style={{backgroundColor: this.props.rgb, color: 'white'}} className="contrast_4 contrast">
+          <span style={{backgroundColor: this.props.color.rgb, color: 'white'}} className="contrast_4 contrast">
             Contrast
           </span>
         </span>
@@ -50,14 +50,14 @@ class ColorCard extends React.Component {
           </span>
           <span className="card_menu">
             {/*<i className="material-icons">add</i>*/}
-            <CardMenu rgb={this.props.rgb} text={this.props.text} actions={this.props.actions}
+            <CardMenu rgb={this.props.color.rgb} text={this.props.color.name} actions={this.props.actions}
             orientation={this.props.orientation}/>
           </span>
         </div>
         <div className="black_bar"></div>
         <div className="white_bar"></div>
       </div>
-      <div style={{backgroundColor: this.props.rgb}} className="color_span" key="back" onClick={event => this.handleClick(event)}>
+      <div style={{backgroundColor: this.props.color.rgb}} className="color_span" key="back" onClick={event => this.handleClick(event)}>
       </div>
       </ReactCardFlip>
     )

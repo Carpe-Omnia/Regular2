@@ -9,6 +9,7 @@
     "http-proxy-middleware": "^0.19.1",
     "jquery": "^3.1.1",
     "material-ui": "^0.20.2",
+    "notistack": "^0.8.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-card-flip": "^0.7.1",

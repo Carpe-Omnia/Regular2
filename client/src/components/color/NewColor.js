@@ -19,7 +19,6 @@ class NewColor extends React.Component {
     }
   }
   detectChange = () => {
-    console.log("change detected")
     this.setState({
       name: document.getElementById('new_color_name').value,
       red: document.getElementById('new_red').value,
@@ -42,7 +41,7 @@ class NewColor extends React.Component {
               Green<br/><NumericInput min={0} max={255} id="new_green" value={this.state.green} onChange={this.detectChange} /><br/>
               Blue<br/><NumericInput min={0} max={255} id="new_blue" value={this.state.blue} onChange={this.detectChange} /><br/>
           </form>
-          <ColorCard text={name} rgb={rgb} color={preview_color} actions={this.props.actions} orientation={this.props.orientation}/>
+          <ColorCard color={preview_color} actions={this.props.actions} orientation={this.props.orientation}/>
         </div>
       </div>
     )

@@ -201,7 +201,7 @@ html, body {
   width: 80% ;
 }
 .narrow_form {
-  width: 60% ;
+  /*width: 60% ;*/
 }
 .num_input {
   float: right ;

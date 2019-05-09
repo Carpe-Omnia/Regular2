@@ -26,7 +26,8 @@ class Login extends React.Component {
       .then(function(json){
         console.log(json.message);
         if (json.message === "logged in"){
-          alert("nice job logging in")
+          document.getElementById('snackbar_success_message').innerHTML = "login successful" ;
+          document.getElementById('show_snackbar_success').click();
           console.log(json.data)
           localStorage.setItem("username", json.data.name);
           localStorage.setItem("email", email);
@@ -39,7 +40,8 @@ class Login extends React.Component {
           that.props.actions.set_user(user) ;
         }
         else{
-          alert("Something went terribly wrong. Please try again.")
+          document.getElementById('snackbar_error_message').innerHTML = "login unsuccessful" ;
+          document.getElementById('show_snackbar_error').click();
         }
       })
     }
@@ -54,7 +56,7 @@ class Login extends React.Component {
           <form onSubmit={event => this.doThing(event)}>
             email<Hotkey text="b" /> <input type="text" id="email" /><br></br>
             password<Hotkey text="c" /><input type="text" id="password" /><br></br>
-            <button id="log_in_button" type="submit" action="submit">Join<Hotkey text="d" /></button>
+            <button id="log_in_button" type="submit" action="submit">Log in<Hotkey text="d" /></button>
           </form>
         </div>
         }

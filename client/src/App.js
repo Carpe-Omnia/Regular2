@@ -20,6 +20,10 @@ import Messages from './components/home/Messages'
 import PlacesContainer from './components/places/PlacesContainer'
 import SimpleSnackbar from './components/places/Snack.js' ;
 import Colors from './components/color/Colors' ;
+import { SnackbarProvider } from 'notistack';
+import SnackDemo1 from './components/Snackbar' ;
+import {SnackbarMessages} from './components/Snackbar' ;
+
 class App extends Component {
   /*
   constructor(props){
@@ -33,7 +37,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
         </header>
         <div className="App-body">
         <Router>
@@ -73,8 +76,11 @@ class App extends Component {
             />
           </React.Fragment >
         </Router >
-        <SimpleSnackbar message={this.props.orientation.snackbar_message} />
         </div>
+        <SnackbarMessages />
+        <SnackbarProvider maxSnack={3}>
+          <SnackDemo1 />
+        </SnackbarProvider>
       </div>
     );
   }
