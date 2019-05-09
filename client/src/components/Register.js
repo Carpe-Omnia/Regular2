@@ -52,8 +52,8 @@ class Register extends React.Component {
   render() {
     return (
       <div>
-      {!!localStorage.getItem("username") ?
-      <h1> You are already logged in as {localStorage.getItem("username")}</h1> :
+      {!!this.props.orientation.user.username ?
+      <h1> You are already logged in as {this.props.orientation.user.username}</h1> :
       <div>
         <h1> Register for this site </h1>
         <form onSubmit={event => this.doThing(event)}>

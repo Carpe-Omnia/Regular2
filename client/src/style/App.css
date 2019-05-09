@@ -5,6 +5,7 @@ html {
   --main-text-color: rgb(20, 23, 26); /*black*/
   --main-text-color: rgb(34, 37, 39) ; /*slightly lighter black*/
   /* I overwrote two theme variables here so I can go back and change them */
+  --normally-black: rgb(34, 37, 39) ;
   --main-accent-color: rgb(29, 161, 242) ; /*Twitter Blue */
   --non_mobile-display: inline ;
   --non_mobile1-display: inline ;

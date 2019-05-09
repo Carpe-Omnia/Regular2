@@ -1,23 +1,23 @@
 import React from 'react';
 var hotkeys_on = true ;
-class ToggleHotkeys extends React.Component {
-  doThing = (event) => {
-    event.preventDefault();
-    if(hotkeys_on){
-      document.documentElement.style.setProperty('--hotkeys_on-display', 'none') ;
-      document.documentElement.style.setProperty('--hotkeys_off-display', 'inline') ;
-      hotkeys_on = false ;
-    }
-    else{
-      document.documentElement.style.setProperty('--hotkeys_on-display', 'inline') ;
-      document.documentElement.style.setProperty('--hotkeys_off-display', 'none') ;
-      hotkeys_on = true ;
-    }
+function doHotkeyToggle(event){
+  event.preventDefault();
+  if(hotkeys_on){
+    document.documentElement.style.setProperty('--hotkeys_on-display', 'none') ;
+    document.documentElement.style.setProperty('--hotkeys_off-display', 'inline') ;
+    hotkeys_on = false ;
   }
+  else{
+    document.documentElement.style.setProperty('--hotkeys_on-display', 'inline') ;
+    document.documentElement.style.setProperty('--hotkeys_off-display', 'none') ;
+    hotkeys_on = true ;
+  }
+}
+class ToggleHotkeys extends React.Component {
   render(){
     return(
-      <div>
-        <span className="non_mobile1" onClick={event => this.doThing(event)}>
+      <div className="non_mobile1">
+        <span >
           <span className="hotkeys_on">
             Disable hotkeys
           </span>
@@ -30,4 +30,4 @@ class ToggleHotkeys extends React.Component {
   }
 }
 export default ToggleHotkeys ;
-export {hotkeys_on} ;
+export {hotkeys_on, doHotkeyToggle} ;

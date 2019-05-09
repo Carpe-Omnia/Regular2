@@ -106,10 +106,8 @@
   font-size: 2vmin ;
   text-decoration: none ;
 }
-.navlink:hover, .navlink_expand:hover {
-  text-decoration: none ;
-}
-.navlink::before {
+
+.navlink::before, .navlink_expand::before {
   content: '';
   position: absolute ;
   left: 50%;
@@ -121,26 +119,33 @@
   transform: translate(-50%, 0) scaleX(0);
   transition: transform 0.3s ease-in-out;
 }
-.navlink:hover::before {
+.navlink:hover::before, .navlink_expand:hover::before {
   transform: translate(-50%, 0) scaleX(1);
 }
-
-.navlink_icon, .navlink_icon_expand {
+.navlink:hover, .navlink_expand:hover {
+  text-decoration: none ;
+  --normally-black: var(--main-accent-color);
+}
+.navlink_icon {
   position: relative ;
   top: 0.8vmin ;
   padding-right: 0.25vmin ;
   color: var(--main-text-color) ;
 }
-
+.navlink_icon_expand {
+  position: relative ;
+  top: 0.8vmin ;
+  padding-right: 0.25vmin ;
+  color: var(--normally-black) ;
+}
 .navlink.active, .navlink_expand.active {
   text-decoration: none ;
   color: var(--main-accent-color) !important;
-  /*border-bottom: 2px solid var(--main-accent-color) ;*/
 }
 .navlink_expand.active .navlink_icon_expand, .navlink_expand.active .navlink_text_expand {
   color: var(--main-accent-color) ;
 }
-.navlink.active:before {
+.navlink.active::before, .navlink_expand.active::before {
   content: '';
   position: absolute ;
   bottom: 0;
@@ -156,18 +161,18 @@
   color: var(--main-accent-color) !important;
 }
 .navlink_expand, .navlink_icon_expand {
-  color: rgb(20, 23, 26) ;
   /*
+  color: rgb(20, 23, 26) ;
   always black because the backdrop is always white
   color: var(--main-text-color)
   */
 }
 span.navlink_text_expand {
   text-decoration: none ;
-  color: rgb(20, 23, 26) ;
+  color: var(--normally-black) ;
 }
-#navlink_places, #navlink_color, #navlink_joke {
-  text-decoration: none ;
+#navlink_places, #navlink_color, #navlink_joke, #navlink_register, #navlink_login {
+  text-decoration: none !important;
 }
 .navlink_expand.active {
   color: var(--main-accent-color) ;
@@ -175,7 +180,9 @@ span.navlink_text_expand {
 .active > div > .navlink_text_expand, .active > div > .navlink_icon_expand {
   color: var(--main-accent-color) !important ;
 }
-
+.active > li > div > .navlink_text_expand, .active > li > div > .navlink_icon_expand{
+  color: var(--main-accent-color) !important ;
+}
 @media screen and (max-width: 1200px){
   .navlink {
     font-size: small;
@@ -224,4 +231,7 @@ span.navlink_text_expand {
 
 .expand_menu_button {
   color: var(--main-text-color)
+}
+a:hover > li > span.navlink_text_expand {
+  text-decoration: none !important ;
 }

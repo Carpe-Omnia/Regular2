@@ -5,8 +5,11 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Hotkey from './Hotkey'
 import HotkeyToggle from './HotkeyToggle'
+import {doToggleHotkey} from './HotkeyToggle'
 import ToggleHotkeys from './ToggleHotkeys'
+import {doHotkeyToggle} from './ToggleHotkeys'
 import ToggleDarkMode from './ToggleDarkMode'
+import {doDarkToggle} from './ToggleDarkMode'
 import {Places, ColorLink, JokeLink} from './Nav/Links'
 import detectMobile from '../utility/detectMobile'
 
@@ -47,7 +50,6 @@ class NavBar extends React.Component {
               <i className="material-icons">home</i>
             </span>
             <span className="navlink_text"> Home </span>
-            <Hotkey text="1" click={true} />
           </NavLink>
         </span>
         <Button aria-owns={anchorEl ? 'simple-menu' : undefined}
@@ -62,51 +64,51 @@ class NavBar extends React.Component {
          open={Boolean(anchorEl)}
          onClose={this.handleClose}
          >
-         <MenuItem>
-           <span className="navlink_icon_expand">
-             <i className="material-icons darkmode_off" >brightness_3</i>
-           </span>
-           <span className="navlink_icon_expand">
-             <i className="material-icons darkmode_on" >brightness_5</i>
-           </span>
+         <MenuItem onClick={event => doDarkToggle(event)}>
            <ToggleDarkMode />
          </MenuItem>
          {!this.props.orientation.user.id ? //not logged in stuff
          <span>
-          <NavLink className="navlink_expand" to="/register" id="navlink3" onClick={this.handleClose}>
-            <MenuItem>
-              <span className="navlink_icon_expand">
-                <i className="material-icons">account_box</i>
-              </span>
-              <span className="navlink_text_expand"> Register </span>
+          <NavLink  to="/register" id="navlink3" onClick={this.handleClose}>
+            <MenuItem >
+              <div className="navlink_expand">
+                <span className="navlink_icon_expand">
+                  <i className="material-icons">account_box</i>
+                </span>
+                <span className="navlink_text_expand" id="navlink_register"> Register </span>
+              </div>
             </MenuItem>
           </NavLink>
            <span >
-            <NavLink className="navlink_expand" to="/login" id="navlink4"  onClick={this.handleClose}>
-              <MenuItem>
-                 <span className="navlink_icon_expand">
-                   <i className="material-icons">account_circle</i>
+            <NavLink  to="/login" id="navlink4"  onClick={this.handleClose}>
+              <MenuItem >
+                <span className="navlink_expand">
+                   <span className="navlink_icon_expand">
+                     <i className="material-icons">account_circle</i>
+                   </span>
+                   <span className="navlink_text_expand"  id="navlink_login"> Login </span>
                  </span>
-                 <span className="navlink_text_expand"> Login </span>
                </MenuItem>
             </NavLink>
            </span>
          </span>
          : //logged in stuff
          <span>
-          <NavLink className="navlink_expand" to="/messages" id="navlink5" onClick={this.handleClose}>
-           <MenuItem>
+          <NavLink to="/messages" id="navlink5" onClick={this.handleClose}>
+           <MenuItem >
+            <span className="navlink_expand">
              <span className="navlink_icon_expand">
                <i className="material-icons ">mail_outline</i>
              </span>
              <span className="navlink_text_expand">
               Messages (beta)
              </span>
+            </span>
            </MenuItem>
           </NavLink>
-          <NavLink className="navlink_expand" to="/profile" id="navlink6" onClick={this.handleClose}>
-             <MenuItem>
-              <span>
+          <NavLink to="/profile" id="navlink6" onClick={this.handleClose}>
+             <MenuItem >
+              <span className="navlink_expand">
                 <span className="navlink_icon_expand">
                   <i className="material-icons ">account_box</i>
                 </span>
@@ -130,16 +132,16 @@ class NavBar extends React.Component {
           }
           {!detectMobile() ? //desktop only stuff
             <span>
-              <MenuItem>
-              <span className="navlink_expand" id="toggle_hotkeys_icon">
-                {<i className="material-icons hotkeys_on">toggle_on</i>}
-              </span>
-              <span className="" id="toggle_hotkeys_icon">
-                <i className="material-icons hotkeys_off">toggle_off</i>
-              </span>
-              <ToggleHotkeys />
-            </MenuItem>
-            <MenuItem>
+              <MenuItem onClick={event => doHotkeyToggle(event)}>
+                <span className="navlink_expand" id="toggle_hotkeys_icon">
+                  {<i className="material-icons hotkeys_on">toggle_on</i>}
+                </span>
+                <span className="" id="toggle_hotkeys_icon">
+                  <i className="material-icons hotkeys_off">toggle_off</i>
+                </span>
+                <ToggleHotkeys />
+              </MenuItem>
+            <MenuItem onClick={event => doToggleHotkey(event)}>
               <span className="navlink_expand">
                 <i className="material-icons non_mobile" >toggle_on</i>
               </span>
@@ -162,9 +164,10 @@ class NavBar extends React.Component {
          </span>
        </Button>
        <Menu id="simple-menu2" anchorEl={anchorE2} open={Boolean(anchorE2)} onClose={this.handleClose2}>
-          <MenuItem onClick={this.handleClose2} > <ColorLink/> </MenuItem>
-          <MenuItem onClick={this.handleClose2} > <JokeLink/> </MenuItem>
-          <MenuItem onClick={this.handleClose2} > <Places/> </MenuItem>
+          <span></span>
+          <NavLink to="/color" id="navlink_color"><MenuItem onClick={this.handleClose2} > <ColorLink/> </MenuItem></NavLink>
+          <NavLink to="/jokes" id="navlink_joke"> <MenuItem onClick={this.handleClose2} > <JokeLink/> </MenuItem> </NavLink>
+          <NavLink  to="/places" exact id="navlink_places" ><MenuItem onClick={this.handleClose2} > <Places/> </MenuItem></NavLink>
       </Menu>
       </div>
     )

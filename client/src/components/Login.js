@@ -49,7 +49,7 @@ class Login extends React.Component {
   render(){
     return (
       <div>
-        {!!localStorage.getItem("username") ?
+        {!!this.props.orientation.user.id ?
         <h1> You are already logged in as {localStorage.getItem("username")}</h1> :
         <div>
           <h1> Login to this site </h1>
