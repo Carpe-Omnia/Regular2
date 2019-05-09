@@ -57,9 +57,9 @@ class Register extends React.Component {
       <div>
         <h1> Register for this site </h1>
         <form onSubmit={event => this.doThing(event)}>
-          username<Hotkey text="b" /><input type="text" id="username" /><br></br>
-          password<Hotkey text="c" /><input type="text" id="password" /><br></br>
-          email<Hotkey text="d" /><input type="text" id="email" /><br></br>
+          <Hotkey text="b" /><input type="text" id="username" placeholder="username"/><br></br>
+          <Hotkey text="c" /><input type="text" id="password" placeholder="password" /><br></br>
+          <Hotkey text="d" /><input type="text" id="email" placeholder="email"/><br></br>
           <button id="log_in_button" type="submit" action="submit">Join<Hotkey text="e" /></button>
         </form>
         <br />

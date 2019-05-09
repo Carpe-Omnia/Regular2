@@ -160,7 +160,7 @@ class NavBar extends React.Component {
        <Button aria-owns={anchorE2 ? 'simple-menu2' : undefined}
          aria-haspopup="true" onClick={this.handleClick2}>
          <span className="menu_expand_icon">
-          <i class="material-icons">code</i>
+          <i className="material-icons expand_menu_button">code</i>
          </span>
        </Button>
        <Menu id="simple-menu2" anchorEl={anchorE2} open={Boolean(anchorE2)} onClose={this.handleClose2}>

@@ -54,8 +54,8 @@ class Login extends React.Component {
         <div>
           <h1> Login to this site </h1>
           <form onSubmit={event => this.doThing(event)}>
-            email<Hotkey text="b" /> <input type="text" id="email" /><br></br>
-            password<Hotkey text="c" /><input type="text" id="password" /><br></br>
+            email<Hotkey text="b" /> <input type="text" id="email" placeholder="email"/><br></br>
+            password<Hotkey text="c" /><input type="text" id="password" placeholder="password"/><br></br>
             <button id="log_in_button" type="submit" action="submit">Log in<Hotkey text="d" /></button>
           </form>
         </div>

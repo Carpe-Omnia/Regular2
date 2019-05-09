@@ -12,7 +12,7 @@ class NewColor extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      name: "",
+      name: "add name",
       red: 0,
       green: 0,
       blue: 0

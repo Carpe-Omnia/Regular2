@@ -236,3 +236,9 @@ html, body {
   background-color: rgb(233, 235, 239) ;
   color: rgb(20, 23, 26)
 }
+button {
+  color: var(--normally-black)
+}
+.react-numeric-input {
+  color: var(--normally-black)
+}
