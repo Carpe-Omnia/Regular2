@@ -39,7 +39,29 @@ class CardMenu extends React.Component {
     }, 200)
 
   };
-
+  submitColor = (color) => {
+    var user_id;
+    if(!!this.props.orientation.user.id){
+      user_id = this.props.orientation.user.id
+    }
+    else{
+      user_id = null
+    }
+    var postData = {
+      rgb: color.rgb,
+      name: color.name,
+      user_id: user_id
+    }
+    fetch('/api/colors/create', {
+      method: 'POST',
+      body: JSON.stringify(postData),
+      headers:{'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(function(json){
+      console.log(json);
+    })
+  }
 
 
   expandPalette = () => {
@@ -76,8 +98,11 @@ class CardMenu extends React.Component {
       name: this.props.text,
       rgb: this.props.rgb
     }
-    this.props.actions.add_to_my_colors(color)
+    this.props.actions.add_to_my_colors(color, this.props.new)
     this.handleClose() ;
+    if(this.props.new){
+      this.submitColor(color)
+    }
   }
   handleAddToPalette = (event, palette, index) => {
     event.preventDefault() ;

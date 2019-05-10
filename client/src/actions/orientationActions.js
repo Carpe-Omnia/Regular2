@@ -198,7 +198,27 @@ export function get_colors(){
     })
   }
 }
-
+export function get_my_colors(id){
+  var postData = {user_id: id}
+  return (dispatch) => {
+    fetch(`/api/colors/my_colors/`, {
+      method: 'POST',
+      body: JSON.stringify(postData),
+      headers:{'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(function(json){
+      if(json.message === "loaded"){
+        dispatch({
+          type: 'SET_MY_COLORS',
+          payload: {
+            colors: json.data
+          }
+        })
+      }
+    })
+  }
+}
 export function add_to_my_colors(color){
   return (dispatch) => {
     dispatch({

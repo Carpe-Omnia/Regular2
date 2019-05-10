@@ -11,6 +11,13 @@ var colorHash = {
 class Colors extends React.Component {
   constructor(props){
     super(props);
+    if(this.props.orientation.colors.length === 0){
+      this.props.actions.get_colors();
+    }
+    if(this.props.orientation.my_colors.length === 0 && !!this.props.orientation.user.id){
+      console.log(this.props.orientation.user.id);
+      this.props.actions.get_my_colors(this.props.orientation.user.id);
+    }
   }
   render(){
     var orientation = this.props.orientation.orientation[0] ;

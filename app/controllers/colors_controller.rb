@@ -9,6 +9,11 @@ class ColorsController < ApplicationController
         message: "loaded",
         data: color
       }, status: :ok
+      if !!params[:user_id]
+        user = User.find_by(id: params[:user_id])
+        user.colors << color
+        puts user.colors
+      end
     else
       render json: {
         status: 'failure',
@@ -25,5 +30,22 @@ class ColorsController < ApplicationController
       data: colors
     }, status: :ok
   end
+  def my_colors
+    user = User.find_by(id: params[:user_id])
+    if !!user
+      colors = user.colors
+      render json: {
+        status: 'success',
+        message: "loaded",
+        data: colors
+      }, status: :ok
+    else
+      render json: {
+        status: 'failure',
+        message: "not loaded"
+      }, status: :ok
+    end
+  end
+
 
 end

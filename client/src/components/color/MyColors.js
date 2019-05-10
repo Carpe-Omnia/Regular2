@@ -11,7 +11,7 @@ const MyColors = (props) => {
           <h2>My Colors</h2>
           {props.orientation.my_colors.map(function(color){
             return(
-                <ColorCard key={color.name} color={color} actions={props.actions} orientation={props.orientation}/>
+                <ColorCard new={false} key={color.name} color={color} actions={props.actions} orientation={props.orientation}/>
             )
           })}
           <h2>My Palettes</h2>

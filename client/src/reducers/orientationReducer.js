@@ -55,6 +55,8 @@ function orientationReducer(state={
       return Object.assign({}, state, {
         my_colors: [action.payload.color, ...state.my_colors]
       })
+    case 'SET_MY_COLORS':
+      return Object.assign({}, state, {my_colors: action.payload.colors})
     case 'ADD_TO_MY_PALETTES':
       return Object.assign({}, state, {
         my_palettes: [action.payload.palette, ...state.my_palettes]

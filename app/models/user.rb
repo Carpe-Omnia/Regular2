@@ -10,4 +10,9 @@ class User < ApplicationRecord
 
 	#validates :name, uniqueness: true
 	validates :email, uniqueness: true
+
+	has_many :user_colors, :class_name => 'UserColor', :foreign_key => 'user_id'
+	has_many :colors, through: :user_colors
+	has_many :user_palettes, :class_name => 'UserPalette', :foreign_key => 'user_id'
+	has_many :palettes, through: :user_palettes
 end
