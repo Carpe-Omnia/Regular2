@@ -51,7 +51,7 @@ class ColorCard extends React.Component {
           <span className="card_menu">
             {/*<i className="material-icons">add</i>*/}
             <CardMenu rgb={this.props.color.rgb} text={this.props.color.name} actions={this.props.actions}
-            orientation={this.props.orientation} new={this.props.new} />
+            orientation={this.props.orientation} new={this.props.new} color={this.props.color}/>
           </span>
         </div>
         <div className="black_bar"></div>

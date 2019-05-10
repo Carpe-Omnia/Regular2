@@ -47,5 +47,15 @@ class ColorsController < ApplicationController
     end
   end
 
+  def add_to_my_colors
+    color = Color.find_by(id: params[:color_id])
+    user = User.find_by(id: params[:user_id])
+    user.colors << color
+    render json: {
+      status: 'success',
+      message: "added",
+      data: color
+    }, status: :ok
+  end
 
 end

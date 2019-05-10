@@ -62,7 +62,24 @@ class CardMenu extends React.Component {
       console.log(json);
     })
   }
-
+  addColor = () => {
+    console.log(this.props.color);
+    if(!!this.props.orientation.user.id){
+      var postData = {
+        color_id: this.props.color.id,
+        user_id: this.props.orientation.user.id
+      }
+      fetch('/api/colors/my_colors/new', {
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers:{'Content-Type': 'application/json'}
+      })
+      .then(res => res.json())
+      .then(function(json){
+        console.log(json);
+      })
+    }
+  }
 
   expandPalette = () => {
     console.log("adding to palette");
@@ -94,14 +111,17 @@ class CardMenu extends React.Component {
   }
 
   handleAddToColors = () => {
-    let color = {
-      name: this.props.text,
-      rgb: this.props.rgb
+    let thing = {
+      name: this.props.color.name,
+      rgb: this.props.color.rgb
     }
-    this.props.actions.add_to_my_colors(color, this.props.new)
+    this.props.actions.add_to_my_colors(thing)
     this.handleClose() ;
     if(this.props.new){
-      this.submitColor(color)
+      this.submitColor(thing)
+    }
+    else{
+      this.addColor()
     }
   }
   handleAddToPalette = (event, palette, index) => {
