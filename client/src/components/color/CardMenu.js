@@ -64,7 +64,7 @@ class CardMenu extends React.Component {
   }
   addColor = () => {
     console.log(this.props.color);
-    if(!!this.props.orientation.user.id){
+    if(!!this.props.orientation.user.id && this.props.color.id){
       var postData = {
         color_id: this.props.color.id,
         user_id: this.props.orientation.user.id
@@ -102,14 +102,46 @@ class CardMenu extends React.Component {
       name: this.props.text,
       rgb: this.props.rgb
     }
-    let palette = {
-      name: name,
-      colors: [color]
+
+    let user_id = null
+    if(this.props.orientation.user.id){user_id = this.props.orientation.user.id}
+    var postData = {
+      palette_name: name,
+      user_id: user_id
     }
-    this.props.actions.add_to_my_palettes(palette);
+    var that = this ;
+    var palette_id = null
+    fetch('/api/palettes/create', {
+      method: 'POST',
+      body: JSON.stringify(postData),
+      headers:{'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(function(json){
+      palette_id = json.data.id
+      that.AddToPalette(palette_id)
+    })
     this.handleClose() ;
   }
 
+  AddToPalette = (palette_id) => {
+    var that = this ;
+    var postData2 = {palette_id: palette_id, color_id: that.props.color.id}
+    fetch('/api/palettes/add_color',{
+      method: 'POST',
+      body: JSON.stringify(postData2),
+      headers:{'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(function(json){
+      let palette = {
+        name: json.data.name,
+        id: json.data.palette_id,
+        colors: json.data.colors
+      }
+      that.props.actions.add_to_my_palettes(palette);
+    })
+  }
   handleAddToColors = () => {
     let thing = {
       name: this.props.color.name,

@@ -68,7 +68,6 @@ class ColorIndex extends React.Component {
         <NavArrow direction="Right" actions={this.props.actions} z={this.props.z} text="my colors" />
           <div className="main_page_content">
             {this.props.orientation.colors.map(function(color){
-              console.log(color);
               return(
                   <ColorCard new={false} key={color.name} color={color} actions={that.props.actions} orientation={that.props.orientation} />
               )
