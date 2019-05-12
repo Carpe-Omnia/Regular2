@@ -52,21 +52,21 @@ export function set_data_package(id){
   }
 }
 
-export function set_profile(username){
+export function set_profile(id){
   return(dispatch) => {
-    return fetch(`api/users/show/${username}`)
-      .then(res => res.json())
-      .then(function(json){
-        dispatch({
-          type: 'SET_PROFILE',
-          payload: {
-            profile: {
-              name: json.data.name,
-              bio: json.data.bio
-            }
+    fetch(`api/users/show/${id}`)
+    .then(res => res.json())
+    .then(function(json){
+      dispatch({
+        type: 'SET_PROFILE',
+        payload: {
+          profile: {
+            name: json.data.name,
+            bio: json.data.bio
           }
-        })
+        }
       })
+    })
   }
 }
 

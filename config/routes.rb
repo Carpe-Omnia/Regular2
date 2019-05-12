@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   post '/api/users/new', to: 'users#new'
   post '/api/users/login', to: 'users#login'
-  post '/api/users/update/:id/:headline/:content', to: 'users#update'
-  get '/api/users/show/:name', to: 'users#show'
+  post '/api/users/update', to: 'users#update'
+  get '/api/users/show/:id', to: 'users#show'
+
   constraints(email: /[^\/]+/) do
     post '/api/users/auth/facebook/:name/:email', to: 'users#facebookAuth'
     post '/api/users/auth/google/:name/:email', to: 'users#facebookAuth'
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
   post '/api/palettes/add_color', to: 'palettes#add_color_to_palette'
   get '/api/palettes/show/:id', to: 'palettes#show'
   get '/api/palettes/my_palettes/:id', to: 'palettes#my_palettes'
-  
+
   get '*path', to: "application#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end

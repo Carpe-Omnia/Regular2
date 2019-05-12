@@ -10,17 +10,27 @@ class Profile extends React.Component {
     event.preventDefault();
     var headline = document.getElementById('edit_headline').value;
     var content = document.getElementById('edit_content').value;
-    var id = localStorage.getItem("id");
+    var id = this.props.orientation.user.id
     var that = this ;
-    var url = `/api/users/update/${id}/${headline}/${content}` ;
-    fetch(url,{method: 'post'})
+    var url = `/api/users/update` ;
+    var postData = {
+      headline: headline,
+      content: content,
+      id: id
+    }
+    fetch(url,{
+      method: 'post',
+      body: JSON.stringify(postData),
+      headers:{'Content-Type': 'application/json'}
+    })
     .then(res => res.json())
     .then(function(json){
       if (json.message === "bio updated"){
-        that.props.actions.set_profile(localStorage.getItem("username"))
+        that.props.actions.set_profile(that.props.orientation.user.id)
       }
       else{
-        alert("something went wrong. I bet it was your fault")
+        document.getElementById('snackbar_error_message').innerHTML = "Something went wrong. My bad (probably)" ;
+        document.getElementById('show_snackbar_error').click() ;
       }
     })
   }

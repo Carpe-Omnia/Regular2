@@ -5,8 +5,12 @@ class HomeContainer extends React.Component {
   constructor(props){
     super(props);
     if(!!this.props.orientation.user.id){
-      this.props.actions.set_data_package(this.props.orientation.user.id);
-      this.props.actions.set_profile(this.props.orientation.user.username);
+      if(this.props.orientation.datapackage.length === 0){
+        this.props.actions.set_data_package(this.props.orientation.user.id);
+      }
+      if(!this.props.orientation.profile.name){
+        this.props.actions.set_profile(this.props.orientation.user.id);
+      }
     }
   }
   render() {
