@@ -26,8 +26,7 @@ class Login extends React.Component {
       .then(function(json){
         console.log(json.message);
         if (json.message === "logged in"){
-          document.getElementById('snackbar_success_message').innerHTML = "login successful" ;
-          document.getElementById('show_snackbar_success').click();
+
           console.log(json.data)
           localStorage.setItem("username", json.data.name);
           localStorage.setItem("email", email);
@@ -38,6 +37,9 @@ class Login extends React.Component {
             id: json.data.id
           }
           that.props.actions.set_user(user) ;
+          document.getElementById('navlink1').click()
+          document.getElementById('snackbar_success_message').innerHTML = `welcome ${json.data.name}`  ;
+          document.getElementById('show_snackbar_success').click();
         }
         else{
           document.getElementById('snackbar_error_message').innerHTML = "login unsuccessful" ;

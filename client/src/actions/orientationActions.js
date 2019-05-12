@@ -42,6 +42,7 @@ export function set_data_package(id){
     return fetch(`api/messages/index/${id}`)
     .then (res => res.json())
     .then (function(json){
+      console.log(json.data.datapackage);
       dispatch({
         type: 'SET_DATAPACKAGE',
         payload: {
@@ -332,6 +333,8 @@ export const googleAuth = (response) => {
           }
         })
         document.getElementById('navlink1').click()
+        document.getElementById('snackbar_success_message').innerHTML = `Welcome ${json.data.name}` ;
+        document.getElementById('show_snackbar_success').click();
       }
       else {
         alert("something went terribly wrong. Try again, or don't. See what I care")

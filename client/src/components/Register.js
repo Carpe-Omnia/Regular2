@@ -28,7 +28,6 @@ class Register extends React.Component {
       .then(res => res.json())
       .then(function(json){
         if (json.message === "user created") {
-            alert('Nice job creating your account. You have been signed in. ');
             localStorage.setItem("username", uname);
             localStorage.setItem("email", email);
             localStorage.setItem("id", json.data.id);
@@ -39,6 +38,8 @@ class Register extends React.Component {
             }
             that.props.actions.set_user(user);
             document.getElementById('navlink1').click() ;
+            document.getElementById('snackbar_success_message').innerHTML = `welcome ${json.data.name}`  ;
+            document.getElementById('show_snackbar_success').click() ;
           }
         else {
           alert('Something went wrong. Remember to enter a username, email, AND a password')
