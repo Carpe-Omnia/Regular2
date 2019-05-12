@@ -53,13 +53,14 @@ class Login extends React.Component {
       <div>
         {!!this.props.orientation.user.id ?
         <h1> You are already logged in as {localStorage.getItem("username")}</h1> :
-        <div>
+        <div className="login_div">
           <h1> Login to this site </h1>
           <form onSubmit={event => this.doThing(event)}>
-            email<Hotkey text="b" /> <input type="text" id="email" placeholder="email"/><br></br>
-            password<Hotkey text="c" /><input type="text" id="password" placeholder="password"/><br></br>
+            <Hotkey text="m" /><input type="text" id="email" placeholder="email"/><br/>
+            <Hotkey text="c" /><input type="text" id="password" placeholder="password"/><br/><br/>
             <button id="log_in_button" type="submit" action="submit">Log in<Hotkey text="d" /></button>
           </form>
+          <br/>
         </div>
         }
         <GoogleLogin

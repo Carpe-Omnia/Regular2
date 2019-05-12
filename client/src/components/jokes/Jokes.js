@@ -6,7 +6,7 @@ class Jokes extends React.Component {
   constructor(props){
     super(props);
     this.props.actions.set_all_jokes();
-    if (this.props.orientation.user !== {}){
+    if (!!this.props.orientation.user.id && this.props.orientation.my_jokes.length !== 0){
       this.props.actions.set_my_jokes(this.props.orientation.user.id);
     }
   }

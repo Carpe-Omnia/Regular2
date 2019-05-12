@@ -9,6 +9,7 @@ var hotkeyHash = {
   'd': '#edit_headline',
   'g': '#edit_content',
   's': '#setup_input',
+  'm': '#email',
   'p': '#punchline_input',
   'x': '#new_recipient',
   'y': '#new_subject',

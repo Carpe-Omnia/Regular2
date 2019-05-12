@@ -57,7 +57,7 @@ class Messages extends React.Component {
               <div id={`ul_${convo.id}`}>
                 {convo.messages.map(function(message) {
                   let name;
-                  if (message.from_id === that.props.orientation.user.id){
+                  if (message.from_id == that.props.orientation.user.id){
                     name = "message_sent"
                   }
                   else {
