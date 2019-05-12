@@ -13,7 +13,7 @@ import blue from '@material-ui/core/colors/blue';
 
 const styles = {
   card: {maxWidth: 345,},
-  media: {height: 0,paddingTop: '56.25%',},
+  media: {height: 0, paddingTop: '56.25%',},
 };
 
 const InfoWindow = (props) => {

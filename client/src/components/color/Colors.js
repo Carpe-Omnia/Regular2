@@ -18,6 +18,9 @@ class Colors extends React.Component {
       console.log(this.props.orientation.user.id);
       this.props.actions.get_my_colors(this.props.orientation.user.id);
     }
+    if(this.props.orientation.my_palettes.length === 0 && !!this.props.orientation.user.id){
+      this.props.actions.get_my_palettes(this.props.orientation.user.id);
+    }
   }
   render(){
     var orientation = this.props.orientation.orientation[0] ;

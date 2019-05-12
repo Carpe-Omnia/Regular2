@@ -219,6 +219,26 @@ export function get_my_colors(id){
     })
   }
 }
+export function get_my_palettes(id){
+  let url = `/api/palettes/my_palettes/${id}` ;
+  return (dispatch) => {
+    fetch(url)
+    .then(res => res.json())
+    .then(function(json){
+      console.log(json);
+      if(json.message === "your palettes retrieved"){
+        json.data.palettes.forEach (function(palette){
+          if (!!palette.id && palette.colors.length !== 0){
+            dispatch({
+              type: 'ADD_TO_MY_PALETTES',
+              payload: {palette: palette}
+            })
+          }
+        })
+      }
+    })
+  }
+}
 export function add_to_my_colors(color){
   return (dispatch) => {
     dispatch({
@@ -240,14 +260,13 @@ export function add_to_my_palettes(palette){
   }
 }
 
-export function add_to_palette(color, palette, index){
+export function add_to_palette(color, palette){
   return (dispatch) => {
     dispatch({
       type: 'ADD_TO_PALETTE',
       payload: {
         color: color,
         palette: palette,
-        index: index
       }
     })
   }

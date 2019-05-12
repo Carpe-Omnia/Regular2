@@ -31,7 +31,9 @@ Rails.application.routes.draw do
   get '/api/palettes/index', to: 'palettes#index'
   post '/api/palettes/create', to: 'palettes#create'
   post '/api/palettes/add_color', to: 'palettes#add_color_to_palette'
-
+  get '/api/palettes/show/:id', to: 'palettes#show'
+  get '/api/palettes/my_palettes/:id', to: 'palettes#my_palettes'
+  
   get '*path', to: "application#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end

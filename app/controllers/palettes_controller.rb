@@ -39,4 +39,40 @@ class PalettesController < ApplicationController
     }, status: :ok
   end
 
+  def show
+    palette = Palette.find_by(id: params[:id])
+    colors = palette.colors
+    render json: {
+      status: "success",
+      message: "palette retrieved",
+      data: {
+        palette: {
+          name: palette.name,
+          id: palette.id,
+          colors: colors
+        }
+      }
+    }, status: :ok
+  end
+  def my_palettes
+    user = User.find_by(id: params[:id])
+    palettes = user.palettes
+    jpals = []
+    palettes.each do |palette|
+      thing = {
+        id: palette.id,
+        name: palette.name,
+        colors: palette.colors
+      }
+      jpals << thing
+    end
+    render json: {
+      status: "success",
+      message: "your palettes retrieved",
+      data: {palettes: jpals}
+    }, status: :ok
+  end
+
+
+
 end

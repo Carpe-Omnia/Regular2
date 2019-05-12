@@ -1,5 +1,7 @@
 #map {
-  margin: 0 auto
+  margin: 0 auto ;
+  width: 80% !important;
+  height: 30vw !important;
 }
 @media screen and (max-width: 450px){
   #map {
@@ -21,4 +23,55 @@
 }
 #places_form{
   width: 80% ;
+}
+.places_input_div {
+  position: relative ;
+  width: 6.5em ;
+  margin: 0 auto ;
+}
+.places_input_entry {
+  width: 6.5em;
+  color: white;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom-color: hsla(185, 100%, 62%, 0.2);
+}
+
+.places_input_entry:focus {
+  outline: none;
+}
+
+.places_input_entry::placeholder {
+  color: hsla(0, 0%, 100%, 0.6);
+  color: var(--secondary-theme-color);
+}
+
+.places_input_span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #3cefff;
+  background-color: var(--main-accent-color);
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+.places_input_entry:focus ~ span {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+#places_wrapper {
+  background-color: var(--main-text-color);
+  width: 80% ;
+  margin: 0 auto ;
+}
+#get_places_div {
+  width: 100% ;
+  margin: 0 auto ;
+  background-color: var(--main-text-color) ;
 }

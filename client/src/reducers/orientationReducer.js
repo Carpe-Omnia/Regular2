@@ -58,14 +58,16 @@ function orientationReducer(state={
     case 'SET_MY_COLORS':
       return Object.assign({}, state, {my_colors: action.payload.colors})
     case 'ADD_TO_MY_PALETTES':
+      let other_palettes = state.my_palettes.filter(function(palette){
+          return palette.id !== action.payload.palette.id ;
+      })
       return Object.assign({}, state, {
-        my_palettes: [action.payload.palette, ...state.my_palettes]
+        my_palettes: [action.payload.palette, ...other_palettes]
       })
     case 'ADD_TO_PALETTE':
-      let index = action.payload.index ;
       let num_palettes = state.my_palettes.length ;
-      let other_palettes = state.my_palettes.filter(function(palette){
-          return palette !== action.payload.palette ;
+      other_palettes = state.my_palettes.filter(function(palette){
+        return palette.id !== action.payload.palette.id ;
       })
       return Object.assign({}, state, {
         my_palettes: [

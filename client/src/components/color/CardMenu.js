@@ -99,7 +99,7 @@ class CardMenu extends React.Component {
     let name = document.getElementById(`name_input_for_new_palette`).value ;
     console.log(name) ;
     let color = {
-      name: this.props.text,
+      name: this.props.name,
       rgb: this.props.rgb
     }
 
@@ -158,12 +158,13 @@ class CardMenu extends React.Component {
   }
   handleAddToPalette = (event, palette, index) => {
     event.preventDefault() ;
-    console.log(index) ;
     let color = {
-      name: this.props.text,
-      rgb: this.props.rgb
+      name: this.props.color.name,
+      rgb: this.props.color.rgb,
+      id: this.props.color.id
     }
-    this.props.actions.add_to_palette(color, palette, index)
+  //  this.props.actions.add_to_palette(color, palette) ;
+    this.AddToPalette(palette.id) ;
     this.handleClose() ;
   }
   handleVoteUp = () => {
