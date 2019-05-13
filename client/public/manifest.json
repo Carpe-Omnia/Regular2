@@ -1,14 +1,14 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Secret Garden",
+  "name": "Secret Garden Variety App",
   "icons": [
     {
-      "src": "faviconv4.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "./favicon6.ico",
+      "sizes": "512x512 256x256 192x192 128x128 96x96 64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
