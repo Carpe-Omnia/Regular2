@@ -77,6 +77,7 @@ class App extends Component {
           </React.Fragment >
         </Router >
         </div>
+        <button id="add_button" style={{display: 'none'}}>add to home</button>
         <SnackbarMessages />
         <SnackbarProvider maxSnack={3}>
           <SnackDemo1 />
