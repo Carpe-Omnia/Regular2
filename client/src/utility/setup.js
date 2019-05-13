@@ -59,7 +59,7 @@ function moveAround(e) {
 }
 let deferredPrompt ;
 function doPwa(){
-  let btnAdd = document.getElementById('add_button') ;
+  var btnAdd = document.getElementById('add_button') ;
   window.addEventListener('beforeinstallprompt', (e) => {
     // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault();
