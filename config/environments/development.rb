@@ -7,6 +7,8 @@ Rails.application.configure do
   config.cache_classes = false
 
   # Do not eager load code on boot.
+  #changed to true because the other is kinda annoying
+  #I may change this back If i get burned for it.
   config.eager_load = true
 
   # Show full error reports.

@@ -159,3 +159,6 @@
 .special_menu_input {
   width: 100%
 }
+.react-card-front, .react-card-back {
+  transform-style: initial ;
+}

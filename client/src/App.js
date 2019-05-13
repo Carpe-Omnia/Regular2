@@ -39,6 +39,7 @@ class App extends Component {
         <header className="App-header">
         </header>
         <div className="App-body">
+        <button id="add_button" style={{display: 'none', margin: '0 auto'}}>add to home</button>
         <Router>
           <React.Fragment >
             <NavBar id="NavBar" orientation={this.props.orientation} actions={this.props.actions} />
@@ -77,7 +78,6 @@ class App extends Component {
           </React.Fragment >
         </Router >
         </div>
-        <button id="add_button" style={{display: 'none'}}>add to home</button>
         <SnackbarMessages />
         <SnackbarProvider maxSnack={3}>
           <SnackDemo1 />
