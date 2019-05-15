@@ -20,8 +20,9 @@ class ColorCard extends React.Component {
     return(
       <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal" infinite={true} style={{display: 'inline'}}>
       <div style={{backgroundColor: this.props.color.rgb}} className="color_span" key="front" >
-        <span className="icon_at_top">
-
+        <span className="card_menu">
+          <CardMenu rgb={this.props.color.rgb} name={this.props.color.name} actions={this.props.actions}
+          orientation={this.props.orientation} new={this.props.new} color={this.props.color}/>
         </span>
         <h4 className="color_name" style={{color: 'white'}} >
           {this.props.color.name}
@@ -47,11 +48,6 @@ class ColorCard extends React.Component {
         <div className="card_action_dashboard">
           <span className="flip_card_icon">
             <i className="material-icons" onClick={event => this.handleClick(event)}>flip_to_back</i>
-          </span>
-          <span className="card_menu">
-            {/*<i className="material-icons">add</i>*/}
-            <CardMenu rgb={this.props.color.rgb} name={this.props.color.name} actions={this.props.actions}
-            orientation={this.props.orientation} new={this.props.new} color={this.props.color}/>
           </span>
         </div>
         <div className="black_bar"></div>

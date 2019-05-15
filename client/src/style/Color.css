@@ -160,5 +160,5 @@
   width: 100%
 }
 .react-card-front, .react-card-back {
-  transform-style: initial ;
+  transform-style: initial !important;
 }
