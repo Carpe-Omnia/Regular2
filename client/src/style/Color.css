@@ -159,6 +159,6 @@
 .special_menu_input {
   width: 100%
 }
-.react-card-front, .react-card-back {
+.react-card-flip, .react-card-flipper, .react-card-front, .react-card-back {
   transform-style: initial !important;
 }
